@@ -21,7 +21,7 @@ def app_icon_bytes(suffix: str) -> bytes:
         raise ValueError(
             f"Unsupported app icon format {suffix!r}; expected one of: {supported}"
         ) from exc
-    return files("free_xeron_code").joinpath("assets", filename).read_bytes()
+    return files("free_claude_code").joinpath("assets", filename).read_bytes()
 
 
 def export_app_icon(destination: Path) -> None:

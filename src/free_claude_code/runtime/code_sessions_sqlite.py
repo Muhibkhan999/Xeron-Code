@@ -10,7 +10,7 @@ from pathlib import Path
 
 import anyio.to_thread
 
-from free_xeron_code.application.code_sessions.models import (
+from free_claude_code.application.code_sessions.models import (
     CodeConflictError,
     CodeItem,
     CodeItemPage,
@@ -23,7 +23,7 @@ from free_xeron_code.application.code_sessions.models import (
     Record,
     now_ms,
 )
-from free_xeron_code.core.interprocess_lock import InterprocessFileLock
+from free_claude_code.core.interprocess_lock import InterprocessFileLock
 
 _JSON_FIELDS = frozenset(
     {"raw", "form", "error_details", "request_id", "native_permission_defaults"}

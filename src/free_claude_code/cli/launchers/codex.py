@@ -4,8 +4,8 @@ import json
 import sys
 from collections.abc import Sequence
 
-from free_xeron_code.cli.environment import client_environment
-from free_xeron_code.config.loader import get_settings
+from free_claude_code.cli.environment import client_environment
+from free_claude_code.config.loader import get_settings
 
 from .codex_model_catalog import build_codex_model_catalog
 from .common import proxy_v1_url

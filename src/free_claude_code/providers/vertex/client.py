@@ -5,24 +5,24 @@ from typing import Any
 
 import httpx
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.providers.admission import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.providers.admission import (
     ProviderAdmissionController,
     ProviderOperationKind,
 )
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.google_openai import (
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.google_openai import (
     GoogleOpenAIProvider,
     VertexReasoningEncoder,
     validate_google_extra_body,
 )
-from free_xeron_code.providers.http import maybe_await_aclose
-from free_xeron_code.providers.model_listing import (
+from free_claude_code.providers.http import maybe_await_aclose
+from free_claude_code.providers.model_listing import (
     ModelListResponseError,
     model_infos_from_ids,
 )
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.providers.openai_chat import (
     OpenAIChatProfile,
     OpenAIChatRequestPolicy,
 )

@@ -2,7 +2,7 @@
 
 import pytest
 
-from free_xeron_code.cli.launchers.muse import SPEC
+from free_claude_code.cli.launchers.muse import SPEC
 from tests.cli.conftest import LaunchCapture
 from tests.cli.test_launcher_workflow import launch
 

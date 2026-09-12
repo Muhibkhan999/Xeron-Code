@@ -6,7 +6,7 @@ from typing import Any, cast
 
 import pytest
 
-from free_xeron_code.core.history_replay import (
+from free_claude_code.core.history_replay import (
     HistoryReplayError,
     HistoryScope,
     ReplayOrigin,

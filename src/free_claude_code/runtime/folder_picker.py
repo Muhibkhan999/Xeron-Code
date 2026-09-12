@@ -11,8 +11,8 @@ from pathlib import Path
 
 from loguru import logger
 
-from free_xeron_code.application.errors import ApplicationUnavailableError
-from free_xeron_code.cli.process_registry import register_pid, unregister_pid
+from free_claude_code.application.errors import ApplicationUnavailableError
+from free_claude_code.cli.process_registry import register_pid, unregister_pid
 
 _UNAVAILABLE = "Could not open the folder picker. Enter the path manually."
 
@@ -76,7 +76,7 @@ class NativeFolderPicker:
         return await asyncio.create_subprocess_exec(
             sys.executable,
             "-m",
-            "free_xeron_code.runtime.native_folder_dialog",
+            "free_claude_code.runtime.native_folder_dialog",
             initial_path or "",
             stdin=asyncio.subprocess.DEVNULL,
             stdout=asyncio.subprocess.PIPE,

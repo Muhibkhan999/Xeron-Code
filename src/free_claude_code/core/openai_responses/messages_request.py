@@ -7,22 +7,22 @@ from types import MappingProxyType
 from typing import Literal, cast
 from urllib.parse import urlsplit
 
-from free_xeron_code.core.anthropic.image_sources import (
+from free_claude_code.core.anthropic.image_sources import (
     AnthropicImageSourceError,
     portable_anthropic_image_url,
 )
-from free_xeron_code.core.anthropic.native import (
+from free_claude_code.core.anthropic.native import (
     NativeMessagesError,
     NativeMessagesOptions,
     apply_messages_options,
     validate_messages_json,
 )
-from free_xeron_code.core.history_replay import (
+from free_claude_code.core.history_replay import (
     responses_reasoning_blocks,
     tool_history_context,
 )
-from free_xeron_code.core.json_types import JsonObject, JsonValue
-from free_xeron_code.core.openai_tool_names import OpenAIToolNameCodec
+from free_claude_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.openai_tool_names import OpenAIToolNameCodec
 
 from .errors import ResponsesConversionError
 from .models import OpenAIResponsesRequest

@@ -7,22 +7,22 @@ import openai
 import pytest
 from httpx2 import Request, Response
 
-from free_xeron_code.config.nim import NimSettings
-from free_xeron_code.config.provider_catalog import NVIDIA_NIM_DEFAULT_BASE
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.core.history_replay import (
+from free_claude_code.config.nim import NimSettings
+from free_claude_code.config.provider_catalog import NVIDIA_NIM_DEFAULT_BASE
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.core.history_replay import (
     ReplayOrigin,
     ReplayRecord,
     encode_replay,
 )
-from free_xeron_code.core.openai_responses.models import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningEffort, ReasoningPolicy
-from free_xeron_code.providers.admission import UPSTREAM_TRANSIENT_TOTAL_ATTEMPTS
-from free_xeron_code.providers.nvidia_nim import NvidiaNimProvider
-from free_xeron_code.providers.nvidia_nim.tool_schema import (
+from free_claude_code.core.openai_responses.models import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningEffort, ReasoningPolicy
+from free_claude_code.providers.admission import UPSTREAM_TRANSIENT_TOTAL_ATTEMPTS
+from free_claude_code.providers.nvidia_nim import NvidiaNimProvider
+from free_claude_code.providers.nvidia_nim.tool_schema import (
     NIM_TOOL_ARGUMENT_ALIASES_KEY,
 )
-from free_xeron_code.providers.stream_recovery import RecoveryHoldbackBuffer
+from free_claude_code.providers.stream_recovery import RecoveryHoldbackBuffer
 from tests.providers.request_factory import make_messages_request
 from tests.providers.support import (
     REASONING_OFF,
@@ -330,7 +330,7 @@ def _make_internal_server_error(message: str) -> openai.InternalServerError:
 async def test_init(provider_config):
     """Test provider initialization."""
     with patch(
-        "free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"
+        "free_claude_code.providers.openai_chat.provider.AsyncOpenAI"
     ) as mock_openai:
         provider = NvidiaNimProvider(
             provider_config,
@@ -354,7 +354,7 @@ async def test_init_uses_configurable_timeouts():
         http_connect_timeout=5.0,
     )
     with patch(
-        "free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"
+        "free_claude_code.providers.openai_chat.provider.AsyncOpenAI"
     ) as mock_openai:
         NvidiaNimProvider(
             config, nim_settings=NimSettings(), admission=immediate_admission()
@@ -1099,7 +1099,7 @@ async def test_midstream_native_tool_suffix_failure_recovers_without_duplication
             new_callable=AsyncMock,
         ) as mock_create,
         patch(
-            "free_xeron_code.providers.stream_recovery.RecoveryHoldbackBuffer",
+            "free_claude_code.providers.stream_recovery.RecoveryHoldbackBuffer",
             side_effect=immediate_holdback,
         ),
     ):

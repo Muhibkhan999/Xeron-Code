@@ -4,30 +4,30 @@ import os
 from functools import partial
 from pathlib import Path
 
-from free_xeron_code.api.app import create_app
-from free_xeron_code.api.ports import ApiServices
-from free_xeron_code.application.code_sessions import CodeService
-from free_xeron_code.config.loader import ManagedConfigStore
-from free_xeron_code.config.logging_config import configure_logging
-from free_xeron_code.config.paths import (
+from free_claude_code.api.app import create_app
+from free_claude_code.api.ports import ApiServices
+from free_claude_code.application.code_sessions import CodeService
+from free_claude_code.config.loader import ManagedConfigStore
+from free_claude_code.config.logging_config import configure_logging
+from free_claude_code.config.paths import (
     code_database_path,
     code_lock_path,
     server_log_path,
 )
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.messaging.transcription import TranscriptionService
-from free_xeron_code.messaging.voice import Transcriber
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import BaseProvider, ProviderConfig
-from free_xeron_code.providers.github_copilot.auth import CopilotAuthManager
-from free_xeron_code.providers.github_copilot.provider import GitHubCopilotProvider
-from free_xeron_code.providers.nvidia_nim.voice import NvidiaNimTranscriber
-from free_xeron_code.providers.openai_codex import (
+from free_claude_code.config.settings import Settings
+from free_claude_code.messaging.transcription import TranscriptionService
+from free_claude_code.messaging.voice import Transcriber
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import BaseProvider, ProviderConfig
+from free_claude_code.providers.github_copilot.auth import CopilotAuthManager
+from free_claude_code.providers.github_copilot.provider import GitHubCopilotProvider
+from free_claude_code.providers.nvidia_nim.voice import NvidiaNimTranscriber
+from free_claude_code.providers.openai_codex import (
     OpenAIAuthManager,
     OpenAICodexProvider,
 )
-from free_xeron_code.providers.runtime import ProviderRuntime
-from free_xeron_code.providers.runtime.factory import create_provider
+from free_claude_code.providers.runtime import ProviderRuntime
+from free_claude_code.providers.runtime.factory import create_provider
 
 from .application import ApplicationRuntime, RestartCallback
 from .asgi import RuntimeASGIApp

@@ -6,7 +6,7 @@ from typing import Any
 
 from loguru import logger
 
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.trace import trace_event
 
 from .command_context import ReplyClearResult, StopOutcome
 from .command_dispatcher import parse_command_base

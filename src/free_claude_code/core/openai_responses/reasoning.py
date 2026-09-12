@@ -3,7 +3,7 @@
 from collections.abc import Mapping
 from typing import Any
 
-from free_xeron_code.core.reasoning import (
+from free_claude_code.core.reasoning import (
     ReasoningControl,
     ReasoningEffort,
     ReasoningPolicy,

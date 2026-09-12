@@ -4,8 +4,8 @@ from collections.abc import Mapping
 
 from pydantic import ValidationError
 
-from free_xeron_code.config.loader import compose_settings_snapshot
-from free_xeron_code.config.settings import Settings
+from free_claude_code.config.loader import compose_settings_snapshot
+from free_claude_code.config.settings import Settings
 
 
 def validate_values(

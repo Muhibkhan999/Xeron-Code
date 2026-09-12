@@ -6,25 +6,25 @@ from unittest.mock import AsyncMock, patch
 
 import pytest
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.nim import NimSettings
-from free_xeron_code.config.provider_catalog import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.nim import NimSettings
+from free_claude_code.config.provider_catalog import (
     DEEPSEEK_DEFAULT_BASE,
     NVIDIA_NIM_DEFAULT_BASE,
     OPENROUTER_DEFAULT_BASE,
     WAFER_DEFAULT_BASE,
 )
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
-from free_xeron_code.providers.base import BaseProvider
-from free_xeron_code.providers.deepseek import DeepSeekProvider
-from free_xeron_code.providers.model_listing import ModelListResponseError
-from free_xeron_code.providers.nvidia_nim import NvidiaNimProvider
-from free_xeron_code.providers.open_router import OpenRouterProvider
-from free_xeron_code.providers.openai_chat import OpenAIChatProvider
-from free_xeron_code.providers.runtime import ProviderRuntime
-from free_xeron_code.providers.runtime.model_cache import ProviderModelCache
-from free_xeron_code.runtime.provider_manager import ProviderRuntimeManager
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
+from free_claude_code.providers.base import BaseProvider
+from free_claude_code.providers.deepseek import DeepSeekProvider
+from free_claude_code.providers.model_listing import ModelListResponseError
+from free_claude_code.providers.nvidia_nim import NvidiaNimProvider
+from free_claude_code.providers.open_router import OpenRouterProvider
+from free_claude_code.providers.openai_chat import OpenAIChatProvider
+from free_claude_code.providers.runtime import ProviderRuntime
+from free_claude_code.providers.runtime.model_cache import ProviderModelCache
+from free_claude_code.runtime.provider_manager import ProviderRuntimeManager
 from tests.providers.support import (
     immediate_admission,
     make_provider_config,
@@ -89,7 +89,7 @@ def test_provider_catalog_contract_is_metadata_only() -> None:
 @pytest.mark.asyncio
 async def test_nim_lists_openai_compatible_model_infos() -> None:
     config = make_provider_config(api_key="test-key", base_url=NVIDIA_NIM_DEFAULT_BASE)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = NvidiaNimProvider(
             config, nim_settings=NimSettings(), admission=immediate_admission()
         )
@@ -480,7 +480,7 @@ async def test_runtime_warm_reports_query_failures_without_blocking() -> None:
     )
 
     with patch(
-        "free_xeron_code.providers.runtime.discovery.logger.warning"
+        "free_claude_code.providers.runtime.discovery.logger.warning"
     ) as warning:
         result = await runtime.warm_referenced_model_cache()
 

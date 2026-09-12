@@ -7,23 +7,23 @@ import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from free_xeron_code.application.errors import (
+from free_claude_code.application.errors import (
     ApplicationUnavailableError,
     InvalidRequestError,
 )
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.messaging.transcription import TranscriptionService
-from free_xeron_code.providers.nvidia_nim.client import NvidiaNimProvider
-from free_xeron_code.providers.nvidia_nim.voice import NvidiaNimTranscriber
-from free_xeron_code.runtime.application import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.settings import Settings
+from free_claude_code.messaging.transcription import TranscriptionService
+from free_claude_code.providers.nvidia_nim.client import NvidiaNimProvider
+from free_claude_code.providers.nvidia_nim.voice import NvidiaNimTranscriber
+from free_claude_code.runtime.application import (
     ApplicationRuntime,
     startup_failure_message,
 )
-from free_xeron_code.runtime.asgi import RuntimeASGIApp
-from free_xeron_code.runtime.bootstrap import _create_transcriber, build_asgi_app
-from free_xeron_code.runtime.configuration import ConfigurationService
-from free_xeron_code.runtime.provider_manager import ProviderRuntimeManager
+from free_claude_code.runtime.asgi import RuntimeASGIApp
+from free_claude_code.runtime.bootstrap import _create_transcriber, build_asgi_app
+from free_claude_code.runtime.configuration import ConfigurationService
+from free_claude_code.runtime.provider_manager import ProviderRuntimeManager
 from tests.api.support import create_test_app
 
 
@@ -61,7 +61,7 @@ async def test_runtime_startup_logs_admin_url_without_printed_server_banner():
         patch.object(manager, "start_model_list_refresh") as start_refresh,
         patch.object(manager, "close", new=AsyncMock()),
         patch(
-            "free_xeron_code.runtime.application.messaging_platform_factory.create_messaging_components",
+            "free_claude_code.runtime.application.messaging_platform_factory.create_messaging_components",
             return_value=None,
         ),
         patch.object(logging, "getLogger", return_value=uvicorn_logger) as get_logger,
@@ -104,7 +104,7 @@ def test_application_error_handler_does_not_log_error_message():
     async def _raise_application_secret():
         raise InvalidRequestError(secret)
 
-    with patch("free_xeron_code.api.app.logger.error") as log_error:
+    with patch("free_claude_code.api.app.logger.error") as log_error:
         response = TestClient(app).get("/raise_application_secret")
 
     assert response.status_code == 400
@@ -139,7 +139,7 @@ def test_general_exception_default_log_excludes_exception_message():
     async def _raise_secret():
         raise ValueError(secret)
 
-    with patch("free_xeron_code.api.app.logger.error") as log_error:
+    with patch("free_claude_code.api.app.logger.error") as log_error:
         response = TestClient(app, raise_server_exceptions=False).get("/raise_secret")
 
     assert response.status_code == 500
@@ -178,7 +178,7 @@ async def test_runtime_startup_warms_catalog_before_background_refresh():
         ) as refresh,
         patch.object(manager, "close", new=AsyncMock()),
         patch(
-            "free_xeron_code.runtime.application.messaging_platform_factory.create_messaging_components",
+            "free_claude_code.runtime.application.messaging_platform_factory.create_messaging_components",
             return_value=None,
         ),
     ):
@@ -301,10 +301,10 @@ def test_bootstrap_configures_default_log_and_publishes_only_services(tmp_path):
 
     with (
         patch(
-            "free_xeron_code.runtime.bootstrap.server_log_path",
+            "free_claude_code.runtime.bootstrap.server_log_path",
             return_value=log_path,
         ),
-        patch("free_xeron_code.runtime.bootstrap.configure_logging") as configure,
+        patch("free_claude_code.runtime.bootstrap.configure_logging") as configure,
     ):
         asgi_app = build_asgi_app(settings)
 
@@ -318,7 +318,7 @@ def test_bootstrap_configures_default_log_and_publishes_only_services(tmp_path):
 
 
 def test_bootstrap_app_transparently_exposes_fastapi_interface() -> None:
-    with patch("free_xeron_code.runtime.bootstrap.configure_logging"):
+    with patch("free_claude_code.runtime.bootstrap.configure_logging"):
         asgi_app = build_asgi_app(_settings())
 
     api_app = cast(FastAPI, asgi_app.app)
@@ -332,9 +332,9 @@ def test_bootstrap_wires_the_codex_catalog_publisher() -> None:
     publisher = MagicMock()
 
     with (
-        patch("free_xeron_code.runtime.bootstrap.configure_logging"),
+        patch("free_claude_code.runtime.bootstrap.configure_logging"),
         patch(
-            "free_xeron_code.runtime.bootstrap.CodexModelCatalogPublisher",
+            "free_claude_code.runtime.bootstrap.CodexModelCatalogPublisher",
             return_value=publisher,
         ) as publisher_type,
     ):
@@ -354,7 +354,7 @@ def test_bootstrap_honors_process_log_file_override(monkeypatch, tmp_path):
     log_path = tmp_path / "custom.log"
     monkeypatch.setenv("LOG_FILE", str(log_path))
 
-    with patch("free_xeron_code.runtime.bootstrap.configure_logging") as configure:
+    with patch("free_claude_code.runtime.bootstrap.configure_logging") as configure:
         build_asgi_app(_settings())
 
     assert configure.call_args.args[0] == log_path
@@ -380,7 +380,7 @@ async def test_bootstrap_constructs_isolated_runtime_resource_graphs() -> None:
         whisper_device="cpu",
     )
 
-    with patch("free_xeron_code.runtime.bootstrap.configure_logging"):
+    with patch("free_claude_code.runtime.bootstrap.configure_logging"):
         first = build_asgi_app(settings)
         second = build_asgi_app(settings)
 

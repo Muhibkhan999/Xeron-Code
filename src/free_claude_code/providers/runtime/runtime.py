@@ -3,8 +3,8 @@
 import asyncio
 from collections.abc import Callable, MutableMapping
 
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.providers.base import BaseProvider
+from free_claude_code.config.settings import Settings
+from free_claude_code.providers.base import BaseProvider
 
 from .factory import create_provider
 

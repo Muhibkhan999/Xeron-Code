@@ -6,8 +6,8 @@ import tempfile
 from contextlib import ExitStack
 from pathlib import Path
 
-from free_xeron_code.config.paths import launcher_temp_dir_path
-from free_xeron_code.core.json_types import JsonValue
+from free_claude_code.config.paths import launcher_temp_dir_path
+from free_claude_code.core.json_types import JsonValue
 
 
 class LaunchResources:

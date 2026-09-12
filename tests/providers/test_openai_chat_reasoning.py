@@ -1,5 +1,5 @@
-from free_xeron_code.core.reasoning import ReasoningEffort, ReasoningPolicy
-from free_xeron_code.providers.openai_chat.reasoning import (
+from free_claude_code.core.reasoning import ReasoningEffort, ReasoningPolicy
+from free_claude_code.providers.openai_chat.reasoning import (
     ChatTemplateReasoning,
     LlamaCppReasoning,
     NamedEffortReasoning,

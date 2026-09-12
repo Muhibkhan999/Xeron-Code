@@ -5,7 +5,7 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from free_xeron_code.cli.environment import client_environment
+from free_claude_code.cli.environment import client_environment
 
 from .resources import LaunchResources
 from .runner import (

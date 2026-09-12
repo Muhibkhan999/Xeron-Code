@@ -4,15 +4,15 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from typing import Protocol
 
-from free_xeron_code.application.code_sessions import CodeApplicationPort
-from free_xeron_code.application.connected_accounts import (
+from free_claude_code.application.code_sessions import CodeApplicationPort
+from free_claude_code.application.connected_accounts import (
     ConnectedAccountLoginMode,
     ConnectedAccountStatus,
 )
-from free_xeron_code.application.model_metadata import ProviderModelRefreshResult
-from free_xeron_code.application.ports import RequestRuntimePort, TaskController
-from free_xeron_code.config.admin.state import ConfigInputValue, ValueState
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.application.model_metadata import ProviderModelRefreshResult
+from free_claude_code.application.ports import RequestRuntimePort, TaskController
+from free_claude_code.config.admin.state import ConfigInputValue, ValueState
+from free_claude_code.core.json_types import JsonObject
 
 
 class AdminRuntimePort(Protocol):

@@ -7,10 +7,10 @@ from copy import deepcopy
 from dataclasses import dataclass
 from typing import Any
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.diagnostics import extract_upstream_error_detail
-from free_xeron_code.core.reasoning import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.diagnostics import extract_upstream_error_detail
+from free_claude_code.core.reasoning import (
     ReasoningCapability,
     ReasoningControl,
     ReasoningPolicy,

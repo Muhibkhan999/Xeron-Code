@@ -2,8 +2,8 @@
 
 from loguru import logger
 
-from free_xeron_code.config import paths
-from free_xeron_code.core.interprocess_lock import InterprocessFileLock
+from free_claude_code.config import paths
+from free_claude_code.core.interprocess_lock import InterprocessFileLock
 
 
 def remove_retired_chat_history() -> None:

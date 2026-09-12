@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from free_xeron_code.core import token_estimation
+from free_claude_code.core import token_estimation
 
 
 class _RecordingEncoder:

@@ -27,7 +27,7 @@ def cmd_fxc_version() -> list[str]:
         (
             "import sys; "
             "sys.argv = ['fxc-server', '--version']; "
-            "from free_xeron_code.cli.entrypoints import serve; serve()"
+            "from free_claude_code.cli.entrypoints import serve; serve()"
         ),
     ]
 
@@ -36,7 +36,7 @@ def cmd_fxc_server() -> list[str]:
     return [
         python_exe(),
         "-c",
-        "from free_xeron_code.cli.entrypoints import serve; serve()",
+        "from free_claude_code.cli.entrypoints import serve; serve()",
     ]
 
 

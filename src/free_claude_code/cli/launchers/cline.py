@@ -3,7 +3,7 @@
 import re
 from collections.abc import Sequence
 
-from free_xeron_code.cli.environment import client_environment
+from free_claude_code.cli.environment import client_environment
 
 from .cline_config import CLINE_PROVIDER_ID, build_cline_config
 from .resources import LaunchResources

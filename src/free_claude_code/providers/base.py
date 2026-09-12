@@ -6,15 +6,15 @@ from dataclasses import dataclass
 
 from loguru import logger
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.diagnostics import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.diagnostics import (
     exception_cause_types,
     redacted_exception_traceback,
 )
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
+from free_claude_code.core.trace import trace_event
 
 
 @dataclass(frozen=True, slots=True)

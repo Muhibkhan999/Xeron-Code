@@ -4,8 +4,8 @@ import asyncio
 from collections.abc import Coroutine
 from unittest.mock import patch
 
-from free_xeron_code.application.code_sessions import CodeService
-from free_xeron_code.runtime.code_sessions_sqlite import SQLiteCodeStore
+from free_claude_code.application.code_sessions import CodeService
+from free_claude_code.runtime.code_sessions_sqlite import SQLiteCodeStore
 from tests.code_sessions_support import FakeHarness
 
 

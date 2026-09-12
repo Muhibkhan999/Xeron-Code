@@ -5,14 +5,14 @@ from copy import deepcopy
 from dataclasses import dataclass
 from typing import Any, Literal
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.history_replay import HistoryScope
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.core.reasoning import ReasoningEffort, ReasoningPolicy
-from free_xeron_code.providers.model_listing import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.history_replay import HistoryScope
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.reasoning import ReasoningEffort, ReasoningPolicy
+from free_claude_code.providers.model_listing import (
     InputModalityBooleanPaths,
     ModelTokenLimitResolver,
     RequiredPathValues,

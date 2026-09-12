@@ -5,9 +5,9 @@ import httpx
 import pytest
 import pytest_asyncio
 
-from free_xeron_code.application.code_sessions import CodeService
-from free_xeron_code.application.errors import ApplicationUnavailableError
-from free_xeron_code.runtime.code_sessions_sqlite import SQLiteCodeStore
+from free_claude_code.application.code_sessions import CodeService
+from free_claude_code.application.errors import ApplicationUnavailableError
+from free_claude_code.runtime.code_sessions_sqlite import SQLiteCodeStore
 from tests.api.support import create_test_app
 from tests.code_sessions_support import CodexPackets, FakeHarness
 

@@ -6,15 +6,15 @@ import httpx2
 import pytest
 from openai import AsyncOpenAI
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
-from free_xeron_code.config.provider_catalog import LLM7_DEFAULT_BASE
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.json_types import JsonObject, JsonValue
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.core.reasoning import ReasoningCapability, ReasoningPolicy
-from free_xeron_code.providers.model_listing import ModelListResponseError
-from free_xeron_code.providers.openai_chat import OpenAIChatProvider
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
+from free_claude_code.config.provider_catalog import LLM7_DEFAULT_BASE
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.reasoning import ReasoningCapability, ReasoningPolicy
+from free_claude_code.providers.model_listing import ModelListResponseError
+from free_claude_code.providers.openai_chat import OpenAIChatProvider
 from tests.providers.support import (
     REASONING_DEFAULT,
     REASONING_OFF,

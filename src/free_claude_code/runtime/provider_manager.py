@@ -7,21 +7,21 @@ from typing import Protocol
 
 from loguru import logger
 
-from free_xeron_code.application.errors import ApplicationUnavailableError
-from free_xeron_code.application.model_metadata import (
+from free_claude_code.application.errors import ApplicationUnavailableError
+from free_claude_code.application.model_metadata import (
     ProviderModelInfo,
     ProviderModelRefreshResult,
 )
-from free_xeron_code.application.ports import RequestRuntimePort
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.trace import trace_event
-from free_xeron_code.providers.base import BaseProvider
-from free_xeron_code.providers.runtime import ProviderRuntime
-from free_xeron_code.providers.runtime.discovery import (
+from free_claude_code.application.ports import RequestRuntimePort
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.trace import trace_event
+from free_claude_code.providers.base import BaseProvider
+from free_claude_code.providers.runtime import ProviderRuntime
+from free_claude_code.providers.runtime.discovery import (
     ProviderModelDiscovery,
     model_cache_provider_ids_for_settings,
 )
-from free_xeron_code.providers.runtime.model_cache import ProviderModelCache
+from free_claude_code.providers.runtime.model_cache import ProviderModelCache
 
 ProviderRuntimeFactory = Callable[[Settings], ProviderRuntime]
 ConnectedProviderIds = Callable[[], tuple[str, ...]]

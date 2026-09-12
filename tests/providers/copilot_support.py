@@ -2,12 +2,12 @@
 
 import asyncio
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.providers.anthropic_messages.request_policy import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.providers.anthropic_messages.request_policy import (
     MessagesModelCapabilities,
 )
-from free_xeron_code.providers.endpoint import HttpEndpoint
-from free_xeron_code.providers.github_copilot.types import (
+from free_claude_code.providers.endpoint import HttpEndpoint
+from free_claude_code.providers.github_copilot.types import (
     CopilotEgress,
     CopilotEndpoint,
     CopilotIdentity,

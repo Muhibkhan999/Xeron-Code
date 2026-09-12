@@ -7,7 +7,7 @@ from typing import Any
 
 from loguru import logger
 
-from free_xeron_code.core.rate_limit import (
+from free_claude_code.core.rate_limit import (
     StrictSlidingWindowLimiter as SlidingWindowLimiter,
 )
 

@@ -7,8 +7,8 @@ from unittest.mock import AsyncMock, MagicMock
 
 import pytest
 
-from free_xeron_code.config import env_migrations, paths
-from free_xeron_code.config.loader import clear_settings_cache
+from free_claude_code.config import env_migrations, paths
+from free_claude_code.config.loader import clear_settings_cache
 from tests.providers.support import (
     immediate_admission,
     make_provider_config,
@@ -55,8 +55,8 @@ def provider_config():
 
 @pytest.fixture
 def nim_provider(provider_config):
-    from free_xeron_code.config.nim import NimSettings
-    from free_xeron_code.providers.nvidia_nim import NvidiaNimProvider
+    from free_claude_code.config.nim import NimSettings
+    from free_claude_code.providers.nvidia_nim import NvidiaNimProvider
 
     return NvidiaNimProvider(
         provider_config,
@@ -67,14 +67,14 @@ def nim_provider(provider_config):
 
 @pytest.fixture
 def open_router_provider(provider_config):
-    from free_xeron_code.providers.open_router import OpenRouterProvider
+    from free_claude_code.providers.open_router import OpenRouterProvider
 
     return OpenRouterProvider(provider_config, admission=immediate_admission())
 
 
 @pytest.fixture
 def lmstudio_provider(provider_config):
-    from free_xeron_code.providers.lmstudio import LMStudioProvider
+    from free_claude_code.providers.lmstudio import LMStudioProvider
 
     lmstudio_config = make_provider_config(
         api_key="lm-studio",
@@ -94,7 +94,7 @@ def lmstudio_provider(provider_config):
 
 @pytest.fixture
 def llamacpp_provider(provider_config):
-    from free_xeron_code.providers.openai_chat import create_openai_chat_provider
+    from free_claude_code.providers.openai_chat import create_openai_chat_provider
 
     llamacpp_config = make_provider_config(
         api_key="llamacpp",
@@ -118,7 +118,7 @@ def llamacpp_provider(provider_config):
 
 @pytest.fixture
 def mock_cli_session():
-    from free_xeron_code.messaging.managed_protocols import (
+    from free_claude_code.messaging.managed_protocols import (
         ManagedClaudeSessionProtocol,
     )
 
@@ -130,7 +130,7 @@ def mock_cli_session():
 
 @pytest.fixture
 def mock_cli_manager():
-    from free_xeron_code.messaging.managed_protocols import (
+    from free_claude_code.messaging.managed_protocols import (
         ManagedClaudeSessionManagerProtocol,
     )
 
@@ -145,7 +145,7 @@ def mock_cli_manager():
 
 @pytest.fixture
 def mock_platform():
-    from free_xeron_code.messaging.platforms.ports import OutboundMessenger
+    from free_claude_code.messaging.platforms.ports import OutboundMessenger
 
     platform = MagicMock(spec=OutboundMessenger)
     platform.send_message = AsyncMock(return_value="msg_123")
@@ -170,7 +170,7 @@ def mock_platform():
 
 @pytest.fixture
 def mock_session_store():
-    from free_xeron_code.messaging.session import SessionStore
+    from free_claude_code.messaging.session import SessionStore
 
     store = MagicMock(spec=SessionStore)
     store.save_tree = MagicMock()
@@ -202,7 +202,7 @@ def incoming_message_factory():
     )
 
     def _create(**kwargs):
-        from free_xeron_code.messaging.models import IncomingMessage
+        from free_claude_code.messaging.models import IncomingMessage
 
         defaults: dict[str, Any] = {
             "text": "hello",

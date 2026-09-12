@@ -2,15 +2,15 @@
 
 from collections.abc import Callable, Mapping
 
-from free_xeron_code.application.errors import (
+from free_claude_code.application.errors import (
     ApplicationUnavailableError,
     UnknownProviderError,
 )
-from free_xeron_code.config.provider_catalog import PROVIDER_CATALOG
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import BaseProvider, ProviderConfig
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.config.provider_catalog import PROVIDER_CATALOG
+from free_claude_code.config.settings import Settings
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import BaseProvider, ProviderConfig
+from free_claude_code.providers.openai_chat import (
     OPENAI_CHAT_PROFILES,
     create_openai_chat_provider,
 )
@@ -27,7 +27,7 @@ def _create_nvidia_nim(
     settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.nvidia_nim import NvidiaNimProvider
+    from free_claude_code.providers.nvidia_nim import NvidiaNimProvider
 
     return NvidiaNimProvider(
         config,
@@ -41,7 +41,7 @@ def _create_open_router(
     _settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.open_router import OpenRouterProvider
+    from free_claude_code.providers.open_router import OpenRouterProvider
 
     return OpenRouterProvider(config, admission=admission)
 
@@ -51,7 +51,7 @@ def _create_mistral(
     _settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.mistral import MistralProvider
+    from free_claude_code.providers.mistral import MistralProvider
 
     return MistralProvider(config, admission=admission)
 
@@ -61,7 +61,7 @@ def _create_kilo(
     _settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.kilo import KiloProvider
+    from free_claude_code.providers.kilo import KiloProvider
 
     return KiloProvider(config, admission=admission)
 
@@ -71,7 +71,7 @@ def _create_deepseek(
     _settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.deepseek import DeepSeekProvider
+    from free_claude_code.providers.deepseek import DeepSeekProvider
 
     return DeepSeekProvider(config, admission=admission)
 
@@ -81,7 +81,7 @@ def _create_lmstudio(
     _settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.lmstudio import LMStudioProvider
+    from free_claude_code.providers.lmstudio import LMStudioProvider
 
     return LMStudioProvider(config, admission=admission)
 
@@ -91,7 +91,7 @@ def _create_cloudflare(
     settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.cloudflare import CloudflareProvider
+    from free_claude_code.providers.cloudflare import CloudflareProvider
 
     return CloudflareProvider(
         config,
@@ -105,7 +105,7 @@ def _create_gemini(
     _settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.gemini import GeminiProvider
+    from free_claude_code.providers.gemini import GeminiProvider
 
     return GeminiProvider(config, admission=admission)
 
@@ -115,7 +115,7 @@ def _create_vertex(
     settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.vertex import VertexProvider
+    from free_claude_code.providers.vertex import VertexProvider
 
     return VertexProvider(
         config,
@@ -130,7 +130,7 @@ def _create_groq(
     _settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.groq import GroqProvider
+    from free_claude_code.providers.groq import GroqProvider
 
     return GroqProvider(config, admission=admission)
 
@@ -140,7 +140,7 @@ def _create_opencode_zen(
     _settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.opencode import create_opencode_provider
+    from free_claude_code.providers.opencode import create_opencode_provider
 
     return create_opencode_provider("opencode_zen", config, admission)
 
@@ -150,7 +150,7 @@ def _create_opencode_go(
     _settings: Settings,
     admission: ProviderAdmissionController,
 ) -> BaseProvider:
-    from free_xeron_code.providers.opencode import create_opencode_provider
+    from free_claude_code.providers.opencode import create_opencode_provider
 
     return create_opencode_provider("opencode_go", config, admission)
 

@@ -7,21 +7,21 @@ from urllib.parse import quote
 
 import httpx
 
-from free_xeron_code.application.errors import ApplicationUnavailableError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.provider_catalog import CLOUDFLARE_AI_REST_ROOT
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.providers.admission import (
+from free_claude_code.application.errors import ApplicationUnavailableError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.provider_catalog import CLOUDFLARE_AI_REST_ROOT
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.providers.admission import (
     ProviderAdmissionController,
     ProviderOperationKind,
 )
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.http import maybe_await_aclose
-from free_xeron_code.providers.model_listing import (
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.http import maybe_await_aclose
+from free_claude_code.providers.model_listing import (
     ModelListResponseError,
     extract_openai_model_infos,
 )
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.providers.openai_chat import (
     ChatStreamOutput,
     ChatTemplateReasoning,
     OpenAIChatProfile,

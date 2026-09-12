@@ -1,9 +1,9 @@
 """Provider configuration construction from neutral catalog metadata."""
 
-from free_xeron_code.application.errors import ApplicationUnavailableError
-from free_xeron_code.config.provider_catalog import ProviderDescriptor
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.providers.base import ProviderConfig
+from free_claude_code.application.errors import ApplicationUnavailableError
+from free_claude_code.config.provider_catalog import ProviderDescriptor
+from free_claude_code.config.settings import Settings
+from free_claude_code.providers.base import ProviderConfig
 
 
 def string_setting(settings: Settings, attr_name: str | None) -> str | None:

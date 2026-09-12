@@ -1,6 +1,6 @@
 """Freeze ``PROVIDER_CATALOG`` insertion order used as canonical provider ranking."""
 
-from free_xeron_code.config.provider_catalog import (
+from free_claude_code.config.provider_catalog import (
     PROVIDER_CATALOG,
     SUPPORTED_PROVIDER_IDS,
 )

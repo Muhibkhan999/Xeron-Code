@@ -6,12 +6,12 @@ from pathlib import Path
 
 import pytest
 
-from free_xeron_code.cli.launchers.cline_config import (
+from free_claude_code.cli.launchers.cline_config import (
     CLINE_PROVIDER_ID,
     build_cline_config,
 )
-from free_xeron_code.cli.launchers.model_catalog import ClientModel
-from free_xeron_code.core.model_capabilities import ModelInputModality
+from free_claude_code.cli.launchers.model_catalog import ClientModel
+from free_claude_code.core.model_capabilities import ModelInputModality
 
 
 def test_cline_config_uses_responses_and_only_known_metadata() -> None:

@@ -7,11 +7,11 @@ import openai
 import pytest
 from httpx2 import Request, Response
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.provider_catalog import MISTRAL_DEFAULT_BASE
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.providers.mistral import MistralProvider
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.provider_catalog import MISTRAL_DEFAULT_BASE
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.providers.mistral import MistralProvider
 from tests.providers.request_factory import make_messages_request
 from tests.providers.support import (
     REASONING_OFF,
@@ -43,7 +43,7 @@ def mistral_provider(mistral_config):
 def test_init(mistral_config):
     """Test provider initialization."""
     with patch(
-        "free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"
+        "free_claude_code.providers.openai_chat.provider.AsyncOpenAI"
     ) as mock_openai:
         provider = MistralProvider(mistral_config, admission=immediate_admission())
         assert provider._api_key == "test_mistral_key"

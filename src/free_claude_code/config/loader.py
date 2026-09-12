@@ -9,7 +9,7 @@ from functools import lru_cache
 from pathlib import Path
 from types import MappingProxyType
 
-from free_xeron_code.core.interprocess_lock import InterprocessFileLock
+from free_claude_code.core.interprocess_lock import InterprocessFileLock
 
 from .env_files import (
     ANTHROPIC_AUTH_TOKEN_ENV,

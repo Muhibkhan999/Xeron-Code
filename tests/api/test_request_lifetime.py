@@ -8,23 +8,23 @@ from typing import cast
 import pytest
 from starlette.types import ASGIApp, Message, Receive, Scope, Send
 
-from free_xeron_code.api.app import create_app
-from free_xeron_code.api.ports import AdminRuntimePort, ApiServices
-from free_xeron_code.api.request_lifetime import (
+from free_claude_code.api.app import create_app
+from free_claude_code.api.ports import AdminRuntimePort, ApiServices
+from free_claude_code.api.request_lifetime import (
     ClientRequestLifetimeMiddleware,
 )
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.application.ports import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.application.ports import (
     ProviderPort,
     RequestRuntimeLease,
     RequestRuntimePort,
     TaskController,
 )
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic import MessagesRequest
-from free_xeron_code.core.anthropic.streaming import format_sse_event
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningPolicy
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic import MessagesRequest
+from free_claude_code.core.anthropic.streaming import format_sse_event
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningPolicy
 
 
 def _http_scope(

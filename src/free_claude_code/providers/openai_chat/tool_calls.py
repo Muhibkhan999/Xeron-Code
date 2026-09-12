@@ -6,12 +6,12 @@ from collections.abc import Callable, Iterable, Iterator, Mapping
 from dataclasses import dataclass, field
 from typing import Any, NotRequired, TypedDict
 
-from free_xeron_code.core.anthropic.streaming import (
+from free_claude_code.core.anthropic.streaming import (
     ToolSchema,
     parse_complete_tool_input,
 )
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_tool_names import OpenAIToolNameCodec
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_tool_names import OpenAIToolNameCodec
 
 from .stream_output import ChatStreamOutput
 

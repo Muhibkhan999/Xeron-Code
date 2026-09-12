@@ -4,11 +4,11 @@ import json
 
 import pytest
 
-from free_xeron_code.cli.launchers.hermes_config import (
+from free_claude_code.cli.launchers.hermes_config import (
     build_hermes_managed_config,
 )
-from free_xeron_code.cli.launchers.model_catalog import ClientModel
-from free_xeron_code.core.model_capabilities import ModelInputModality
+from free_claude_code.cli.launchers.model_catalog import ClientModel
+from free_claude_code.core.model_capabilities import ModelInputModality
 
 
 def _models() -> tuple[ClientModel, ...]:

@@ -7,7 +7,7 @@ from copy import deepcopy
 from dataclasses import dataclass
 from typing import cast
 
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 from .models import MessagesRequest
 from .request_serialization import dump_messages_request

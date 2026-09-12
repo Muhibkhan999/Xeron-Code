@@ -3,27 +3,27 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 
-from free_xeron_code.messaging.rendering.discord_markdown import (
+from free_claude_code.messaging.rendering.discord_markdown import (
     discord_bold,
     discord_code_inline,
     escape_discord,
     escape_discord_code,
     render_markdown_to_discord,
 )
-from free_xeron_code.messaging.rendering.discord_markdown import (
+from free_claude_code.messaging.rendering.discord_markdown import (
     format_status as format_status_discord,
 )
-from free_xeron_code.messaging.rendering.telegram_markdown import (
+from free_claude_code.messaging.rendering.telegram_markdown import (
     escape_md_v2,
     escape_md_v2_code,
     mdv2_bold,
     mdv2_code_inline,
     render_markdown_to_mdv2,
 )
-from free_xeron_code.messaging.rendering.telegram_markdown import (
+from free_claude_code.messaging.rendering.telegram_markdown import (
     format_status as format_status_telegram,
 )
-from free_xeron_code.messaging.transcript import RenderCtx
+from free_claude_code.messaging.transcript import RenderCtx
 
 
 @dataclass(frozen=True, slots=True)

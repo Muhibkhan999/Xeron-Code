@@ -1,6 +1,6 @@
 """Limits and defaults for outbound web server tool HTTP."""
 
-from free_xeron_code.core.version import package_version
+from free_claude_code.core.version import package_version
 
 _REQUEST_TIMEOUT_S = 20.0
 _MAX_SEARCH_RESULTS = 10

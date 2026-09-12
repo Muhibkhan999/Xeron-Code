@@ -3,14 +3,14 @@
 from collections.abc import Mapping
 from typing import Any
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.history_replay import HistoryScope
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.history_replay import HistoryScope
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.openai_chat import (
     NO_REASONING,
     OpenAIChatProfile,
     OpenAIChatProvider,

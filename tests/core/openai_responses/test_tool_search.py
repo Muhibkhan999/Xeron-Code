@@ -3,8 +3,8 @@ from copy import deepcopy
 import pytest
 from jsonschema import Draft202012Validator
 
-from free_xeron_code.core.json_types import JsonObject, JsonValue
-from free_xeron_code.core.openai_responses.tool_search import (
+from free_claude_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.openai_responses.tool_search import (
     ClientSearchHistory,
     active_client_tools,
     normalize_tool_search,

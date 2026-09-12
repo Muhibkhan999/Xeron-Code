@@ -3,8 +3,8 @@
 from collections.abc import Awaitable, Callable, Sequence
 from typing import Protocol
 
-from free_xeron_code.application.session_events import EventSubscription
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.application.session_events import EventSubscription
+from free_claude_code.core.json_types import JsonObject
 
 from .models import (
     CodeCatalog,

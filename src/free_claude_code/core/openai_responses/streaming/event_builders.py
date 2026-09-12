@@ -3,7 +3,7 @@
 from collections.abc import Callable, Iterable
 from typing import Any, cast
 
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.core.json_types import JsonObject
 
 from ..events import format_response_sse_event
 

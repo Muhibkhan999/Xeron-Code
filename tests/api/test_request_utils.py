@@ -4,14 +4,14 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from free_xeron_code.api.command_utils import extract_command_prefix
-from free_xeron_code.api.detection import (
+from free_claude_code.api.command_utils import extract_command_prefix
+from free_claude_code.api.detection import (
     is_prefix_detection_request,
     is_quota_check_request,
     is_title_generation_request,
 )
-from free_xeron_code.core.anthropic import get_token_count
-from free_xeron_code.core.anthropic.models import (
+from free_claude_code.core.anthropic import get_token_count
+from free_claude_code.core.anthropic.models import (
     Message,
     MessagesRequest,
     SystemContent,
@@ -556,7 +556,7 @@ class TestGetTokenCount:
         msg = MagicMock()
         msg.content = user_text
         with patch(
-            "free_xeron_code.core.anthropic.tokens.estimate_text_tokens",
+            "free_claude_code.core.anthropic.tokens.estimate_text_tokens",
             side_effect=len,
         ):
             count = get_token_count([msg], system=system_text)

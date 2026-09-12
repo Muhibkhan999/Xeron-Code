@@ -3,8 +3,8 @@
 from dataclasses import replace
 from typing import TypedDict
 
-from free_xeron_code.config.provider_catalog import PROVIDER_CATALOG
-from free_xeron_code.config.settings import Settings
+from free_claude_code.config.provider_catalog import PROVIDER_CATALOG
+from free_claude_code.config.settings import Settings
 
 from .specs import ConfigFieldSpec
 
@@ -112,7 +112,7 @@ _PROVIDER_FIELD_OVERRIDES: dict[str, ProviderFieldOverride] = {
         "label": "MiniMax API Key",
         "description": (
             "MiniMax API key for the OpenAI-compatible Chat Completions API at "
-            "free_xeron_code.api.minimax.io/v1."
+            "free_claude_code.api.minimax.io/v1."
         ),
     },
     "KIMI_CODE_API_KEY": {

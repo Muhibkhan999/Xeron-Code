@@ -14,7 +14,7 @@ from google.auth.exceptions import (
 )
 from google.auth.transport.requests import Request
 
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
 
 GOOGLE_CLOUD_PLATFORM_SCOPE = "https://www.googleapis.com/auth/cloud-platform"
 

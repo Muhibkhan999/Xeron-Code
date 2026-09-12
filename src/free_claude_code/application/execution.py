@@ -9,20 +9,20 @@ from typing import Literal
 
 from loguru import logger
 
-from free_xeron_code.core.anthropic import (
+from free_claude_code.core.anthropic import (
     Message,
     SystemContent,
     Tool,
     anthropic_request_snapshot,
     get_token_count,
 )
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.openai_responses import (
     OpenAIResponsesRequest,
     estimate_responses_input_tokens,
 )
-from free_xeron_code.core.reasoning import ReasoningPolicy
-from free_xeron_code.core.trace import (
+from free_claude_code.core.reasoning import ReasoningPolicy
+from free_claude_code.core.trace import (
     close_stream_input,
     trace_event,
     traced_async_stream,
@@ -80,7 +80,7 @@ class ProviderExecutor:
     ) -> ExecutionFailure:
         trace_event(
             stage="execution",
-            event="free_xeron_code.provider.progress_timeout",
+            event="free_claude_code.provider.progress_timeout",
             source="application",
             request_id=request_id,
             provider_id=provider_id,
@@ -110,7 +110,7 @@ class ProviderExecutor:
     ) -> None:
         fields: dict[str, object] = {
             "stage": "execution",
-            "event": "free_xeron_code.model_fallback.started",
+            "event": "free_claude_code.model_fallback.started",
             "source": "application",
             "request_id": request_id,
             "wire_api": wire_api,
@@ -148,7 +148,7 @@ class ProviderExecutor:
     ) -> None:
         fields: dict[str, object] = {
             "stage": "execution",
-            "event": "free_xeron_code.model_fallback.selected",
+            "event": "free_claude_code.model_fallback.selected",
             "source": "application",
             "request_id": request_id,
             "wire_api": wire_api,
@@ -331,7 +331,7 @@ class ProviderExecutor:
         gateway_model = resolved.original_model
         route_trace: dict[str, object] = {
             "stage": "routing",
-            "event": "free_xeron_code.api.route.resolved",
+            "event": "free_claude_code.api.route.resolved",
             "source": "api",
             "request_id": request_id,
             "provider_id": primary.provider_id,
@@ -355,9 +355,9 @@ class ProviderExecutor:
         ingress_trace: dict[str, object] = {
             "stage": "ingress",
             "event": (
-                "free_xeron_code.api.responses.request.received"
+                "free_claude_code.api.responses.request.received"
                 if wire_api == "responses"
-                else "free_xeron_code.api.request.received"
+                else "free_claude_code.api.request.received"
             ),
             "source": "api",
             "snapshot": request_snapshot,
@@ -485,14 +485,14 @@ class ProviderExecutor:
             stage="egress",
             source="api",
             complete_event=(
-                "free_xeron_code.api.responses.stream_completed"
+                "free_claude_code.api.responses.stream_completed"
                 if wire_api == "responses"
-                else "free_xeron_code.api.response.stream_completed"
+                else "free_claude_code.api.response.stream_completed"
             ),
             interrupted_event=(
-                "free_xeron_code.api.responses.stream_interrupted"
+                "free_claude_code.api.responses.stream_interrupted"
                 if wire_api == "responses"
-                else "free_xeron_code.api.response.stream_interrupted"
+                else "free_claude_code.api.response.stream_interrupted"
             ),
             chunk_event=None,
             extra=stream_trace,

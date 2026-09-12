@@ -4,11 +4,11 @@ from dataclasses import dataclass, field
 from enum import StrEnum
 from typing import Protocol
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.providers.anthropic_messages.request_policy import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.providers.anthropic_messages.request_policy import (
     MessagesModelCapabilities,
 )
-from free_xeron_code.providers.endpoint import HttpEndpoint
+from free_claude_code.providers.endpoint import HttpEndpoint
 
 
 class CopilotUnavailable(RuntimeError):

@@ -10,16 +10,16 @@ from urllib.parse import parse_qs, urlparse
 import httpx
 import pytest
 
-from free_xeron_code.application.connected_accounts import (
+from free_claude_code.application.connected_accounts import (
     ConnectedAccountLoginMode,
 )
-from free_xeron_code.providers.openai_codex import auth as openai_auth
-from free_xeron_code.providers.openai_codex import login as openai_login
-from free_xeron_code.providers.openai_codex.auth import (
+from free_claude_code.providers.openai_codex import auth as openai_auth
+from free_claude_code.providers.openai_codex import login as openai_login
+from free_claude_code.providers.openai_codex.auth import (
     OpenAIAuthManager,
     OpenAIReconnectRequired,
 )
-from free_xeron_code.providers.openai_codex.login import BrowserAuthorization
+from free_claude_code.providers.openai_codex.login import BrowserAuthorization
 
 
 def _jwt(payload: dict[str, object]) -> str:

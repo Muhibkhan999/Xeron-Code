@@ -4,15 +4,15 @@ from collections.abc import Mapping
 
 from anyio import CapacityLimiter, to_thread
 
-from free_xeron_code.config.admin.persistence import (
+from free_claude_code.config.admin.persistence import (
     PreparedAdminUpdate,
     prepare_admin_update,
 )
-from free_xeron_code.config.admin.state import ConfigInputValue, ValueState
-from free_xeron_code.config.admin.values import load_config_response, load_value_state
-from free_xeron_code.config.loader import ManagedConfigStore
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.config.admin.state import ConfigInputValue, ValueState
+from free_claude_code.config.admin.values import load_config_response, load_value_state
+from free_claude_code.config.loader import ManagedConfigStore
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.json_types import JsonObject
 
 
 class ConfigurationService:

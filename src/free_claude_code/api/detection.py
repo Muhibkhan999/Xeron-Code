@@ -4,7 +4,7 @@ Detects quota checks, title generation, prefix detection, safety classifier,
 suggestion mode, and filepath extraction requests to enable targeted handling.
 """
 
-from free_xeron_code.core.anthropic import (
+from free_claude_code.core.anthropic import (
     Message,
     MessagesRequest,
     extract_text_from_content,

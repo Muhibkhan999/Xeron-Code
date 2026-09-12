@@ -6,19 +6,19 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.stream_contracts import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.stream_contracts import (
     parse_sse_text,
     text_content,
     thinking_content,
 )
-from free_xeron_code.core.history_replay import decode_replay
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.providers.open_router import OpenRouterProvider
-from free_xeron_code.providers.openai_chat import OpenAIChatProvider
+from free_claude_code.core.history_replay import decode_replay
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.providers.open_router import OpenRouterProvider
+from free_claude_code.providers.openai_chat import OpenAIChatProvider
 from tests.providers.request_factory import make_messages_request
 from tests.providers.support import (
     REASONING_OFF,

@@ -2,8 +2,8 @@
 
 from copy import deepcopy
 
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.providers.failure_policy import RetryableProviderProtocolError
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.providers.failure_policy import RetryableProviderProtocolError
 
 
 class CopilotResponsesEvents:

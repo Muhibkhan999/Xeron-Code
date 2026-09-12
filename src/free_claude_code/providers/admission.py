@@ -14,9 +14,9 @@ from typing import TypeVar
 
 from loguru import logger
 
-from free_xeron_code.core.rate_limit import StrictSlidingWindowLimiter
-from free_xeron_code.core.trace import trace_event
-from free_xeron_code.providers.failure_policy import (
+from free_claude_code.core.rate_limit import StrictSlidingWindowLimiter
+from free_claude_code.core.trace import trace_event
+from free_claude_code.providers.failure_policy import (
     ProviderFailureOverride,
     ProviderRecoveryExhausted,
     is_retryable_provider_error,

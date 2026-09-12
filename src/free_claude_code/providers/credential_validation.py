@@ -12,10 +12,10 @@ from enum import StrEnum
 
 import httpx
 
-from free_xeron_code.config.provider_catalog import PROVIDER_CATALOG
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.json_types import JsonValue
-from free_xeron_code.providers.runtime.config import string_setting
+from free_claude_code.config.provider_catalog import PROVIDER_CATALOG
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.json_types import JsonValue
+from free_claude_code.providers.runtime.config import string_setting
 
 REQUEST_TIMEOUT = 5.0
 BATCH_TIMEOUT = 10.0

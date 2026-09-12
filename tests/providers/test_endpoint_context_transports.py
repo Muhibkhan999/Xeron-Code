@@ -9,19 +9,19 @@ import httpx2
 import pytest
 from openai import AsyncOpenAI
 
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY
-from free_xeron_code.providers.endpoint import HttpEndpoint
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY
+from free_claude_code.providers.endpoint import HttpEndpoint
+from free_claude_code.providers.openai_chat import (
     NO_REASONING,
     OpenAIChatProfile,
     OpenAIChatProvider,
     OpenAIChatRequestPolicy,
 )
-from free_xeron_code.providers.openai_responses import OpenAIResponsesTransport
+from free_claude_code.providers.openai_responses import OpenAIResponsesTransport
 from tests.providers.support import immediate_admission, make_provider_config
 
 

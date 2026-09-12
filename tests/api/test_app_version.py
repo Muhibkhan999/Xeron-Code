@@ -2,7 +2,7 @@ import warnings
 
 from fastapi.testclient import TestClient
 
-from free_xeron_code.core.version import package_version
+from free_claude_code.core.version import package_version
 from tests.api.support import create_test_app
 
 

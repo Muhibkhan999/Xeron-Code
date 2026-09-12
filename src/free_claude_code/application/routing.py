@@ -4,22 +4,22 @@ from dataclasses import dataclass
 
 from loguru import logger
 
-from free_xeron_code.application.errors import UnknownProviderError
-from free_xeron_code.config.model_refs import (
+from free_claude_code.application.errors import UnknownProviderError
+from free_claude_code.config.model_refs import (
     is_retired_model_ref,
     parse_model_name,
     parse_provider_type,
 )
-from free_xeron_code.config.provider_catalog import (
+from free_claude_code.config.provider_catalog import (
     PROVIDER_CATALOG,
     SUPPORTED_PROVIDER_IDS,
 )
-from free_xeron_code.config.reasoning import ReasoningPreference
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic import MessagesRequest, TokenCountRequest
-from free_xeron_code.core.gateway_model_ids import decode_gateway_model_id
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningPolicy
+from free_claude_code.config.reasoning import ReasoningPreference
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic import MessagesRequest, TokenCountRequest
+from free_claude_code.core.gateway_model_ids import decode_gateway_model_id
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningPolicy
 
 from .reasoning import resolve_reasoning_policy, resolve_responses_reasoning_policy
 

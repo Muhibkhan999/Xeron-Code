@@ -5,8 +5,8 @@ import uuid
 from collections.abc import Mapping, Sequence
 from pathlib import Path
 
-from free_xeron_code.core.json_types import JsonObject, JsonValue
-from free_xeron_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.model_capabilities import ModelInputModality
 
 from .model_catalog import ClientModel
 

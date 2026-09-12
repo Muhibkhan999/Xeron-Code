@@ -3,8 +3,8 @@
 import re
 from dataclasses import dataclass, field
 
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.model_capabilities import ModelInputModality
 
 from .model_catalog import ClientModel
 

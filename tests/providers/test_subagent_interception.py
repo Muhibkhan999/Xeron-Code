@@ -1,9 +1,9 @@
 import json
 
-from free_xeron_code.providers.openai_chat.stream_output import (
+from free_claude_code.providers.openai_chat.stream_output import (
     AnthropicChatStreamOutput,
 )
-from free_xeron_code.providers.openai_chat.tool_calls import (
+from free_claude_code.providers.openai_chat.tool_calls import (
     iter_heuristic_tool_use_events,
 )
 

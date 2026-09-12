@@ -12,17 +12,17 @@ from openai import AsyncOpenAI, AsyncStream
 from openai.types.responses import ResponseInputParam, ResponseStreamEvent
 from openai.types.responses.response_create_params import ResponseCreateParamsStreaming
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.diagnostics import extract_upstream_error_detail
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.history_replay import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.diagnostics import extract_upstream_error_detail
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.history_replay import (
     prepare_history,
     preserve_responses_reasoning,
 )
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_responses import (
     OpenAIResponsesRequest,
     ResponsesConversionError,
     ResponsesProviderStream,
@@ -33,17 +33,17 @@ from free_xeron_code.core.openai_responses import (
     build_responses_provider_request,
     responses_stream_failure_from_event,
 )
-from free_xeron_code.core.openai_tool_names import OpenAIToolNameCodec
-from free_xeron_code.core.reasoning import ReasoningControl, ReasoningPolicy
-from free_xeron_code.core.trace import trace_event
-from free_xeron_code.providers.admission import (
+from free_claude_code.core.openai_tool_names import OpenAIToolNameCodec
+from free_claude_code.core.reasoning import ReasoningControl, ReasoningPolicy
+from free_claude_code.core.trace import trace_event
+from free_claude_code.providers.admission import (
     ProviderAdmissionController,
     ProviderCorrectionAction,
     ProviderExecution,
     ProviderOperationKind,
 )
-from free_xeron_code.providers.endpoint import EndpointContext, RequestEndpoint
-from free_xeron_code.providers.failure_policy import (
+from free_claude_code.providers.endpoint import EndpointContext, RequestEndpoint
+from free_claude_code.providers.failure_policy import (
     RetryableProviderProtocolError,
     classify_provider_failure,
     context_window_exceeded_provider_failure,
@@ -52,17 +52,17 @@ from free_xeron_code.providers.failure_policy import (
     provider_authentication_status,
     reports_context_window_incomplete,
 )
-from free_xeron_code.providers.history_replay import (
+from free_claude_code.providers.history_replay import (
     history_retry_body,
     replay_origin,
     validate_history,
 )
-from free_xeron_code.providers.http import ProviderAttemptScope, maybe_await_aclose
-from free_xeron_code.providers.reasoning_compatibility import (
+from free_claude_code.providers.http import ProviderAttemptScope, maybe_await_aclose
+from free_claude_code.providers.reasoning_compatibility import (
     ReasoningCorrection,
     prepare_messages_reasoning,
 )
-from free_xeron_code.providers.stream_recovery import (
+from free_claude_code.providers.stream_recovery import (
     RecoveryController,
     RecoveryFailureAction,
 )

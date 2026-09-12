@@ -5,7 +5,7 @@ import uuid
 
 from loguru import logger
 
-from free_xeron_code.cli.claude_env import CLAUDE_BINARY_NAME
+from free_claude_code.cli.claude_env import CLAUDE_BINARY_NAME
 
 from .session import ManagedClaudeSession
 

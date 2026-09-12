@@ -1,10 +1,10 @@
 """Only effective edits, against saved settings, request credential validation."""
 
-from free_xeron_code.config.admin.persistence import (
+from free_claude_code.config.admin.persistence import (
     prepare_admin_update,
 )
-from free_xeron_code.config.admin.values import MASKED_SECRET
-from free_xeron_code.config.loader import ManagedConfigStore
+from free_claude_code.config.admin.values import MASKED_SECRET
+from free_claude_code.config.loader import ManagedConfigStore
 
 
 def test_changed_keys_exclude_masks_noops_and_removals(monkeypatch):

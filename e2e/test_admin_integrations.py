@@ -5,7 +5,7 @@ from itertools import pairwise
 import pytest
 from playwright.sync_api import expect
 
-from free_xeron_code.cli import vscode
+from free_claude_code.cli import vscode
 
 
 @pytest.mark.parametrize("width", [1280, 1200, 390])

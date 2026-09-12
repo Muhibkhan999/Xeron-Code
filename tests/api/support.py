@@ -4,17 +4,17 @@ from collections.abc import Mapping, MutableMapping
 
 from fastapi import FastAPI
 
-from free_xeron_code.api.app import create_app
-from free_xeron_code.api.ports import ApiServices
-from free_xeron_code.application.code_sessions import CodeApplicationPort
-from free_xeron_code.application.connected_accounts import ConnectedAccountPort
-from free_xeron_code.config.loader import ManagedConfigStore
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.providers.base import BaseProvider
-from free_xeron_code.providers.runtime import ProviderRuntime
-from free_xeron_code.runtime.application import ApplicationRuntime, RestartCallback
-from free_xeron_code.runtime.configuration import ConfigurationService
-from free_xeron_code.runtime.provider_manager import ProviderRuntimeManager
+from free_claude_code.api.app import create_app
+from free_claude_code.api.ports import ApiServices
+from free_claude_code.application.code_sessions import CodeApplicationPort
+from free_claude_code.application.connected_accounts import ConnectedAccountPort
+from free_claude_code.config.loader import ManagedConfigStore
+from free_claude_code.config.settings import Settings
+from free_claude_code.providers.base import BaseProvider
+from free_claude_code.providers.runtime import ProviderRuntime
+from free_claude_code.runtime.application import ApplicationRuntime, RestartCallback
+from free_claude_code.runtime.configuration import ConfigurationService
+from free_claude_code.runtime.provider_manager import ProviderRuntimeManager
 
 
 def create_test_app(

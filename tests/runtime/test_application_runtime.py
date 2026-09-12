@@ -7,35 +7,35 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-import free_xeron_code.messaging.session.persistence as persistence_module
-from free_xeron_code.application.connected_accounts import (
+import free_claude_code.messaging.session.persistence as persistence_module
+from free_claude_code.application.connected_accounts import (
     ConnectedAccountState,
     ConnectedAccountStatus,
 )
-from free_xeron_code.application.errors import ApplicationUnavailableError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.admin.persistence import PreparedAdminUpdate
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
-from free_xeron_code.messaging.command_context import StopOutcome
-from free_xeron_code.messaging.platforms.ports import (
+from free_claude_code.application.errors import ApplicationUnavailableError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.admin.persistence import PreparedAdminUpdate
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
+from free_claude_code.messaging.command_context import StopOutcome
+from free_claude_code.messaging.platforms.ports import (
     InboundMessageHandler,
     MessagingPlatformComponents,
     MessagingStartupNotice,
 )
-from free_xeron_code.messaging.session import SessionStore
-from free_xeron_code.messaging.workflow import MessagingWorkflow
-from free_xeron_code.providers.base import BaseProvider
-from free_xeron_code.providers.credential_validation import (
+from free_claude_code.messaging.session import SessionStore
+from free_claude_code.messaging.workflow import MessagingWorkflow
+from free_claude_code.providers.base import BaseProvider
+from free_claude_code.providers.credential_validation import (
     CredentialCheck,
     CredentialStatus,
 )
-from free_xeron_code.providers.runtime import ProviderRuntime
-from free_xeron_code.runtime.application import ApplicationRuntime
-from free_xeron_code.runtime.configuration import ConfigurationService
-from free_xeron_code.runtime.provider_manager import ProviderRuntimeManager
+from free_claude_code.providers.runtime import ProviderRuntime
+from free_claude_code.runtime.application import ApplicationRuntime
+from free_claude_code.runtime.configuration import ConfigurationService
+from free_claude_code.runtime.provider_manager import ProviderRuntimeManager
 from tests.providers.support import make_provider_config
 
 
@@ -550,7 +550,7 @@ async def test_credential_checks_gate_both_apply_paths(tmp_path, pending, status
             return_value=prepared,
         ),
         patch(
-            "free_xeron_code.runtime.application.check_credentials",
+            "free_claude_code.runtime.application.check_credentials",
             AsyncMock(return_value=checks),
         ) as check,
         patch.object(
@@ -592,7 +592,7 @@ async def test_cancelled_credential_check_never_commits(tmp_path):
             return_value=prepared,
         ),
         patch(
-            "free_xeron_code.runtime.application.check_credentials",
+            "free_claude_code.runtime.application.check_credentials",
             AsyncMock(side_effect=asyncio.CancelledError),
         ),
         patch.object(runtime._configuration, "commit") as commit,
@@ -1097,7 +1097,7 @@ async def test_public_start_retries_transient_partial_messaging_cleanup() -> Non
         ),
         patch.object(manager, "start_model_list_refresh"),
         patch(
-            "free_xeron_code.runtime.application.messaging_platform_factory.create_messaging_components",
+            "free_claude_code.runtime.application.messaging_platform_factory.create_messaging_components",
             return_value=components,
         ),
         patch.object(
@@ -1163,7 +1163,7 @@ async def test_public_start_retains_persistently_unclean_partial_messaging_graph
         ),
         patch.object(manager, "start_model_list_refresh"),
         patch(
-            "free_xeron_code.runtime.application.messaging_platform_factory.create_messaging_components",
+            "free_claude_code.runtime.application.messaging_platform_factory.create_messaging_components",
             return_value=components,
         ),
         patch.object(
@@ -1209,7 +1209,7 @@ async def test_messaging_start_failure_is_nonfatal_after_complete_cleanup() -> N
 
     with (
         patch(
-            "free_xeron_code.runtime.application.messaging_platform_factory.create_messaging_components",
+            "free_claude_code.runtime.application.messaging_platform_factory.create_messaging_components",
             side_effect=RuntimeError("messaging unavailable"),
         ),
         patch.object(runtime, "_cleanup_messaging", AsyncMock(return_value=True)),
@@ -1230,7 +1230,7 @@ async def test_messaging_start_failure_fails_closed_when_cleanup_is_incomplete()
 
     with (
         patch(
-            "free_xeron_code.runtime.application.messaging_platform_factory.create_messaging_components",
+            "free_claude_code.runtime.application.messaging_platform_factory.create_messaging_components",
             side_effect=RuntimeError("messaging unavailable"),
         ),
         patch.object(runtime, "_cleanup_messaging", AsyncMock(return_value=False)),
@@ -1258,7 +1258,7 @@ async def test_composition_records_runtime_before_workspace_setup() -> None:
 
     with (
         patch(
-            "free_xeron_code.runtime.application.os.makedirs",
+            "free_claude_code.runtime.application.os.makedirs",
             side_effect=OSError("workspace failed"),
         ),
         pytest.raises(OSError, match="workspace failed"),
@@ -1305,12 +1305,12 @@ async def test_composition_publishes_startup_notice_after_runtime_and_repair() -
 
     with (
         patch(
-            "free_xeron_code.runtime.application.cli_managed.ManagedClaudeSessionManager",
+            "free_claude_code.runtime.application.cli_managed.ManagedClaudeSessionManager",
             return_value=cli_manager,
         ) as manager_constructor,
-        patch("free_xeron_code.runtime.application.messaging_session.SessionStore"),
+        patch("free_claude_code.runtime.application.messaging_session.SessionStore"),
         patch(
-            "free_xeron_code.runtime.application.messaging_workflow_module.MessagingWorkflow",
+            "free_claude_code.runtime.application.messaging_workflow_module.MessagingWorkflow",
             return_value=workflow,
         ),
     ):
@@ -1336,7 +1336,7 @@ async def test_composition_publishes_startup_notice_after_runtime_and_repair() -
 async def test_folder_picker_is_stopped_before_http_shutdown_drains(monkeypatch):
     import uvicorn
 
-    from free_xeron_code.cli.commands import RuntimeServer
+    from free_claude_code.cli.commands import RuntimeServer
 
     runtime, _manager = _runtime_with_admin_provider(AdminModelProvider())
     started = asyncio.Event()

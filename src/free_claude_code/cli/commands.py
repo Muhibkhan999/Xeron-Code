@@ -10,17 +10,17 @@ from enum import StrEnum
 import uvicorn
 from loguru import logger
 
-from free_xeron_code.cli.launchers.common import preflight_proxy
-from free_xeron_code.cli.process_registry import kill_all_best_effort
-from free_xeron_code.config.loader import (
+from free_claude_code.cli.launchers.common import preflight_proxy
+from free_claude_code.cli.process_registry import kill_all_best_effort
+from free_claude_code.config.loader import (
     ManagedConfigStore,
     clear_settings_cache,
     get_settings,
 )
-from free_xeron_code.config.paths import managed_env_path
-from free_xeron_code.config.server_urls import local_admin_url, local_proxy_root_url
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.runtime.bootstrap import build_asgi_app
+from free_claude_code.config.paths import managed_env_path
+from free_claude_code.config.server_urls import local_admin_url, local_proxy_root_url
+from free_claude_code.config.settings import Settings
+from free_claude_code.runtime.bootstrap import build_asgi_app
 
 SERVER_GRACEFUL_SHUTDOWN_SECONDS = 5
 

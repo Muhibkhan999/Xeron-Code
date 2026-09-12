@@ -5,10 +5,10 @@ import secrets
 from fastapi import Depends, HTTPException, Request
 from loguru import logger
 
-from free_xeron_code.application.errors import UnknownProviderError
-from free_xeron_code.application.ports import ProviderPort, RequestRuntimeLease
-from free_xeron_code.config.provider_catalog import PROVIDER_CATALOG
-from free_xeron_code.config.settings import Settings
+from free_claude_code.application.errors import UnknownProviderError
+from free_claude_code.application.ports import ProviderPort, RequestRuntimeLease
+from free_claude_code.config.provider_catalog import PROVIDER_CATALOG
+from free_claude_code.config.settings import Settings
 
 from .ports import ApiServices
 

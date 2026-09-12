@@ -2,7 +2,7 @@
 
 import json
 
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 IMAGE_TOOL_RESULT_MARKER = "[Image-bearing tool output follows in user content.]"
 

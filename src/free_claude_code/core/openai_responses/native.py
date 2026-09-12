@@ -5,9 +5,9 @@ from collections.abc import Mapping
 from copy import deepcopy
 from typing import cast
 
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.core.json_types import JsonObject, JsonValue
-from free_xeron_code.core.reasoning import ReasoningPolicy
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.reasoning import ReasoningPolicy
 
 from .errors import openai_error_from_failure
 from .events import format_response_sse_event

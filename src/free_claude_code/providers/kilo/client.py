@@ -1,11 +1,11 @@
 """Kilo.ai provider implementation."""
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.reasoning import ReasoningEffort
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.reasoning import ReasoningEffort
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.openai_chat import (
     OpenAIChatProfile,
     OpenAIChatProvider,
     OpenAIChatRequestPolicy,

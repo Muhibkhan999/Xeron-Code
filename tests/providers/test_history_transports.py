@@ -9,15 +9,15 @@ import httpx
 import httpx2
 import pytest
 
-from free_xeron_code.application.execution import ProviderExecutor
-from free_xeron_code.core.anthropic import aggregate_anthropic_sse_to_message
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.stream_contracts import parse_sse_text
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.history_replay import decode_replay, encode_replay
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningPolicy
-from free_xeron_code.providers.open_router import OpenRouterProvider
+from free_claude_code.application.execution import ProviderExecutor
+from free_claude_code.core.anthropic import aggregate_anthropic_sse_to_message
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.stream_contracts import parse_sse_text
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.history_replay import decode_replay, encode_replay
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningPolicy
+from free_claude_code.providers.open_router import OpenRouterProvider
 from tests.application.test_execution import (
     ControlledProvider,
     _routed_request,

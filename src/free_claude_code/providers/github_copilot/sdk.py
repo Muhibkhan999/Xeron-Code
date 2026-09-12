@@ -36,13 +36,13 @@ from copilot.rpc import (
 )
 from copilot.session import PermissionInvocation
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.providers.anthropic_messages.request_policy import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.providers.anthropic_messages.request_policy import (
     MessagesModelCapabilities,
 )
-from free_xeron_code.providers.endpoint import HttpEndpoint
-from free_xeron_code.providers.model_listing import reasoning_capability_from_options
+from free_claude_code.providers.endpoint import HttpEndpoint
+from free_claude_code.providers.model_listing import reasoning_capability_from_options
 
 from .lifecycle import drain_owned
 from .types import (

@@ -2,14 +2,14 @@ from unittest.mock import patch
 
 import pytest
 
-from free_xeron_code.cli.launchers.model_catalog import (
+from free_claude_code.cli.launchers.model_catalog import (
     ClientModel,
     catalog_wire_slug_for_ref,
     client_models_from_response,
     fetch_proxy_models_response,
 )
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.model_capabilities import ModelInputModality
 
 
 def test_client_models_project_nested_direct_refs_in_source_order() -> None:
@@ -204,7 +204,7 @@ class _ModelsResponse:
 
 def test_fetch_proxy_models_uses_canonical_bearer_request() -> None:
     with patch(
-        "free_xeron_code.cli.launchers.model_catalog.open_local_request",
+        "free_claude_code.cli.launchers.model_catalog.open_local_request",
         return_value=_ModelsResponse(b'{"data": []}'),
     ) as open_local_request:
         response = fetch_proxy_models_response("http://127.0.0.1:9191/", "proxy-token")
@@ -218,7 +218,7 @@ def test_fetch_proxy_models_uses_canonical_bearer_request() -> None:
 
 def test_fetch_proxy_models_can_request_messages_view() -> None:
     with patch(
-        "free_xeron_code.cli.launchers.model_catalog.open_local_request",
+        "free_claude_code.cli.launchers.model_catalog.open_local_request",
         return_value=_ModelsResponse(b'{"data": []}'),
     ) as open_local_request:
         response = fetch_proxy_models_response(
@@ -237,7 +237,7 @@ def test_fetch_proxy_models_can_request_messages_view() -> None:
 def test_fetch_proxy_models_rejects_non_object_json() -> None:
     with (
         patch(
-            "free_xeron_code.cli.launchers.model_catalog.open_local_request",
+            "free_claude_code.cli.launchers.model_catalog.open_local_request",
             return_value=_ModelsResponse(b"[]"),
         ),
         pytest.raises(ValueError, match="JSON object"),

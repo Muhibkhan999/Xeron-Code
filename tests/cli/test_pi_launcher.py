@@ -3,7 +3,7 @@
 from pathlib import Path
 from unittest.mock import patch
 
-from free_xeron_code.cli.launchers import pi
+from free_claude_code.cli.launchers import pi
 from tests.cli.conftest import LaunchCapture
 from tests.cli.test_launcher_workflow import launch
 

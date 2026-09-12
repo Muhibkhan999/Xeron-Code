@@ -2,9 +2,9 @@ import math
 
 from fastapi.testclient import TestClient
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.model_capabilities import ModelInputModality
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.model_capabilities import ModelInputModality
 from tests.api.support import create_test_app, provider_manager_for_app
 
 

@@ -3,7 +3,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from free_xeron_code.runtime import native_folder_dialog as native
+from free_claude_code.runtime import native_folder_dialog as native
 
 
 @pytest.mark.parametrize(

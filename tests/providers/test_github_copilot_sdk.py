@@ -10,8 +10,8 @@ import pytest
 from copilot import CopilotClient, CopilotSession
 from copilot.rpc import Model, PermissionDecisionReject, ProviderEndpoint
 
-from free_xeron_code.providers.github_copilot import sdk
-from free_xeron_code.providers.github_copilot.types import (
+from free_claude_code.providers.github_copilot import sdk
+from free_claude_code.providers.github_copilot.types import (
     CopilotEgress,
     CopilotUnavailable,
 )

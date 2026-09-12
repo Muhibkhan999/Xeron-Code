@@ -9,18 +9,18 @@ import pytest
 from fastapi.responses import JSONResponse, StreamingResponse
 from openai import APIError, AsyncOpenAI, BadRequestError
 
-from free_xeron_code.api.handlers import MessagesHandler
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.stream_contracts import (
+from free_claude_code.api.handlers import MessagesHandler
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.stream_contracts import (
     parse_sse_text,
     text_content,
     thinking_content,
 )
-from free_xeron_code.core.reasoning import ReasoningCapability
-from free_xeron_code.providers.open_router import OpenRouterProvider
+from free_claude_code.core.reasoning import ReasoningCapability
+from free_claude_code.providers.open_router import OpenRouterProvider
 from tests.providers.support import immediate_admission, make_provider_config
 
 

@@ -7,10 +7,10 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from free_xeron_code.application.code_sessions import CodeService
-from free_xeron_code.application.code_sessions.models import CodeUnavailableError
-from free_xeron_code.runtime.code_sessions_sqlite import SQLiteCodeStore
-from free_xeron_code.runtime.codex_app_server import CodexAppServer
+from free_claude_code.application.code_sessions import CodeService
+from free_claude_code.application.code_sessions.models import CodeUnavailableError
+from free_claude_code.runtime.code_sessions_sqlite import SQLiteCodeStore
+from free_claude_code.runtime.codex_app_server import CodexAppServer
 from tests.code_sessions_support import FakeHarness
 
 

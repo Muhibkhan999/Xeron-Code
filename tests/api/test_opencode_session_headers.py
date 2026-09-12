@@ -9,8 +9,8 @@ import httpx2
 import pytest
 from openai import AsyncOpenAI
 
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.providers.opencode import create_opencode_provider
+from free_claude_code.config.settings import Settings
+from free_claude_code.providers.opencode import create_opencode_provider
 from tests.api.support import create_test_app, provider_manager_for_app
 from tests.providers.support import immediate_admission, make_provider_config
 from tests.providers.test_opencode import (
@@ -70,7 +70,7 @@ async def wire_client(provider_id="opencode_zen", handler=None):
         return AsyncOpenAI(**kwargs)
 
     with patch(
-        "free_xeron_code.providers.openai_chat.provider.AsyncOpenAI", side_effect=sdk
+        "free_claude_code.providers.openai_chat.provider.AsyncOpenAI", side_effect=sdk
     ):
         provider = create_opencode_provider(
             provider_id,

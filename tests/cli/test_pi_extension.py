@@ -9,10 +9,10 @@ from typing import Literal
 
 import pytest
 
-from free_xeron_code.application.reasoning import client_reasoning_policy
-from free_xeron_code.cli.launchers.pi import pi_extension_path
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.providers.github_copilot.types import CopilotEgress
+from free_claude_code.application.reasoning import client_reasoning_policy
+from free_claude_code.cli.launchers.pi import pi_extension_path
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.providers.github_copilot.types import CopilotEgress
 from tests.providers.test_github_copilot_provider import Harness, collect
 
 

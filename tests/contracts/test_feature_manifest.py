@@ -1,26 +1,26 @@
 import re
 from pathlib import Path
 
-from free_xeron_code.config.provider_catalog import PROVIDER_CATALOG
-from free_xeron_code.messaging.platforms.factory import create_messaging_components
-from free_xeron_code.providers.base import BaseProvider
-from free_xeron_code.providers.cloudflare import CloudflareProvider
-from free_xeron_code.providers.deepseek import DeepSeekProvider
-from free_xeron_code.providers.gemini import GeminiProvider
-from free_xeron_code.providers.github_copilot.provider import GitHubCopilotProvider
-from free_xeron_code.providers.groq import GroqProvider
-from free_xeron_code.providers.kilo import KiloProvider
-from free_xeron_code.providers.lmstudio import LMStudioProvider
-from free_xeron_code.providers.mistral import MistralProvider
-from free_xeron_code.providers.nvidia_nim import NvidiaNimProvider
-from free_xeron_code.providers.open_router import OpenRouterProvider
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.config.provider_catalog import PROVIDER_CATALOG
+from free_claude_code.messaging.platforms.factory import create_messaging_components
+from free_claude_code.providers.base import BaseProvider
+from free_claude_code.providers.cloudflare import CloudflareProvider
+from free_claude_code.providers.deepseek import DeepSeekProvider
+from free_claude_code.providers.gemini import GeminiProvider
+from free_claude_code.providers.github_copilot.provider import GitHubCopilotProvider
+from free_claude_code.providers.groq import GroqProvider
+from free_claude_code.providers.kilo import KiloProvider
+from free_claude_code.providers.lmstudio import LMStudioProvider
+from free_claude_code.providers.mistral import MistralProvider
+from free_claude_code.providers.nvidia_nim import NvidiaNimProvider
+from free_claude_code.providers.open_router import OpenRouterProvider
+from free_claude_code.providers.openai_chat import (
     OPENAI_CHAT_PROFILES,
     OpenAIChatProvider,
 )
-from free_xeron_code.providers.openai_codex import OpenAICodexProvider
-from free_xeron_code.providers.opencode import OpenCodeProvider
-from free_xeron_code.providers.vertex import VertexProvider
+from free_claude_code.providers.openai_codex import OpenAICodexProvider
+from free_claude_code.providers.opencode import OpenCodeProvider
+from free_claude_code.providers.vertex import VertexProvider
 from smoke.features import FEATURE_INVENTORY
 
 

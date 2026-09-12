@@ -3,12 +3,12 @@ from typing import cast
 
 import pytest
 
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.anthropic.stream_contracts import parse_sse_text
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.openai_responses import build_responses_chat_request
-from free_xeron_code.core.openai_responses.models import OpenAIResponsesRequest
-from free_xeron_code.providers.openai_chat.stream_output import (
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.anthropic.stream_contracts import parse_sse_text
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.openai_responses import build_responses_chat_request
+from free_claude_code.core.openai_responses.models import OpenAIResponsesRequest
+from free_claude_code.providers.openai_chat.stream_output import (
     AnthropicChatStreamOutput,
     ChatStreamUsage,
     ResponsesChatStreamOutput,

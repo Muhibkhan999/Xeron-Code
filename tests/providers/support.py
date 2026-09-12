@@ -5,12 +5,12 @@ import json
 import httpx2
 from openai import AsyncOpenAI
 
-from free_xeron_code.application.reasoning import client_reasoning_policy
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.reasoning import ReasoningPolicy
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.application.reasoning import client_reasoning_policy
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.reasoning import ReasoningPolicy
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.openai_chat import (
     OpenAIChatProvider,
     create_openai_chat_provider,
 )

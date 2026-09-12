@@ -3,10 +3,10 @@
 from dataclasses import dataclass
 from typing import Any
 
-from free_xeron_code.core.anthropic.streaming import AnthropicStreamLedger
-from free_xeron_code.core.anthropic.usage import anthropic_input_usage_fields
-from free_xeron_code.core.history_replay import is_replay
-from free_xeron_code.core.openai_tool_names import OpenAIToolNameCodec
+from free_claude_code.core.anthropic.streaming import AnthropicStreamLedger
+from free_claude_code.core.anthropic.usage import anthropic_input_usage_fields
+from free_claude_code.core.history_replay import is_replay
+from free_claude_code.core.openai_tool_names import OpenAIToolNameCodec
 
 
 class ResponsesStreamFailure(RuntimeError):

@@ -6,7 +6,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.core.json_types import JsonObject
 
 type RunStatus = Literal[
     "preparing", "running", "stopping", "completed", "interrupted", "failed"

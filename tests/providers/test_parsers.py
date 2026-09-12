@@ -1,6 +1,6 @@
 import pytest
 
-from free_xeron_code.core.anthropic import (
+from free_claude_code.core.anthropic import (
     ContentType,
     HeuristicToolParser,
     ThinkTagParser,

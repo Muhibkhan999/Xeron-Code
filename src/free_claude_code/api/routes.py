@@ -5,17 +5,17 @@ from collections.abc import Mapping
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from loguru import logger
 
-from free_xeron_code.application.errors import ApplicationError
-from free_xeron_code.application.ports import ProviderResolver, RequestRuntimeLease
-from free_xeron_code.config.model_refs import parse_provider_type
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic import (
+from free_claude_code.application.errors import ApplicationError
+from free_claude_code.application.ports import ProviderResolver, RequestRuntimeLease
+from free_claude_code.config.model_refs import parse_provider_type
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic import (
     MessagesRequest,
     TokenCountRequest,
     get_token_count,
 )
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.trace import trace_event
 
 from .dependencies import (
     get_services,
@@ -213,7 +213,7 @@ async def list_models(
     _auth=Depends(require_proxy_auth),
 ):
     """List the model ids this proxy advertises to compatible clients."""
-    trace_event(stage="ingress", event="free_xeron_code.api.models.list", source="api")
+    trace_event(stage="ingress", event="free_claude_code.api.models.list", source="api")
     return build_models_list_response(settings, services.requests, view=view)
 
 
@@ -228,7 +228,7 @@ async def list_muse_models(
     _auth=Depends(require_proxy_auth),
 ):
     """List the direct Responses models expected by Muse Code."""
-    trace_event(stage="ingress", event="free_xeron_code.api.models.list", source="api")
+    trace_event(stage="ingress", event="free_claude_code.api.models.list", source="api")
     return build_muse_models_list_response(settings, services.requests)
 
 
@@ -248,7 +248,7 @@ async def stop_cli(
     count = result.cancelled_count or 0
     trace_event(
         stage="ingress",
-        event="free_xeron_code.api.cli.stop_via_messaging_workflow",
+        event="free_claude_code.api.cli.stop_via_messaging_workflow",
         source="api",
         cancelled_nodes=count,
     )

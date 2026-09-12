@@ -3,8 +3,8 @@
 from collections.abc import Iterable
 from dataclasses import replace
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.provider_catalog import SUPPORTED_PROVIDER_IDS
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.provider_catalog import SUPPORTED_PROVIDER_IDS
 
 
 class ProviderModelCache:

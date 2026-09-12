@@ -7,19 +7,19 @@ from typing import Any, Literal
 
 from loguru import logger
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.core.anthropic import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.core.anthropic import (
     ReasoningReplayMode,
     build_base_request_body,
 )
-from free_xeron_code.core.anthropic.conversion import OpenAIConversionError
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.openai_tool_names import (
+from free_claude_code.core.anthropic.conversion import OpenAIConversionError
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.openai_tool_names import (
     OpenAIToolNameCodec,
     encode_openai_chat_tool_names,
 )
-from free_xeron_code.core.reasoning import ReasoningPolicy
-from free_xeron_code.providers.history_replay import validate_history
+from free_claude_code.core.reasoning import ReasoningPolicy
+from free_claude_code.providers.history_replay import validate_history
 
 MaxTokensField = Literal["max_tokens", "max_completion_tokens"]
 OpenAIChatPostprocessor = Callable[

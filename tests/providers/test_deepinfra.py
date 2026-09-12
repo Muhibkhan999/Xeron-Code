@@ -8,18 +8,18 @@ import httpx
 import pytest
 from openai import AsyncOpenAI
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
-from free_xeron_code.config.provider_catalog import DEEPINFRA_DEFAULT_BASE
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.reasoning import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
+from free_claude_code.config.provider_catalog import DEEPINFRA_DEFAULT_BASE
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.reasoning import (
     ReasoningCapability,
     ReasoningEffort,
     ReasoningPolicy,
 )
-from free_xeron_code.providers.model_listing import ModelListResponseError
-from free_xeron_code.providers.openai_chat import OpenAIChatProvider
+from free_claude_code.providers.model_listing import ModelListResponseError
+from free_claude_code.providers.openai_chat import OpenAIChatProvider
 from tests.providers.support import (
     REASONING_OFF,
     REASONING_ON,
@@ -282,7 +282,7 @@ async def test_model_catalog_uses_absolute_public_url() -> None:
         return AsyncOpenAI(*args, **kwargs)
 
     with patch(
-        "free_xeron_code.providers.openai_chat.provider.AsyncOpenAI",
+        "free_claude_code.providers.openai_chat.provider.AsyncOpenAI",
         side_effect=build_client,
     ):
         provider = profiled_provider(

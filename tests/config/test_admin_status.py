@@ -1,8 +1,8 @@
-from free_xeron_code.config.admin.manifest import FIELD_BY_KEY
-from free_xeron_code.config.admin.state import ConfigValueState
-from free_xeron_code.config.admin.status import provider_config_status
-from free_xeron_code.config.provider_catalog import PROVIDER_CATALOG
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.config.admin.manifest import FIELD_BY_KEY
+from free_claude_code.config.admin.state import ConfigValueState
+from free_claude_code.config.admin.status import provider_config_status
+from free_claude_code.config.provider_catalog import PROVIDER_CATALOG
+from free_claude_code.core.json_types import JsonObject
 
 
 def _value(value: str | None) -> ConfigValueState:

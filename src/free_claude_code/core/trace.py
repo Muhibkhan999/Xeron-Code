@@ -13,7 +13,7 @@ from typing import Any
 
 from loguru import logger
 
-from free_xeron_code.core.async_iterators import try_close_async_iterator
+from free_claude_code.core.async_iterators import try_close_async_iterator
 
 TRACE_PAYLOAD_BINDING = "trace_payload"
 

@@ -9,11 +9,11 @@ from tomlkit.exceptions import ParseError
 from tomlkit.items import InlineTable, Table
 from tomlkit.toml_document import TOMLDocument
 
-from free_xeron_code.cli.config_file import atomic_write_text
-from free_xeron_code.cli.launchers.codex import codex_config_values
-from free_xeron_code.cli.launchers.common import proxy_v1_url
-from free_xeron_code.config.server_urls import same_proxy_url
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.cli.config_file import atomic_write_text
+from free_claude_code.cli.launchers.codex import codex_config_values
+from free_claude_code.cli.launchers.common import proxy_v1_url
+from free_claude_code.config.server_urls import same_proxy_url
+from free_claude_code.core.json_types import JsonObject
 
 
 def config_path() -> Path:

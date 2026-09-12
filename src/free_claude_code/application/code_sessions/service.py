@@ -9,11 +9,11 @@ from typing import get_args
 
 from loguru import logger
 
-from free_xeron_code.application.session_events import (
+from free_claude_code.application.session_events import (
     EventPublisher,
     EventSubscription,
 )
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 from .models import (
     ACTIVE_RUN_STATUSES,

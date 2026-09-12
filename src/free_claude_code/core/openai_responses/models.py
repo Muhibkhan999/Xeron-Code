@@ -2,7 +2,7 @@
 
 from pydantic import BaseModel, ConfigDict, field_validator
 
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 
 class OpenAIResponsesRequest(BaseModel):

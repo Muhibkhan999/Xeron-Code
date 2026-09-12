@@ -16,19 +16,19 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from loguru import logger
 from pydantic import BaseModel, Field
 
-from free_xeron_code.application.connected_accounts import (
+from free_claude_code.application.connected_accounts import (
     ConnectedAccountLoginMode,
 )
-from free_xeron_code.application.errors import ApplicationError
-from free_xeron_code.application.model_metadata import ProviderModelRefreshResult
-from free_xeron_code.config.admin.manifest import FIELD_BY_KEY
-from free_xeron_code.config.model_refs import configured_chat_model_refs
-from free_xeron_code.config.provider_catalog import (
+from free_claude_code.application.errors import ApplicationError
+from free_claude_code.application.model_metadata import ProviderModelRefreshResult
+from free_claude_code.config.admin.manifest import FIELD_BY_KEY
+from free_claude_code.config.model_refs import configured_chat_model_refs
+from free_claude_code.config.provider_catalog import (
     PROVIDER_CATALOG,
     ProviderAuthKind,
 )
-from free_xeron_code.core.json_types import JsonObject, JsonValue
-from free_xeron_code.core.version import package_version
+from free_claude_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.version import package_version
 
 from .admin_security import require_loopback_admin
 from .dependencies import get_services

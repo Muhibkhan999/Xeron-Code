@@ -2,7 +2,7 @@ from dataclasses import FrozenInstanceError
 
 import pytest
 
-from free_xeron_code.config.provider_catalog import (
+from free_claude_code.config.provider_catalog import (
     PROVIDER_CATALOG,
     ProviderAuthKind,
     ProviderDescriptor,

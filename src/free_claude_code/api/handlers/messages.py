@@ -7,42 +7,42 @@ from dataclasses import dataclass, replace
 from fastapi.responses import JSONResponse, Response
 from loguru import logger
 
-from free_xeron_code.api.detection import detect_safety_classifier_stop_sequence
-from free_xeron_code.api.optimization_handlers import try_optimizations
-from free_xeron_code.api.request_errors import (
+from free_claude_code.api.detection import detect_safety_classifier_stop_sequence
+from free_claude_code.api.optimization_handlers import try_optimizations
+from free_claude_code.api.request_errors import (
     http_status_for_unexpected_api_exception,
     log_unexpected_api_exception,
     ordinary_application_error_response,
     require_non_empty_messages,
     unexpected_http_exception,
 )
-from free_xeron_code.api.request_ids import new_request_id
-from free_xeron_code.api.response_streams import (
+from free_claude_code.api.request_ids import new_request_id
+from free_claude_code.api.response_streams import (
     EmptyStreamError,
     anthropic_sse_streaming_response,
     terminal_execution_error_response,
     trace_terminal_execution_error,
 )
-from free_xeron_code.api.web_tools.automatic_search import (
+from free_claude_code.api.web_tools.automatic_search import (
     stream_automatic_web_search_response,
 )
-from free_xeron_code.api.web_tools.egress import (
+from free_claude_code.api.web_tools.egress import (
     WebFetchEgressPolicy,
     web_fetch_allowed_scheme_set,
 )
-from free_xeron_code.api.web_tools.request import (
+from free_claude_code.api.web_tools.request import (
     is_web_server_tool_request,
     plan_automatic_web_search,
     unsupported_server_tool_error,
 )
-from free_xeron_code.api.web_tools.streaming import stream_web_server_tool_response
-from free_xeron_code.application.errors import ApplicationError, InvalidRequestError
-from free_xeron_code.application.execution import ProviderExecutor, TokenCounter
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.application.ports import ProviderResolver
-from free_xeron_code.application.routing import ModelRouter, RoutedMessagesRequest
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic import (
+from free_claude_code.api.web_tools.streaming import stream_web_server_tool_response
+from free_claude_code.application.errors import ApplicationError, InvalidRequestError
+from free_claude_code.application.execution import ProviderExecutor, TokenCounter
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.application.ports import ProviderResolver
+from free_claude_code.application.routing import ModelRouter, RoutedMessagesRequest
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic import (
     MessagesRequest,
     aggregate_anthropic_sse_to_message,
     anthropic_error_payload,
@@ -51,10 +51,10 @@ from free_xeron_code.core.anthropic import (
     anthropic_status_for_error_type,
     get_token_count,
 )
-from free_xeron_code.core.diagnostics import safe_exception_message
-from free_xeron_code.core.failures import ExecutionFailure, find_execution_failure
-from free_xeron_code.core.reasoning import ReasoningControl, ReasoningPolicy
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.diagnostics import safe_exception_message
+from free_claude_code.core.failures import ExecutionFailure, find_execution_failure
+from free_claude_code.core.reasoning import ReasoningControl, ReasoningPolicy
+from free_claude_code.core.trace import trace_event
 
 from .classifier_response import classifier_response
 
@@ -335,7 +335,7 @@ class MessagesHandler:
         stop_sequence_removed = remaining_stop_sequences != stop_sequences
         trace_event(
             stage="routing",
-            event="free_xeron_code.api.route.safety_classifier_policy",
+            event="free_claude_code.api.route.safety_classifier_policy",
             source="api",
             model=routed.resolved.original_model,
             classifier_stop_sequence=classifier_stop_sequence,
@@ -380,7 +380,7 @@ class MessagesHandler:
         )
         trace_event(
             stage="routing",
-            event="free_xeron_code.api.optimization.web_server_tool",
+            event="free_claude_code.api.optimization.web_server_tool",
             source="api",
             model=routed.resolved.original_model,
         )
@@ -412,7 +412,7 @@ class MessagesHandler:
             return None
         trace_event(
             stage="routing",
-            event="free_xeron_code.api.optimization.short_circuit",
+            event="free_claude_code.api.optimization.short_circuit",
             source="api",
             model=routed.resolved.original_model,
         )

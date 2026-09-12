@@ -3,8 +3,8 @@
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.providers.model_listing import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.providers.model_listing import (
     extract_tool_capable_model_infos,
     model_list_items,
 )

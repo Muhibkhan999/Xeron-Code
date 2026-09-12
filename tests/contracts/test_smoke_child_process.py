@@ -2,7 +2,7 @@ import subprocess
 from pathlib import Path
 from unittest.mock import MagicMock
 
-from free_xeron_code.config.settings import Settings
+from free_claude_code.config.settings import Settings
 from smoke.lib import child_process
 from smoke.lib import e2e as smoke_e2e
 from smoke.lib import http as smoke_http
@@ -22,7 +22,7 @@ def test_fxc_server_command_uses_cli_entrypoint() -> None:
     assert cmd_fxc_server() == [
         child_process.python_exe(),
         "-c",
-        "from free_xeron_code.cli.entrypoints import serve; serve()",
+        "from free_claude_code.cli.entrypoints import serve; serve()",
     ]
 
 

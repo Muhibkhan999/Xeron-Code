@@ -5,9 +5,9 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.provider_catalog import NARAROUTE_DEFAULT_BASE
-from free_xeron_code.core.reasoning import ReasoningCapability
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.provider_catalog import NARAROUTE_DEFAULT_BASE
+from free_claude_code.core.reasoning import ReasoningCapability
 from tests.providers.support import (
     immediate_admission,
     make_provider_config,

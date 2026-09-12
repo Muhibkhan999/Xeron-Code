@@ -2,8 +2,8 @@ import asyncio
 
 import pytest
 
-from free_xeron_code.messaging.models import MessageScope
-from free_xeron_code.messaging.voice import (
+from free_claude_code.messaging.models import MessageScope
+from free_claude_code.messaging.voice import (
     PendingVoiceClaim,
     PendingVoiceRegistry,
     VoiceCancellationResult,

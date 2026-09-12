@@ -5,8 +5,8 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
 from typing import cast
 
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.history_replay import (
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.history_replay import (
     has_readable_replay,
     is_replay,
     readable_reasoning,
@@ -14,16 +14,16 @@ from free_xeron_code.core.history_replay import (
     reasoning_detail,
     tool_history_context,
 )
-from free_xeron_code.core.json_types import JsonObject, JsonValue
-from free_xeron_code.core.openai_chat import (
+from free_claude_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.openai_chat import (
     IMAGE_TOOL_RESULT_MARKER,
     ChatToolResultImages,
     close_chat_tool_result_turns,
     computer_screenshot_label,
     image_tool_result_label,
 )
-from free_xeron_code.core.openai_tool_names import OpenAIToolNameCodec
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.openai_tool_names import OpenAIToolNameCodec
+from free_claude_code.core.trace import trace_event
 
 from .errors import ResponsesConversionError
 from .models import OpenAIResponsesRequest

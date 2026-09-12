@@ -5,7 +5,7 @@ import uuid
 from dataclasses import dataclass
 from unittest.mock import AsyncMock
 
-from free_xeron_code.application.code_sessions.models import (
+from free_claude_code.application.code_sessions.models import (
     CodeCatalog,
     CodeConflictError,
     CodeMode,
@@ -20,11 +20,11 @@ from free_xeron_code.application.code_sessions.models import (
     PromptRequest,
     RunStatus,
 )
-from free_xeron_code.application.code_sessions.ports import EventSink, HarnessSelection
-from free_xeron_code.config.model_refs import split_provider_model_ref
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.runtime.codex_app_server import CodexAppServer
-from free_xeron_code.runtime.codex_protocol import CodexProtocol
+from free_claude_code.application.code_sessions.ports import EventSink, HarnessSelection
+from free_claude_code.config.model_refs import split_provider_model_ref
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.runtime.codex_app_server import CodexAppServer
+from free_claude_code.runtime.codex_protocol import CodexProtocol
 
 
 class CodexPackets:

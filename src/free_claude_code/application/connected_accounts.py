@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from enum import StrEnum
 from typing import Protocol
 
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 
 class ConnectedAccountLoginMode(StrEnum):

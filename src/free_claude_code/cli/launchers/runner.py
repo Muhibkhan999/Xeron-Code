@@ -10,9 +10,9 @@ from contextlib import ExitStack
 from dataclasses import dataclass, field
 from typing import Literal
 
-from free_xeron_code.config.loader import get_settings
-from free_xeron_code.config.server_urls import local_proxy_root_url
-from free_xeron_code.config.settings import Settings
+from free_claude_code.config.loader import get_settings
+from free_claude_code.config.server_urls import local_proxy_root_url
+from free_claude_code.config.settings import Settings
 
 from .common import preflight_proxy, resolve_client_binary, run_client_process
 from .model_catalog import (

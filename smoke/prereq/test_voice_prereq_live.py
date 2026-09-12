@@ -5,9 +5,9 @@ from pathlib import Path
 
 import pytest
 
-from free_xeron_code.messaging.transcription import TranscriptionService
-from free_xeron_code.messaging.voice import Transcriber
-from free_xeron_code.providers.nvidia_nim.voice import NvidiaNimTranscriber
+from free_claude_code.messaging.transcription import TranscriptionService
+from free_claude_code.messaging.voice import Transcriber
+from free_claude_code.providers.nvidia_nim.voice import NvidiaNimTranscriber
 from smoke.lib.config import SmokeConfig
 
 pytestmark = [pytest.mark.live, pytest.mark.smoke_target("voice")]

@@ -4,7 +4,7 @@ from urllib.parse import urlsplit
 
 from playwright.sync_api import Error, Page, Request, expect
 
-from free_xeron_code.core.version import package_version
+from free_claude_code.core.version import package_version
 
 
 def test_selected_admin_tab_survives_refresh_and_browser_navigation(

@@ -3,7 +3,7 @@
 import sys
 from collections.abc import Sequence
 
-from free_xeron_code.core.version import package_version
+from free_claude_code.core.version import package_version
 
 
 def serve(argv: Sequence[str] | None = None) -> None:
@@ -12,7 +12,7 @@ def serve(argv: Sequence[str] | None = None) -> None:
         return
 
     # Keep the server composition root off metadata-only command paths.
-    from free_xeron_code.cli.commands import serve as run_server
+    from free_claude_code.cli.commands import serve as run_server
 
     run_server()
 

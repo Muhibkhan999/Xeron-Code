@@ -9,21 +9,21 @@ from openai.lib.streaming.responses._responses import ResponseStreamState
 from openai.types.responses import ResponseStreamEvent
 from pydantic import TypeAdapter
 
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.anthropic.stream_contracts import parse_sse_text
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.anthropic.stream_contracts import parse_sse_text
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_responses import (
     OpenAIResponsesRequest,
     ResponsesConversionError,
     ResponsesToolAdapter,
     ResponsesToolPolicy,
     build_responses_chat_request,
 )
-from free_xeron_code.providers.openai_chat.stream_output import (
+from free_claude_code.providers.openai_chat.stream_output import (
     ChatStreamUsage,
     ResponsesChatStreamOutput,
 )
-from free_xeron_code.providers.openai_responses.presentation import (
+from free_claude_code.providers.openai_responses.presentation import (
     NativeResponsesPresenter,
 )
 from tests.providers.test_opencode import _responses_event_stream

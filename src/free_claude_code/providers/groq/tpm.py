@@ -4,7 +4,7 @@ import re
 from collections.abc import Mapping
 from dataclasses import dataclass
 
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 _MAX_DECIMAL_DIGITS = 19
 _TPM_PREFIX = r"(?<![a-z])tokens\s+per\s+minute\s*\(\s*tpm\s*\)\s*:\s*"

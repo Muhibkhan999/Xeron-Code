@@ -6,22 +6,22 @@ from typing import Any, cast
 
 import pytest
 
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.anthropic.conversion import AnthropicToOpenAIConverter
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.history_replay import (
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.anthropic.conversion import AnthropicToOpenAIConverter
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.history_replay import (
     HistoryScope,
     ReplayOrigin,
     prepare_history,
 )
-from free_xeron_code.core.openai_responses.chat_request import (
+from free_claude_code.core.openai_responses.chat_request import (
     build_responses_chat_request,
 )
-from free_xeron_code.core.openai_responses.models import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningPolicy
-from free_xeron_code.providers.deepseek.client import DeepSeekProvider
-from free_xeron_code.providers.deepseek.compat import finalize_deepseek_chat_body
-from free_xeron_code.providers.open_router import OpenRouterProvider
+from free_claude_code.core.openai_responses.models import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningPolicy
+from free_claude_code.providers.deepseek.client import DeepSeekProvider
+from free_claude_code.providers.deepseek.compat import finalize_deepseek_chat_body
+from free_claude_code.providers.open_router import OpenRouterProvider
 from tests.providers.support import immediate_admission, make_provider_config
 
 
@@ -376,7 +376,7 @@ def test_completed_native_hosted_tools_become_readable_chat_history():
 
 @pytest.mark.parametrize("wire", ["messages", "responses"])
 def test_malformed_carrier_fails_preflight_before_inference(wire):
-    from free_xeron_code.application.errors import InvalidRequestError
+    from free_claude_code.application.errors import InvalidRequestError
 
     provider = OpenRouterProvider(
         make_provider_config(api_key="synthetic", base_url="https://example.org/v1"),

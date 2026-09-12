@@ -8,12 +8,12 @@ from typing import Any, cast
 
 import pytest
 
-from free_xeron_code.cli.launchers.codex import codex_config_args
-from free_xeron_code.cli.launchers.codex_model_catalog import (
+from free_claude_code.cli.launchers.codex import codex_config_args
+from free_claude_code.cli.launchers.codex_model_catalog import (
     build_codex_model_catalog,
     write_codex_model_catalog,
 )
-from free_xeron_code.cli.launchers.model_catalog import client_models_from_response
+from free_claude_code.cli.launchers.model_catalog import client_models_from_response
 
 
 def _models_payload(*model_ids: str) -> dict[str, Any]:

@@ -1,6 +1,6 @@
 """Safe metadata summaries for HTTP 422 validation logging (no raw text content)."""
 
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.core.json_types import JsonObject
 
 
 def summarize_request_validation_body(

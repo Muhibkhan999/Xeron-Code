@@ -5,20 +5,20 @@ from typing import Any
 
 from loguru import logger
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
-from free_xeron_code.core.anthropic import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
+from free_claude_code.core.anthropic import (
     ReasoningReplayMode,
     dump_messages_request,
     serialize_tool_result_content,
 )
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.reasoning import (
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.reasoning import (
     ReasoningControl,
     ReasoningEffort,
     ReasoningPolicy,
 )
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.providers.openai_chat import (
     OpenAIChatRequestPolicy,
     build_openai_chat_request_body,
 )

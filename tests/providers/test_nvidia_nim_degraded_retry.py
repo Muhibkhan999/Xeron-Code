@@ -6,20 +6,20 @@ import httpx2
 import openai
 import pytest
 
-from free_xeron_code.config.nim import NimSettings
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.providers.admission import (
+from free_claude_code.config.nim import NimSettings
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.providers.admission import (
     UPSTREAM_TRANSIENT_TOTAL_ATTEMPTS,
     ProviderAdmissionController,
     ProviderOperationKind,
 )
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.failure_policy import (
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.failure_policy import (
     overloaded_provider_failure,
     retryable_upstream_status,
 )
-from free_xeron_code.providers.nvidia_nim import NvidiaNimProvider
-from free_xeron_code.providers.open_router import OpenRouterProvider
+from free_claude_code.providers.nvidia_nim import NvidiaNimProvider
+from free_claude_code.providers.open_router import OpenRouterProvider
 from tests.providers.request_factory import make_messages_request
 from tests.providers.support import make_provider_config
 
@@ -169,7 +169,7 @@ async def test_degraded_function_exhaustion_is_detailed_redacted_overload() -> N
             new_callable=AsyncMock,
             side_effect=error,
         ) as create,
-        patch("free_xeron_code.providers.openai_chat.provider.trace_event") as trace,
+        patch("free_claude_code.providers.openai_chat.provider.trace_event") as trace,
         pytest.raises(ExecutionFailure) as exc_info,
     ):
         [

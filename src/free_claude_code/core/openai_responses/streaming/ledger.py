@@ -3,7 +3,7 @@
 from collections.abc import Mapping
 from typing import Any
 
-from free_xeron_code.core.token_estimation import estimate_text_tokens
+from free_claude_code.core.token_estimation import estimate_text_tokens
 
 from .blocks import BlockState
 

@@ -2,7 +2,7 @@
 
 from collections.abc import Iterable
 
-from free_xeron_code.core.failures import FailureKind
+from free_claude_code.core.failures import FailureKind
 
 
 class ApplicationError(Exception):

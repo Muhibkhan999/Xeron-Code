@@ -2,11 +2,11 @@
 
 import pytest
 
-from free_xeron_code.messaging.models import MessageScope
-from free_xeron_code.messaging.trees.graph import MessageTreeGraph
-from free_xeron_code.messaging.trees.node import MessageNode, MessageState
-from free_xeron_code.messaging.trees.queue import MessageNodeQueue
-from free_xeron_code.messaging.trees.snapshot import (
+from free_claude_code.messaging.models import MessageScope
+from free_claude_code.messaging.trees.graph import MessageTreeGraph
+from free_claude_code.messaging.trees.node import MessageNode, MessageState
+from free_claude_code.messaging.trees.queue import MessageNodeQueue
+from free_claude_code.messaging.trees.snapshot import (
     TreeSnapshot,
     node_from_snapshot,
     node_to_snapshot,

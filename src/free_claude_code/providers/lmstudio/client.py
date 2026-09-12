@@ -16,24 +16,24 @@ import time
 import httpx
 from loguru import logger
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic import ReasoningReplayMode, get_token_count
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic import ReasoningReplayMode, get_token_count
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.openai_responses import (
     OpenAIResponsesRequest,
     estimate_responses_input_tokens,
 )
-from free_xeron_code.core.reasoning import (
+from free_claude_code.core.reasoning import (
     DEFAULT_REASONING_POLICY,
     ReasoningEffort,
     ReasoningPolicy,
 )
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.failure_policy import (
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.failure_policy import (
     context_window_exceeded_provider_failure,
 )
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.providers.openai_chat import (
     NamedEffortReasoning,
     OpenAIChatProfile,
     OpenAIChatProvider,

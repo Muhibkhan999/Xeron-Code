@@ -3,9 +3,9 @@ import json
 
 import pytest
 
-from free_xeron_code.api.handlers.classifier_response import classifier_response
-from free_xeron_code.core.anthropic.stream_contracts import parse_sse_text
-from free_xeron_code.core.anthropic.streaming import format_sse_event
+from free_claude_code.api.handlers.classifier_response import classifier_response
+from free_claude_code.core.anthropic.stream_contracts import parse_sse_text
+from free_claude_code.core.anthropic.streaming import format_sse_event
 
 
 def wire(payloads):

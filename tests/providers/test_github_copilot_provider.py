@@ -10,37 +10,37 @@ import httpx
 import httpx2
 import pytest
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.stream_contracts import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.stream_contracts import (
     assert_anthropic_stream_contract,
     parse_sse_text,
     text_content,
 )
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.core.history_replay import (
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.core.history_replay import (
     ReplayOrigin,
     ReplayRecord,
     encode_replay,
 )
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_responses import (
     OpenAIResponsesRequest,
 )
-from free_xeron_code.core.reasoning import (
+from free_claude_code.core.reasoning import (
     DEFAULT_REASONING_POLICY,
     ReasoningCapability,
     ReasoningEffort,
     ReasoningPolicy,
 )
-from free_xeron_code.providers.anthropic_messages.request_policy import (
+from free_claude_code.providers.anthropic_messages.request_policy import (
     MessagesModelCapabilities,
 )
-from free_xeron_code.providers.endpoint import HttpEndpoint
-from free_xeron_code.providers.github_copilot.auth import CopilotAuthManager
-from free_xeron_code.providers.github_copilot.provider import GitHubCopilotProvider
-from free_xeron_code.providers.github_copilot.types import (
+from free_claude_code.providers.endpoint import HttpEndpoint
+from free_claude_code.providers.github_copilot.auth import CopilotAuthManager
+from free_claude_code.providers.github_copilot.provider import GitHubCopilotProvider
+from free_claude_code.providers.github_copilot.types import (
     CopilotEgress,
     CopilotEndpoint,
     CopilotModel,

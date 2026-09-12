@@ -4,10 +4,10 @@ from collections.abc import Mapping
 from copy import deepcopy
 from typing import Any
 
-from free_xeron_code.core.reasoning import ReasoningPolicy
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.core.reasoning import ReasoningPolicy
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.openai_chat import (
     OpenAIAsyncCredentialProvider,
     OpenAIChatProfile,
     OpenAIChatProvider,

@@ -6,9 +6,9 @@ from dataclasses import dataclass
 from typing import Literal
 from urllib.request import Request
 
-from free_xeron_code.cli.local_http import open_local_request
-from free_xeron_code.core.json_types import JsonObject, JsonValue
-from free_xeron_code.core.model_capabilities import ModelInputModality
+from free_claude_code.cli.local_http import open_local_request
+from free_claude_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.model_capabilities import ModelInputModality
 
 from .common import PROXY_PREFLIGHT_TIMEOUT_SECONDS
 

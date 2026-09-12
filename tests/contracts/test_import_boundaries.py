@@ -7,8 +7,8 @@ from dataclasses import dataclass
 from pathlib import Path
 
 _REPO_ROOT = Path(__file__).resolve().parents[2]
-_PACKAGE_ROOT = _REPO_ROOT / "src" / "free_xeron_code"
-_PACKAGE_NAME = "free_xeron_code"
+_PACKAGE_ROOT = _REPO_ROOT / "src" / "free_claude_code"
+_PACKAGE_NAME = "free_claude_code"
 
 ALLOWED_PACKAGE_DEPENDENCIES: dict[str, set[str]] = {
     "config": {"core"},
@@ -31,8 +31,8 @@ ALLOWED_PACKAGE_DEPENDENCIES: dict[str, set[str]] = {
 
 IMPORT_EXCEPTIONS: dict[tuple[str, str], str] = {
     (
-        "free_xeron_code.cli.commands",
-        "free_xeron_code.runtime.bootstrap",
+        "free_claude_code.cli.commands",
+        "free_claude_code.runtime.bootstrap",
     ): (
         "Owner: installed server command. "
         "Reason: the command delegates construction to the process composition root."
@@ -40,16 +40,16 @@ IMPORT_EXCEPTIONS: dict[tuple[str, str], str] = {
 }
 
 FACADE_ONLY_BOUNDARIES = {
-    "free_xeron_code.core.openai_responses",
-    "free_xeron_code.messaging.trees",
-    "free_xeron_code.providers.openai_chat",
+    "free_claude_code.core.openai_responses",
+    "free_claude_code.messaging.trees",
+    "free_claude_code.providers.openai_chat",
 }
 
 OPTIONAL_IMPORT_OWNERS = {
-    "librosa": "free_xeron_code.messaging.transcription",
-    "torch": "free_xeron_code.messaging.transcription",
-    "transformers": "free_xeron_code.messaging.transcription",
-    "riva": "free_xeron_code.providers.nvidia_nim.voice",
+    "librosa": "free_claude_code.messaging.transcription",
+    "torch": "free_claude_code.messaging.transcription",
+    "transformers": "free_claude_code.messaging.transcription",
+    "riva": "free_claude_code.providers.nvidia_nim.voice",
 }
 
 
@@ -124,14 +124,14 @@ class _ImportVisitor(ast.NodeVisitor):
 
 def test_api_configuration_access_goes_through_runtime() -> None:
     storage_modules = {
-        "free_xeron_code.config.loader",
-        "free_xeron_code.config.env_files",
-        "free_xeron_code.config.env_migrations",
+        "free_claude_code.config.loader",
+        "free_claude_code.config.env_files",
+        "free_claude_code.config.env_migrations",
     }
     offenders = [
         record.describe()
         for record in _scan_imports(_PACKAGE_ROOT)
-        if record.importer.startswith("free_xeron_code.api.")
+        if record.importer.startswith("free_claude_code.api.")
         and record.imported in storage_modules
     ]
     assert not offenders, (
@@ -292,16 +292,16 @@ def test_provider_backchannel_detector_reports_untyped_private_access(
 
 def test_legacy_first_party_import_detector_rejects_bare_owner_names() -> None:
     record = ImportRecord(
-        importer="free_xeron_code.api.routes",
+        importer="free_claude_code.api.routes",
         imported="core.anthropic",
-        path="free_xeron_code/api/routes.py",
+        path="free_claude_code/api/routes.py",
         line=7,
         inside_function=False,
     )
 
     assert _legacy_first_party_import_offenders([record], {"api", "core"}) == [
-        "free_xeron_code/api/routes.py:7: "
-        "free_xeron_code.api.routes -> core.anthropic"
+        "free_claude_code/api/routes.py:7: "
+        "free_claude_code.api.routes -> core.anthropic"
     ]
 
 
@@ -508,8 +508,8 @@ def test_core_does_not_import_provider_transport_sdks() -> None:
         record.describe()
         for record in _scan_imports(_PACKAGE_ROOT)
         if (
-            record.importer == "free_xeron_code.core"
-            or record.importer.startswith("free_xeron_code.core.")
+            record.importer == "free_claude_code.core"
+            or record.importer.startswith("free_claude_code.core.")
         )
         and record.imported.split(".", 1)[0] in forbidden_roots
     ]
@@ -571,8 +571,8 @@ def test_runtime_imports_without_optional_voice_dependencies() -> None:
             "            raise ModuleNotFoundError(fullname)",
             "        return None",
             "sys.meta_path.insert(0, Blocker())",
-            "import free_xeron_code.runtime.bootstrap",
-            "import free_xeron_code.api.app",
+            "import free_claude_code.runtime.bootstrap",
+            "import free_claude_code.api.app",
         )
     )
 
@@ -587,13 +587,13 @@ def test_runtime_imports_without_optional_voice_dependencies() -> None:
 
 
 def test_supported_messaging_facade_is_explicit() -> None:
-    import free_xeron_code.messaging as facade
-    from free_xeron_code.messaging.managed_protocols import (
+    import free_claude_code.messaging as facade
+    from free_claude_code.messaging.managed_protocols import (
         ManagedClaudeSessionManagerProtocol,
         ManagedClaudeSessionProtocol,
     )
-    from free_xeron_code.messaging.models import IncomingMessage, MessageScope
-    from free_xeron_code.messaging.platforms.ports import OutboundMessenger
+    from free_claude_code.messaging.models import IncomingMessage, MessageScope
+    from free_claude_code.messaging.platforms.ports import OutboundMessenger
 
     expected = {
         "IncomingMessage": IncomingMessage,
@@ -608,7 +608,7 @@ def test_supported_messaging_facade_is_explicit() -> None:
 
 
 def test_message_tree_mutability_stays_behind_its_facade() -> None:
-    import free_xeron_code.messaging.trees as facade
+    import free_claude_code.messaging.trees as facade
 
     for internal_owner in {
         "MessageNode",

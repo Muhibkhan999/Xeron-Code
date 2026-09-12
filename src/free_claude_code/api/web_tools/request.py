@@ -3,8 +3,8 @@
 import re
 from dataclasses import dataclass
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.core.anthropic import MessagesRequest, Tool
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.core.anthropic import MessagesRequest, Tool
 
 from .parsers import content_text
 

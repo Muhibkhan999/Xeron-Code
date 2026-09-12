@@ -10,23 +10,23 @@ from typing import Any
 import httpx2
 from openai import AsyncOpenAI
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
-from free_xeron_code.providers.admission import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
+from free_claude_code.providers.admission import (
     ProviderAdmissionController,
     ProviderOperationKind,
 )
-from free_xeron_code.providers.base import BaseProvider, ProviderConfig
-from free_xeron_code.providers.endpoint import RequestEndpoint
-from free_xeron_code.providers.http import ProviderAttemptScope
-from free_xeron_code.providers.model_listing import (
+from free_claude_code.providers.base import BaseProvider, ProviderConfig
+from free_claude_code.providers.endpoint import RequestEndpoint
+from free_claude_code.providers.http import ProviderAttemptScope
+from free_claude_code.providers.model_listing import (
     optional_input_modalities,
     optional_positive_int,
     reasoning_capability_from_options,
 )
-from free_xeron_code.providers.openai_responses import OpenAIResponsesTransport
+from free_claude_code.providers.openai_responses import OpenAIResponsesTransport
 
 from .auth import OpenAIAuthManager
 from .endpoint import CodexEndpointContext

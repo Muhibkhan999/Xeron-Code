@@ -6,21 +6,21 @@ from typing import Any
 
 import pytest
 
-from free_xeron_code.config.nim import NimSettings
-from free_xeron_code.core.anthropic import set_if_not_none
-from free_xeron_code.core.anthropic.models import MessagesRequest, Tool
-from free_xeron_code.core.reasoning import ReasoningEffort, ReasoningPolicy
-from free_xeron_code.providers.nvidia_nim.request_options import (
+from free_claude_code.config.nim import NimSettings
+from free_claude_code.core.anthropic import set_if_not_none
+from free_claude_code.core.anthropic.models import MessagesRequest, Tool
+from free_claude_code.core.reasoning import ReasoningEffort, ReasoningPolicy
+from free_claude_code.providers.nvidia_nim.request_options import (
     _set_extra,
 )
-from free_xeron_code.providers.nvidia_nim.request_options import (
+from free_claude_code.providers.nvidia_nim.request_options import (
     build_nim_request_body as build_request_body,
 )
-from free_xeron_code.providers.nvidia_nim.retry import (
+from free_claude_code.providers.nvidia_nim.retry import (
     clone_body_without_chat_template,
     clone_body_without_reasoning_content,
 )
-from free_xeron_code.providers.nvidia_nim.tool_schema import (
+from free_claude_code.providers.nvidia_nim.tool_schema import (
     NIM_TOOL_ARGUMENT_ALIASES_KEY,
     body_without_nim_tool_argument_aliases,
     nim_tool_argument_aliases_from_body,

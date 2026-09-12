@@ -2,7 +2,7 @@
 
 from collections.abc import Mapping
 
-from free_xeron_code.cli.environment import client_environment
+from free_claude_code.cli.environment import client_environment
 
 XERON_CODE_AUTO_COMPACT_WINDOW = "190000"
 XERON_BINARY_NAME = "claude"

@@ -12,17 +12,17 @@ import httpx2
 from loguru import logger
 from openai import AsyncOpenAI, DefaultAsyncHttpx2Client
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic import (
     ContentBlockToolUse,
     ContentType,
     FunctionTagToolParser,
     HeuristicToolParser,
     ThinkTagParser,
 )
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.streaming import (
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.streaming import (
     ToolSchema,
     accept_tool_json_repair,
     continuation_suffix,
@@ -33,36 +33,36 @@ from free_xeron_code.core.anthropic.streaming import (
     parse_complete_tool_input,
     tool_schemas_by_name,
 )
-from free_xeron_code.core.anthropic.usage import anthropic_input_usage_fields
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.history_replay import HistoryScope, prepare_history
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.anthropic.usage import anthropic_input_usage_fields
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.history_replay import HistoryScope, prepare_history
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_responses import (
     OpenAIResponsesRequest,
     ResponsesChatRequest,
     ResponsesConversionError,
     build_responses_chat_request,
 )
-from free_xeron_code.core.openai_tool_names import (
+from free_claude_code.core.openai_tool_names import (
     OpenAIToolNameCodec,
     encode_openai_chat_tool_names,
 )
-from free_xeron_code.core.reasoning import (
+from free_claude_code.core.reasoning import (
     DEFAULT_REASONING_POLICY,
     ReasoningControl,
     ReasoningPolicy,
 )
-from free_xeron_code.core.trace import provider_chat_body_snapshot, trace_event
-from free_xeron_code.providers.admission import (
+from free_claude_code.core.trace import provider_chat_body_snapshot, trace_event
+from free_claude_code.providers.admission import (
     ProviderAdmissionController,
     ProviderAttempt,
     ProviderCorrectionAction,
     ProviderExecution,
     ProviderOperationKind,
 )
-from free_xeron_code.providers.base import BaseProvider, ProviderConfig
-from free_xeron_code.providers.endpoint import EndpointContext, RequestEndpoint
-from free_xeron_code.providers.failure_policy import (
+from free_claude_code.providers.base import BaseProvider, ProviderConfig
+from free_claude_code.providers.endpoint import EndpointContext, RequestEndpoint
+from free_claude_code.providers.failure_policy import (
     RetryableToolProtocolError,
     classify_provider_failure,
     context_window_exceeded_provider_failure,
@@ -70,27 +70,27 @@ from free_xeron_code.providers.failure_policy import (
     is_retryable_stream_error,
     underlying_provider_error,
 )
-from free_xeron_code.providers.history_replay import (
+from free_claude_code.providers.history_replay import (
     history_retry_body,
     replay_origin,
     validate_history,
 )
-from free_xeron_code.providers.http import (
+from free_claude_code.providers.http import (
     ProviderAttemptScope,
     close_provider_stream,
     maybe_await_aclose,
 )
-from free_xeron_code.providers.model_listing import (
+from free_claude_code.providers.model_listing import (
     extract_openai_model_infos,
     merge_model_list_pages,
     model_infos_from_ids,
     validate_model_list_page,
 )
-from free_xeron_code.providers.reasoning_compatibility import (
+from free_claude_code.providers.reasoning_compatibility import (
     ReasoningCorrection,
     prepare_messages_reasoning,
 )
-from free_xeron_code.providers.stream_recovery import (
+from free_claude_code.providers.stream_recovery import (
     RecoveryController,
     RecoveryFailureAction,
     TruncatedProviderStreamError,

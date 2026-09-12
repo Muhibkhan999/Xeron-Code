@@ -4,11 +4,11 @@ from collections.abc import AsyncIterator, Mapping
 
 import pytest
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic.models import Message, MessagesRequest
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
-from free_xeron_code.providers.base import BaseProvider
-from free_xeron_code.providers.openai_chat import OpenAIChatProvider
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic.models import Message, MessagesRequest
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
+from free_claude_code.providers.base import BaseProvider
+from free_claude_code.providers.openai_chat import OpenAIChatProvider
 from tests.providers.support import make_provider_config
 
 

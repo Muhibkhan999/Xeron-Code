@@ -4,7 +4,7 @@ import asyncio
 from collections.abc import AsyncIterator
 from dataclasses import dataclass
 
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.core.json_types import JsonObject
 
 
 @dataclass(frozen=True, slots=True)

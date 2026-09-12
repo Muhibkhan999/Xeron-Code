@@ -8,18 +8,18 @@ from typing import Any
 import openai
 from loguru import logger
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.nim import NimSettings
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.failure_policy import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.nim import NimSettings
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.failure_policy import (
     context_window_exceeded_provider_failure,
     overloaded_provider_failure,
 )
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.providers.openai_chat import (
     NO_REASONING,
     OpenAIChatProfile,
     OpenAIChatProvider,

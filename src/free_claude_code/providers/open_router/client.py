@@ -2,22 +2,22 @@
 
 import json
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.diagnostics import extract_upstream_error_detail
-from free_xeron_code.core.reasoning import ReasoningEffort
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.model_listing import extract_tool_capable_model_infos
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.diagnostics import extract_upstream_error_detail
+from free_claude_code.core.reasoning import ReasoningEffort
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.model_listing import extract_tool_capable_model_infos
+from free_claude_code.providers.openai_chat import (
     OpenAIChatProfile,
     OpenAIChatProvider,
     OpenAIChatRequestPolicy,
     ReasoningObject,
     validate_extra_body_does_not_override_canonical_fields,
 )
-from free_xeron_code.providers.reasoning_compatibility import (
+from free_claude_code.providers.reasoning_compatibility import (
     reasoning_control_rejected,
 )
 

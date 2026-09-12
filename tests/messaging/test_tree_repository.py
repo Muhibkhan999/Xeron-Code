@@ -4,8 +4,8 @@ import asyncio
 
 import pytest
 
-from free_xeron_code.messaging.models import IncomingMessage, MessageScope
-from free_xeron_code.messaging.trees import (
+from free_claude_code.messaging.models import IncomingMessage, MessageScope
+from free_claude_code.messaging.trees import (
     ConversationSnapshot,
     MessageState,
     NodeClaim,
@@ -13,8 +13,8 @@ from free_xeron_code.messaging.trees import (
     TreeQueueManager,
     TreeSnapshot,
 )
-from free_xeron_code.messaging.trees.node import MessageNode
-from free_xeron_code.messaging.trees.snapshot import node_to_snapshot
+from free_claude_code.messaging.trees.node import MessageNode
+from free_claude_code.messaging.trees.snapshot import node_to_snapshot
 
 TELEGRAM_CHAT = MessageScope(platform="telegram", chat_id="chat")
 ROOT_IDENTITY = TreeIdentity(scope=TELEGRAM_CHAT, root_id="root")

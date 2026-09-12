@@ -2,8 +2,8 @@
 
 from typing import Any
 
-from free_xeron_code.core.diagnostics import redact_sensitive_error_text
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.diagnostics import redact_sensitive_error_text
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
 
 _ANTHROPIC_ERROR_STATUS_CODES = {
     "invalid_request_error": 400,

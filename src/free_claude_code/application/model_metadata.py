@@ -2,8 +2,8 @@
 
 from dataclasses import dataclass
 
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.core.reasoning import ReasoningCapability
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.reasoning import ReasoningCapability
 
 
 @dataclass(frozen=True, slots=True)

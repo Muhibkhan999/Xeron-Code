@@ -8,16 +8,16 @@ from types import MappingProxyType
 
 import httpx
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.core.reasoning import ReasoningCapability
-from free_xeron_code.providers.admission import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.reasoning import ReasoningCapability
+from free_claude_code.providers.admission import (
     ProviderAdmissionController,
     ProviderOperationKind,
 )
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.failure_policy import classify_provider_failure
-from free_xeron_code.providers.model_listing import (
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.failure_policy import classify_provider_failure
+from free_claude_code.providers.model_listing import (
     ModelListResponseError,
     optional_input_modalities,
     optional_positive_int,

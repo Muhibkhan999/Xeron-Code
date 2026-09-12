@@ -2,21 +2,21 @@
 
 from pathlib import Path
 
-from free_xeron_code.api.model_catalog import (
+from free_claude_code.api.model_catalog import (
     ModelCatalogView,
     build_models_list_response,
 )
-from free_xeron_code.application.ports import RequestRuntimePort
-from free_xeron_code.cli.launchers.codex_model_catalog import (
+from free_claude_code.application.ports import RequestRuntimePort
+from free_claude_code.cli.launchers.codex_model_catalog import (
     build_codex_model_catalog,
     write_codex_model_catalog,
 )
-from free_xeron_code.cli.launchers.model_catalog import (
+from free_claude_code.cli.launchers.model_catalog import (
     ClientModel,
     client_models_from_response,
 )
-from free_xeron_code.config.paths import codex_model_catalog_path
-from free_xeron_code.config.settings import Settings
+from free_claude_code.config.paths import codex_model_catalog_path
+from free_claude_code.config.settings import Settings
 
 
 def current_codex_models(

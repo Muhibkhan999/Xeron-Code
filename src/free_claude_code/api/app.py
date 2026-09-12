@@ -6,25 +6,25 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from loguru import logger
 
-from free_xeron_code.application.code_sessions import (
+from free_claude_code.application.code_sessions import (
     CodeConflictError,
     CodeError,
     CodeNotFoundError,
     CodeUnavailableError,
     CodeValidationError,
 )
-from free_xeron_code.application.errors import ApplicationError
-from free_xeron_code.core.anthropic import anthropic_error_payload
-from free_xeron_code.core.diagnostics import (
+from free_claude_code.application.errors import ApplicationError
+from free_claude_code.core.anthropic import anthropic_error_payload
+from free_claude_code.core.diagnostics import (
     redacted_exception_traceback,
     safe_exception_message,
 )
-from free_xeron_code.core.openai_responses import openai_error_payload
-from free_xeron_code.core.trace import (
+from free_claude_code.core.openai_responses import openai_error_payload
+from free_claude_code.core.trace import (
     extract_claude_session_id_from_headers,
     trace_event,
 )
-from free_xeron_code.core.version import package_version
+from free_claude_code.core.version import package_version
 
 from .admin_cache import AdminNoStoreMiddleware, attach_admin_no_store
 from .admin_routes import router as admin_router

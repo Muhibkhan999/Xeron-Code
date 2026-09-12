@@ -9,26 +9,26 @@ import httpx2
 import pytest
 from openai import AuthenticationError
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.stream_contracts import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.stream_contracts import (
     assert_anthropic_stream_contract,
     parse_sse_text,
     text_content,
 )
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningEffort, ReasoningPolicy
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.openai_codex.auth import (
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningEffort, ReasoningPolicy
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.openai_codex.auth import (
     OpenAIAccess,
     OpenAIAuthManager,
     OpenAIReconnectRequired,
 )
-from free_xeron_code.providers.openai_codex.provider import OpenAICodexProvider
+from free_claude_code.providers.openai_codex.provider import OpenAICodexProvider
 from tests.providers.support import immediate_admission, make_provider_config
 
 
@@ -974,7 +974,7 @@ async def test_model_discovery_re_request_is_a_second_admitted_attempt() -> None
         _config(), auth=auth, admission=_admission(), transport=pool
     )
 
-    with patch("free_xeron_code.providers.admission.trace_event") as trace:
+    with patch("free_claude_code.providers.admission.trace_event") as trace:
         infos = await provider.list_model_infos()
 
     assert {info.model_id for info in infos} == {"gpt-visible"}

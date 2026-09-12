@@ -2,13 +2,13 @@ import json
 
 import pytest
 
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.openai_responses.native import (
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.openai_responses.native import (
     NativeResponsesRelay,
     build_native_responses_request,
 )
-from free_xeron_code.core.reasoning import ReasoningEffort, ReasoningPolicy
+from free_claude_code.core.reasoning import ReasoningEffort, ReasoningPolicy
 
 
 def _event_payload(frame: str) -> tuple[str, dict[str, object]]:

@@ -6,12 +6,12 @@ from collections.abc import AsyncGenerator
 
 from loguru import logger
 
-from free_xeron_code.cli.process_registry import (
+from free_claude_code.cli.process_registry import (
     kill_pid_tree_best_effort,
     register_pid,
     unregister_pid,
 )
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.trace import trace_event
 
 from .claude import (
     ManagedClaudeConfig,

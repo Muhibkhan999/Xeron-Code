@@ -9,7 +9,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from fastapi.sse import EventSourceResponse, ServerSentEvent
 from pydantic import BaseModel, ConfigDict, Field
 
-from free_xeron_code.application.code_sessions import (
+from free_claude_code.application.code_sessions import (
     CodeApplicationPort,
     CodeDetail,
     CodeItem,
@@ -19,11 +19,11 @@ from free_xeron_code.application.code_sessions import (
     CodeUnavailableError,
     CodeValidationError,
 )
-from free_xeron_code.application.code_sessions.models import CodeMode
-from free_xeron_code.application.errors import ApplicationUnavailableError
-from free_xeron_code.application.session_events import EventOverflowError
-from free_xeron_code.config.model_refs import split_provider_model_ref
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.application.code_sessions.models import CodeMode
+from free_claude_code.application.errors import ApplicationUnavailableError
+from free_claude_code.application.session_events import EventOverflowError
+from free_claude_code.config.model_refs import split_provider_model_ref
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 from .admin_routes import admin_page_response
 from .admin_security import require_loopback_admin

@@ -9,15 +9,15 @@ from unittest.mock import AsyncMock
 import httpx
 import pytest
 
-from free_xeron_code.api.app import create_app
-from free_xeron_code.api.ports import ApiServices
-from free_xeron_code.cli import commands
-from free_xeron_code.config.loader import ManagedConfigStore
-from free_xeron_code.providers.runtime import ProviderRuntime
-from free_xeron_code.runtime.application import ApplicationRuntime
-from free_xeron_code.runtime.asgi import RuntimeASGIApp
-from free_xeron_code.runtime.configuration import ConfigurationService
-from free_xeron_code.runtime.provider_manager import ProviderRuntimeManager
+from free_claude_code.api.app import create_app
+from free_claude_code.api.ports import ApiServices
+from free_claude_code.cli import commands
+from free_claude_code.config.loader import ManagedConfigStore
+from free_claude_code.providers.runtime import ProviderRuntime
+from free_claude_code.runtime.application import ApplicationRuntime
+from free_claude_code.runtime.asgi import RuntimeASGIApp
+from free_claude_code.runtime.configuration import ConfigurationService
+from free_claude_code.runtime.provider_manager import ProviderRuntimeManager
 
 
 @pytest.mark.parametrize("stop_during_commit", [False, True])

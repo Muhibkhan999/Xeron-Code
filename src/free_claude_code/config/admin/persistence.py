@@ -4,19 +4,19 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
 
-from free_xeron_code.config.env_files import (
+from free_claude_code.config.env_files import (
     FXC_CONFIG_SCHEMA_ENV,
 )
-from free_xeron_code.config.env_migrations import (
+from free_claude_code.config.env_migrations import (
     CONFIG_SCHEMA_VERSION,
     recognized_env_keys,
     render_managed_config,
 )
-from free_xeron_code.config.loader import ManagedConfigSnapshot
-from free_xeron_code.config.model_refs import normalize_retired_model_settings
-from free_xeron_code.config.provider_proxies import invalid_provider_proxy_keys
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.config.loader import ManagedConfigSnapshot
+from free_claude_code.config.model_refs import normalize_retired_model_settings
+from free_claude_code.config.provider_proxies import invalid_provider_proxy_keys
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.json_types import JsonObject
 
 from .manifest import FIELD_BY_KEY, FIELDS
 from .state import ConfigInputValue

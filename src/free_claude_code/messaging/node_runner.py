@@ -5,11 +5,11 @@ from collections.abc import Callable
 
 from loguru import logger
 
-from free_xeron_code.core.diagnostics import (
+from free_claude_code.core.diagnostics import (
     format_user_error_preview,
     safe_exception_message,
 )
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.trace import trace_event
 
 from .event_parser import parse_cli_event
 from .managed_protocols import ManagedClaudeSessionManagerProtocol

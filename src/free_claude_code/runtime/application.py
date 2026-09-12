@@ -12,44 +12,44 @@ from dataclasses import replace
 from anyio import to_thread
 from loguru import logger
 
-import free_xeron_code.cli.managed as cli_managed
-import free_xeron_code.messaging.session as messaging_session
-import free_xeron_code.messaging.workflow as messaging_workflow_module
-from free_xeron_code.application.code_sessions import CodeService
-from free_xeron_code.application.connected_accounts import (
+import free_claude_code.cli.managed as cli_managed
+import free_claude_code.messaging.session as messaging_session
+import free_claude_code.messaging.workflow as messaging_workflow_module
+from free_claude_code.application.code_sessions import CodeService
+from free_claude_code.application.connected_accounts import (
     ConnectedAccountLoginMode,
     ConnectedAccountPort,
     ConnectedAccountStatus,
 )
-from free_xeron_code.application.errors import (
+from free_claude_code.application.errors import (
     ApplicationUnavailableError,
     InvalidRequestError,
 )
-from free_xeron_code.application.model_metadata import ProviderModelRefreshResult
-from free_xeron_code.application.ports import StopResult
-from free_xeron_code.cli import codex_integration, vscode
-from free_xeron_code.config.admin.persistence import (
+from free_claude_code.application.model_metadata import ProviderModelRefreshResult
+from free_claude_code.application.ports import StopResult
+from free_claude_code.cli import codex_integration, vscode
+from free_claude_code.config.admin.persistence import (
     PreparedAdminUpdate,
 )
-from free_xeron_code.config.admin.state import ConfigInputValue, ValueState
-from free_xeron_code.config.admin.status import provider_config_status
-from free_xeron_code.config.loader import clear_settings_cache
-from free_xeron_code.config.model_refs import parse_provider_type
-from free_xeron_code.config.paths import (
+from free_claude_code.config.admin.state import ConfigInputValue, ValueState
+from free_claude_code.config.admin.status import provider_config_status
+from free_claude_code.config.loader import clear_settings_cache
+from free_claude_code.config.model_refs import parse_provider_type
+from free_claude_code.config.paths import (
     codex_model_catalog_path,
     messaging_state_dir_path,
 )
-from free_xeron_code.config.server_urls import local_admin_url, local_proxy_root_url
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.messaging.platforms import factory as messaging_platform_factory
-from free_xeron_code.messaging.platforms.factory import MessagingPlatformOptions
-from free_xeron_code.messaging.platforms.ports import (
+from free_claude_code.config.server_urls import local_admin_url, local_proxy_root_url
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.messaging.platforms import factory as messaging_platform_factory
+from free_claude_code.messaging.platforms.factory import MessagingPlatformOptions
+from free_claude_code.messaging.platforms.ports import (
     MessagingPlatformComponents,
     MessagingRuntime,
 )
-from free_xeron_code.messaging.voice import Transcriber
-from free_xeron_code.providers.credential_validation import (
+from free_claude_code.messaging.voice import Transcriber
+from free_claude_code.providers.credential_validation import (
     CredentialStatus,
     check_credentials,
 )

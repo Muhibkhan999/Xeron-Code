@@ -3,10 +3,10 @@
 import sys
 from collections.abc import AsyncIterator
 
-from free_xeron_code.core.anthropic.stream_contracts import SSEEvent
-from free_xeron_code.core.anthropic.streaming import format_sse_event
-from free_xeron_code.core.anthropic.streaming.decoder import AnthropicSSEDecoder
-from free_xeron_code.core.trace import close_stream_input
+from free_claude_code.core.anthropic.stream_contracts import SSEEvent
+from free_claude_code.core.anthropic.streaming import format_sse_event
+from free_claude_code.core.anthropic.streaming.decoder import AnthropicSSEDecoder
+from free_claude_code.core.trace import close_stream_input
 
 
 async def classifier_response(source: AsyncIterator[str]) -> AsyncIterator[str]:

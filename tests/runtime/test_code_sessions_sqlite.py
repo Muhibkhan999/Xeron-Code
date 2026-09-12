@@ -9,7 +9,7 @@ from typing import Literal
 import pytest
 import pytest_asyncio
 
-from free_xeron_code.application.code_sessions.models import (
+from free_claude_code.application.code_sessions.models import (
     CodeConflictError,
     CodeItem,
     CodePrompt,
@@ -17,7 +17,7 @@ from free_xeron_code.application.code_sessions.models import (
     CodeSession,
     CodeUnavailableError,
 )
-from free_xeron_code.runtime.code_sessions_sqlite import SQLiteCodeStore
+from free_claude_code.runtime.code_sessions_sqlite import SQLiteCodeStore
 
 
 @pytest.mark.asyncio

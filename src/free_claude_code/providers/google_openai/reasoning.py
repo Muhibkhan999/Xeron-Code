@@ -3,14 +3,14 @@
 from dataclasses import dataclass
 from typing import Any, cast
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.core.reasoning import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.core.reasoning import (
     DEFAULT_REASONING_POLICY,
     ReasoningControl,
     ReasoningEffort,
     ReasoningPolicy,
 )
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.providers.openai_chat import (
     validate_extra_body_does_not_override_reasoning_fields,
 )
 

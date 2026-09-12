@@ -3,8 +3,8 @@
 import re
 from urllib.parse import quote
 
-from free_xeron_code.application.errors import ApplicationUnavailableError
-from free_xeron_code.config.provider_catalog import VERTEX_AI_API_ROOT
+from free_claude_code.application.errors import ApplicationUnavailableError
+from free_claude_code.config.provider_catalog import VERTEX_AI_API_ROOT
 
 _LOCATION_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 

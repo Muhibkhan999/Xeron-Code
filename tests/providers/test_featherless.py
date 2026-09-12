@@ -7,15 +7,15 @@ import httpx2
 import pytest
 from openai import AsyncOpenAI
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
-from free_xeron_code.config.provider_catalog import FEATHERLESS_DEFAULT_BASE
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.core.reasoning import ReasoningPolicy
-from free_xeron_code.providers.model_listing import ModelListResponseError
-from free_xeron_code.providers.openai_chat import OpenAIChatProvider
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
+from free_claude_code.config.provider_catalog import FEATHERLESS_DEFAULT_BASE
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.reasoning import ReasoningPolicy
+from free_claude_code.providers.model_listing import ModelListResponseError
+from free_claude_code.providers.openai_chat import OpenAIChatProvider
 from tests.providers.support import (
     REASONING_OFF,
     REASONING_ON,
@@ -266,7 +266,7 @@ async def test_catalog_fetches_all_pages_filters_strictly_and_deduplicates_overl
         ]
     )
 
-    with patch("free_xeron_code.providers.admission.trace_event") as trace:
+    with patch("free_claude_code.providers.admission.trace_event") as trace:
         model_infos = await featherless_provider.list_model_infos()
 
     assert model_infos == frozenset(

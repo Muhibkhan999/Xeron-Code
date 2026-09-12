@@ -4,14 +4,14 @@ from unittest.mock import AsyncMock, patch
 
 import pytest
 
-from free_xeron_code.application.errors import ApplicationUnavailableError
-from free_xeron_code.config import loader
-from free_xeron_code.config.loader import ManagedConfigStore
-from free_xeron_code.config.paths import config_lock_path
-from free_xeron_code.core.interprocess_lock import InterprocessFileLock
-from free_xeron_code.runtime.application import ApplicationRuntime
-from free_xeron_code.runtime.configuration import ConfigurationService
-from free_xeron_code.runtime.provider_manager import ProviderRuntimeManager
+from free_claude_code.application.errors import ApplicationUnavailableError
+from free_claude_code.config import loader
+from free_claude_code.config.loader import ManagedConfigStore
+from free_claude_code.config.paths import config_lock_path
+from free_claude_code.core.interprocess_lock import InterprocessFileLock
+from free_claude_code.runtime.application import ApplicationRuntime
+from free_claude_code.runtime.configuration import ConfigurationService
+from free_claude_code.runtime.provider_manager import ProviderRuntimeManager
 from tests.runtime.test_application_runtime import _settings
 
 

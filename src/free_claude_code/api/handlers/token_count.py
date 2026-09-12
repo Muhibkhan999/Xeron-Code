@@ -3,24 +3,24 @@
 from fastapi import HTTPException
 from loguru import logger
 
-from free_xeron_code.api.request_errors import (
+from free_claude_code.api.request_errors import (
     http_status_for_unexpected_api_exception,
     log_unexpected_api_exception,
     require_non_empty_messages,
 )
-from free_xeron_code.api.request_ids import new_request_id
-from free_xeron_code.application.errors import ApplicationError
-from free_xeron_code.application.execution import TokenCounter
-from free_xeron_code.application.routing import ModelRouter
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic import (
+from free_claude_code.api.request_ids import new_request_id
+from free_claude_code.application.errors import ApplicationError
+from free_claude_code.application.execution import TokenCounter
+from free_claude_code.application.routing import ModelRouter
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic import (
     TokenCountRequest,
     TokenCountResponse,
     anthropic_request_snapshot,
     get_token_count,
 )
-from free_xeron_code.core.diagnostics import safe_exception_message
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.diagnostics import safe_exception_message
+from free_claude_code.core.trace import trace_event
 
 
 class TokenCountHandler:
@@ -51,7 +51,7 @@ class TokenCountHandler:
                 )
                 trace_event(
                     stage="routing",
-                    event="free_xeron_code.api.route.resolved",
+                    event="free_claude_code.api.route.resolved",
                     source="api",
                     request_id=request_id,
                     kind="count_tokens",
@@ -64,7 +64,7 @@ class TokenCountHandler:
                 request_snapshot["model"] = routed.resolved.original_model
                 trace_event(
                     stage="ingress",
-                    event="free_xeron_code.api.count_tokens.completed",
+                    event="free_claude_code.api.count_tokens.completed",
                     source="api",
                     request_id=request_id,
                     message_count=len(routed.request.messages),

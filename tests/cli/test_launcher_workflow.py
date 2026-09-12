@@ -8,9 +8,9 @@ from urllib.error import URLError
 
 import pytest
 
-from free_xeron_code.cli.launchers.aider_config import build_aider_config
-from free_xeron_code.cli.launchers.model_catalog import ClientModel
-from free_xeron_code.config.paths import codex_model_catalog_path
+from free_claude_code.cli.launchers.aider_config import build_aider_config
+from free_claude_code.cli.launchers.model_catalog import ClientModel
+from free_claude_code.config.paths import codex_model_catalog_path
 from tests.cli.conftest import LaunchCapture
 
 HARNESSES = (
@@ -28,7 +28,7 @@ HARNESSES = (
 
 
 def launch(name: str, args: list[str], exit_code: int = 23) -> None:
-    module = importlib.import_module(f"free_xeron_code.cli.launchers.{name}")
+    module = importlib.import_module(f"free_claude_code.cli.launchers.{name}")
     with pytest.raises(SystemExit) as exc:
         module.launch(args)
     assert exc.value.code == exit_code

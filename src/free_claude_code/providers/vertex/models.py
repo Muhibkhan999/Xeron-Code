@@ -3,7 +3,7 @@
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from free_xeron_code.providers.model_listing import ModelListResponseError
+from free_claude_code.providers.model_listing import ModelListResponseError
 
 
 def extract_vertex_model_page(payload: Any) -> tuple[frozenset[str], str | None]:

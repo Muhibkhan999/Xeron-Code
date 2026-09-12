@@ -3,14 +3,14 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from free_xeron_code.messaging.command_context import StopOutcome
-from free_xeron_code.messaging.models import IncomingMessage, MessageScope
-from free_xeron_code.messaging.node_event_pipeline import process_parsed_cli_event
-from free_xeron_code.messaging.rendering.telegram_markdown import (
+from free_claude_code.messaging.command_context import StopOutcome
+from free_claude_code.messaging.models import IncomingMessage, MessageScope
+from free_claude_code.messaging.node_event_pipeline import process_parsed_cli_event
+from free_claude_code.messaging.rendering.telegram_markdown import (
     escape_md_v2,
     render_markdown_to_mdv2,
 )
-from free_xeron_code.messaging.trees import (
+from free_claude_code.messaging.trees import (
     CancellationReason,
     CancellationResult,
     CancellationUiOwner,
@@ -24,8 +24,8 @@ from free_xeron_code.messaging.trees import (
     TreeIdentity,
     TreeSnapshot,
 )
-from free_xeron_code.messaging.trees.transitions import CancellationEffect
-from free_xeron_code.messaging.workflow import MessagingWorkflow
+from free_claude_code.messaging.trees.transitions import CancellationEffect
+from free_claude_code.messaging.workflow import MessagingWorkflow
 
 _SCOPE = MessageScope(platform="telegram", chat_id="c")
 

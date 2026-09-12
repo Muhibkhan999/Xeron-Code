@@ -9,19 +9,19 @@ import httpx2
 import pytest
 from openai import AsyncOpenAI
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.provider_catalog import CLINE_DEFAULT_BASE
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.stream_contracts import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.provider_catalog import CLINE_DEFAULT_BASE
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.stream_contracts import (
     parse_sse_text,
     text_content,
     thinking_content,
 )
-from free_xeron_code.core.history_replay import decode_replay
-from free_xeron_code.core.json_types import JsonObject, JsonValue
-from free_xeron_code.core.reasoning import ReasoningPolicy
-from free_xeron_code.providers.model_listing import ModelListResponseError
-from free_xeron_code.providers.openai_chat import OpenAIChatProvider
+from free_claude_code.core.history_replay import decode_replay
+from free_claude_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.reasoning import ReasoningPolicy
+from free_claude_code.providers.model_listing import ModelListResponseError
+from free_claude_code.providers.openai_chat import OpenAIChatProvider
 from tests.providers.support import (
     REASONING_DEFAULT,
     REASONING_OFF,
@@ -58,7 +58,7 @@ def _provider_with_transport(
         http_client=httpx2.AsyncClient(transport=transport),
     )
     with patch(
-        "free_xeron_code.providers.openai_chat.provider.AsyncOpenAI",
+        "free_claude_code.providers.openai_chat.provider.AsyncOpenAI",
         return_value=client,
     ):
         return profiled_provider(

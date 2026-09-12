@@ -8,20 +8,20 @@ import httpx2
 import openai
 import pytest
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.provider_catalog import GROQ_DEFAULT_BASE
-from free_xeron_code.core.anthropic.stream_contracts import (
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.provider_catalog import GROQ_DEFAULT_BASE
+from free_claude_code.core.anthropic.stream_contracts import (
     parse_sse_text,
     text_content,
 )
-from free_xeron_code.core.reasoning import (
+from free_claude_code.core.reasoning import (
     ReasoningCapability,
     ReasoningEffort,
     ReasoningPolicy,
 )
-from free_xeron_code.providers.admission import ProviderOperationKind
-from free_xeron_code.providers.groq import GroqProvider
-from free_xeron_code.providers.groq.client import (
+from free_claude_code.providers.admission import ProviderOperationKind
+from free_claude_code.providers.groq import GroqProvider
+from free_claude_code.providers.groq.client import (
     _parse_reasoning_vocabulary,
     _rewrite_reasoning_effort,
 )

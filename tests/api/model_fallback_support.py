@@ -7,15 +7,15 @@ from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic import MessagesRequest
-from free_xeron_code.core.anthropic.streaming import format_sse_event
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningPolicy
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic import MessagesRequest
+from free_claude_code.core.anthropic.streaming import format_sse_event
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningPolicy
 from tests.api.support import create_test_app
 
 
@@ -302,7 +302,7 @@ def fallback_client(
 
     with (
         patch(
-            "free_xeron_code.api.routes.resolve_provider",
+            "free_claude_code.api.routes.resolve_provider",
             side_effect=resolve,
         ),
         TestClient(app) as client,

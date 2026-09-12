@@ -1,4 +1,4 @@
-from free_xeron_code.core.anthropic.tool_results import (
+from free_claude_code.core.anthropic.tool_results import (
     ToolResultImage,
     ToolResultText,
     decompose_tool_result_content,

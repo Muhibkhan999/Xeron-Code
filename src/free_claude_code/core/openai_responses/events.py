@@ -7,9 +7,9 @@ from typing import Any, cast
 
 import simplejson
 
-from free_xeron_code.core.diagnostics import safe_exception_message
-from free_xeron_code.core.failures import find_execution_failure
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.diagnostics import safe_exception_message
+from free_claude_code.core.failures import find_execution_failure
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 from .errors import openai_error_from_failure, openai_error_payload
 

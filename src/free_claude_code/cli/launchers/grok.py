@@ -4,7 +4,7 @@ import json
 import re
 from collections.abc import Sequence
 
-from free_xeron_code.cli.environment import (
+from free_claude_code.cli.environment import (
     client_environment,
     require_unset_environment,
 )

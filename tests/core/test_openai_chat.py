@@ -1,5 +1,5 @@
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_chat import (
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_chat import (
     close_chat_tool_result_turns,
     is_synthetic_chat_tool_turn_boundary,
 )

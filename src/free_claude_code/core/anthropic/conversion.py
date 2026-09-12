@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from enum import StrEnum
 from typing import Any
 
-from free_xeron_code.core.history_replay import (
+from free_claude_code.core.history_replay import (
     HistoryReplayError,
     has_readable_replay,
     is_replay,
@@ -15,8 +15,8 @@ from free_xeron_code.core.history_replay import (
     tool_history_context,
     validate_hosted_tool_history,
 )
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_chat import (
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_chat import (
     IMAGE_TOOL_RESULT_MARKER,
     ChatToolResultImages,
     close_chat_tool_result_turns,

@@ -5,11 +5,11 @@ import httpx2
 import pytest
 from openai import AsyncOpenAI
 
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic.stream_contracts import parse_sse_text
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.providers.openai_chat import OpenAIChatProvider
-from free_xeron_code.providers.runtime.factory import create_provider
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic.stream_contracts import parse_sse_text
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.providers.openai_chat import OpenAIChatProvider
+from free_claude_code.providers.runtime.factory import create_provider
 from tests.core.openai_responses.test_client_tool_discovery import AGENTS, SEARCH
 from tests.providers.support import immediate_admission
 from tests.providers.test_opencode import (

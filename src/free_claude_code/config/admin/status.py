@@ -2,11 +2,11 @@
 
 from collections.abc import Mapping
 
-from free_xeron_code.config.provider_catalog import (
+from free_claude_code.config.provider_catalog import (
     PROVIDER_CATALOG,
     ProviderAuthKind,
 )
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.core.json_types import JsonObject
 
 from .manifest import FIELDS
 from .state import ConfigValueState

@@ -7,7 +7,7 @@ from loguru import logger
 from starlette.datastructures import Headers, MutableHeaders
 from starlette.types import ASGIApp, Message, Receive, Scope, Send
 
-from free_xeron_code.core.trace import extract_claude_session_id_from_headers
+from free_claude_code.core.trace import extract_claude_session_id_from_headers
 
 REQUEST_ID_HEADER = "request-id"
 OPENAI_REQUEST_ID_HEADER = "x-request-id"

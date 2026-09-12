@@ -2,13 +2,13 @@
 
 from collections.abc import Mapping
 
-from free_xeron_code.config.reasoning import ReasoningPreference
-from free_xeron_code.core.anthropic.models import MessagesRequest, ThinkingConfig
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.config.reasoning import ReasoningPreference
+from free_claude_code.core.anthropic.models import MessagesRequest, ThinkingConfig
+from free_claude_code.core.openai_responses import (
     OpenAIResponsesRequest,
     responses_reasoning_policy,
 )
-from free_xeron_code.core.reasoning import (
+from free_claude_code.core.reasoning import (
     ReasoningControl,
     ReasoningEffort,
     ReasoningPolicy,

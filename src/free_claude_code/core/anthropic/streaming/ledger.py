@@ -10,7 +10,7 @@ from typing import Any
 
 from loguru import logger
 
-from free_xeron_code.core.token_estimation import estimate_text_tokens
+from free_claude_code.core.token_estimation import estimate_text_tokens
 
 from .emitter import AnthropicSseEmitter
 from .recovery import (

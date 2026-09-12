@@ -9,15 +9,15 @@ from typing import Any
 import openai
 from loguru import logger
 
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.reasoning import (
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.reasoning import (
     ReasoningEffort,
     ReasoningPolicy,
 )
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.openai_chat import (
     NamedEffortReasoning,
     OpenAIChatProfile,
     OpenAIChatProvider,
@@ -25,7 +25,7 @@ from free_xeron_code.providers.openai_chat import (
     OpenAIModelListing,
     validate_extra_body_does_not_override_reasoning_fields,
 )
-from free_xeron_code.providers.reasoning_compatibility import ReasoningCorrection
+from free_claude_code.providers.reasoning_compatibility import ReasoningCorrection
 
 from .tpm import correct_tpm_completion_budget
 

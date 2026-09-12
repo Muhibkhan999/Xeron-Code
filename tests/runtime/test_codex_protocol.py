@@ -1,8 +1,8 @@
 import pytest
 
-from free_xeron_code.application.code_sessions import CodeValidationError
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.runtime.codex_protocol import CodexProtocol, NativePrompt
+from free_claude_code.application.code_sessions import CodeValidationError
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.runtime.codex_protocol import CodexProtocol, NativePrompt
 
 
 @pytest.mark.parametrize(

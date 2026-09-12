@@ -9,11 +9,11 @@ from unittest.mock import AsyncMock
 import httpx
 import pytest
 
-from free_xeron_code.cli import commands
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.runtime.application import RestartCallback
-from free_xeron_code.runtime.asgi import RuntimeASGIApp
-from free_xeron_code.runtime.bootstrap import build_asgi_app
+from free_claude_code.cli import commands
+from free_claude_code.config.settings import Settings
+from free_claude_code.runtime.application import RestartCallback
+from free_claude_code.runtime.asgi import RuntimeASGIApp
+from free_claude_code.runtime.bootstrap import build_asgi_app
 
 
 @pytest.mark.asyncio
@@ -54,7 +54,7 @@ async def test_supervisor_drains_admin_event_feed_without_forced_cancellation(
 
     monkeypatch.setattr(commands, "load_server_settings", lambda: settings)
     monkeypatch.setattr(
-        "free_xeron_code.runtime.bootstrap.configure_logging",
+        "free_claude_code.runtime.bootstrap.configure_logging",
         lambda *args, **kwargs: None,
     )
     monkeypatch.setattr(commands, "build_asgi_app", create_app)

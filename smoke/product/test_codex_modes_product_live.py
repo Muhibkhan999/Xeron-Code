@@ -18,11 +18,11 @@ from typing import Any
 import httpx
 import pytest
 
-from free_xeron_code.config.env_migrations import (
+from free_claude_code.config.env_migrations import (
     atomic_write_managed_config,
     settings_env_keys,
 )
-from free_xeron_code.config.provider_catalog import PROVIDER_CATALOG
+from free_claude_code.config.provider_catalog import PROVIDER_CATALOG
 from smoke.lib.child_process import run_captured_text
 from smoke.lib.config import SmokeConfig
 from smoke.lib.e2e import SmokeServerDriver

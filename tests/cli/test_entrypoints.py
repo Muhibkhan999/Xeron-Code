@@ -11,7 +11,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from free_xeron_code.config.settings import Settings
+from free_claude_code.config.settings import Settings
 
 
 def _launcher_settings(
@@ -38,20 +38,20 @@ def test_cli_scripts_are_registered() -> None:
     )
 
     assert pyproject["project"]["scripts"] == {
-        "fxc-server": "free_xeron_code.cli.entrypoints:serve",
-        "fxc-claude": "free_xeron_code.cli.launchers.claude:launch",
-        "fxc-codex": "free_xeron_code.cli.launchers.codex:launch",
-        "fxc-pi": "free_xeron_code.cli.launchers.pi:launch",
-        "fxc-opencode": "free_xeron_code.cli.launchers.opencode:launch",
-        "fxc-cline": "free_xeron_code.cli.launchers.cline:launch",
-        "fxc-hermes": "free_xeron_code.cli.launchers.hermes:launch",
-        "fxc-dsh": "free_xeron_code.cli.launchers.dsh:launch",
-        "fxc-grok": "free_xeron_code.cli.launchers.grok:launch",
-        "fxc-muse": "free_xeron_code.cli.launchers.muse:launch",
-        "fxc-aider": "free_xeron_code.cli.launchers.aider:launch",
+        "fxc-server": "free_claude_code.cli.entrypoints:serve",
+        "fxc-claude": "free_claude_code.cli.launchers.claude:launch",
+        "fxc-codex": "free_claude_code.cli.launchers.codex:launch",
+        "fxc-pi": "free_claude_code.cli.launchers.pi:launch",
+        "fxc-opencode": "free_claude_code.cli.launchers.opencode:launch",
+        "fxc-cline": "free_claude_code.cli.launchers.cline:launch",
+        "fxc-hermes": "free_claude_code.cli.launchers.hermes:launch",
+        "fxc-dsh": "free_claude_code.cli.launchers.dsh:launch",
+        "fxc-grok": "free_claude_code.cli.launchers.grok:launch",
+        "fxc-muse": "free_claude_code.cli.launchers.muse:launch",
+        "fxc-aider": "free_claude_code.cli.launchers.aider:launch",
     }
     assert pyproject["project"]["gui-scripts"] == {
-        "fxc-desktop": "free_xeron_code.cli.desktop_entrypoint:launch",
+        "fxc-desktop": "free_claude_code.cli.desktop_entrypoint:launch",
     }
 
 
@@ -63,7 +63,7 @@ def test_fxc_server_reports_version_without_side_effects(
     argv: tuple[str, ...],
     capsys: pytest.CaptureFixture[str],
 ) -> None:
-    from free_xeron_code.cli import entrypoints
+    from free_claude_code.cli import entrypoints
 
     with patch.object(entrypoints, "package_version", return_value="9.8.7"):
         entrypoints.serve(argv)
@@ -76,11 +76,11 @@ def test_version_entrypoint_does_not_import_command_runtime() -> None:
         (
             "import json",
             "import sys",
-            "from free_xeron_code.cli.entrypoints import serve",
+            "from free_claude_code.cli.entrypoints import serve",
             "serve(['--version'])",
             "forbidden = ('uvicorn', 'fastapi', 'openai', "
-            "'free_xeron_code.cli.commands', "
-            "'free_xeron_code.runtime.bootstrap')",
+            "'free_claude_code.cli.commands', "
+            "'free_claude_code.runtime.bootstrap')",
             "print(json.dumps([name for name in forbidden if name in sys.modules]))",
         )
     )
@@ -97,7 +97,7 @@ def test_version_entrypoint_does_not_import_command_runtime() -> None:
 
 
 def test_non_version_entrypoint_delegates_to_server_command() -> None:
-    from free_xeron_code.cli import commands, entrypoints
+    from free_claude_code.cli import commands, entrypoints
 
     with patch.object(commands, "serve") as command:
         entrypoints.serve(())
@@ -107,8 +107,8 @@ def test_non_version_entrypoint_delegates_to_server_command() -> None:
 
 def test_schedule_open_admin_browser_opens_when_health_ready() -> None:
     """Opening /admin runs after /health preflight succeeds."""
-    from free_xeron_code.cli import commands
-    from free_xeron_code.config.server_urls import local_admin_url
+    from free_claude_code.cli import commands
+    from free_claude_code.config.server_urls import local_admin_url
 
     settings = _launcher_settings(port=31337)
     opened_urls: list[str] = []
@@ -139,7 +139,7 @@ def test_schedule_open_admin_browser_opens_when_health_ready() -> None:
 
 @pytest.mark.parametrize("open_admin_browser", (False, True))
 def test_serve_respects_admin_browser_setting(open_admin_browser: bool) -> None:
-    from free_xeron_code.cli import commands
+    from free_claude_code.cli import commands
 
     settings = _launcher_settings(open_admin_browser=open_admin_browser)
     get_settings = MagicMock(return_value=settings)
@@ -164,9 +164,9 @@ def test_server_startup_repairs_invalid_managed_provider_proxy(
     caplog: pytest.LogCaptureFixture,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    from free_xeron_code.cli import commands
-    from free_xeron_code.config.env_files import dotenv_values_from_file
-    from free_xeron_code.config.paths import managed_env_path
+    from free_claude_code.cli import commands
+    from free_claude_code.config.env_files import dotenv_values_from_file
+    from free_claude_code.config.paths import managed_env_path
 
     monkeypatch.delenv("OPENAI_PROXY", raising=False)
     invalid_proxy = "invalid://user:leaked-secret@proxy.example:8080"
@@ -215,7 +215,7 @@ def test_server_startup_repairs_invalid_managed_provider_proxy(
 def test_load_server_settings_skips_reload_when_no_repair_occurs(
     caplog: pytest.LogCaptureFixture,
 ) -> None:
-    from free_xeron_code.cli import commands
+    from free_claude_code.cli import commands
 
     settings = _launcher_settings()
     with (
@@ -240,8 +240,8 @@ def test_load_server_settings_skips_reload_when_no_repair_occurs(
 def test_load_server_settings_reloads_once_and_warns_after_repair(
     caplog: pytest.LogCaptureFixture,
 ) -> None:
-    from free_xeron_code.cli import commands
-    from free_xeron_code.config.paths import managed_env_path
+    from free_claude_code.cli import commands
+    from free_claude_code.config.paths import managed_env_path
 
     invalid_proxy = "invalid://user:leaked-secret@proxy.example:8080"
     stale = Settings(openai_proxy=invalid_proxy)
@@ -278,8 +278,8 @@ def test_load_server_settings_leaves_process_owned_invalid_proxy_explicit(
     caplog: pytest.LogCaptureFixture,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    from free_xeron_code.cli import commands
-    from free_xeron_code.config.paths import managed_env_path
+    from free_claude_code.cli import commands
+    from free_claude_code.config.paths import managed_env_path
 
     process_proxy = "invalid://process-proxy"
     monkeypatch.setenv("OPENAI_PROXY", process_proxy)
@@ -300,7 +300,7 @@ def test_load_server_settings_leaves_process_owned_invalid_proxy_explicit(
 
 
 def test_serve_supervisor_restarts_when_app_requests_restart() -> None:
-    from free_xeron_code.cli import commands
+    from free_claude_code.cli import commands
 
     settings = _launcher_settings()
     get_settings = MagicMock(side_effect=[settings, settings])
@@ -350,7 +350,7 @@ def test_serve_supervisor_restarts_when_app_requests_restart() -> None:
 
 
 def test_serve_supervisor_refuses_restart_after_incomplete_shutdown() -> None:
-    from free_xeron_code.cli import commands
+    from free_claude_code.cli import commands
 
     settings = _launcher_settings()
     get_settings = MagicMock(return_value=settings)
@@ -393,7 +393,7 @@ def test_serve_supervisor_refuses_restart_after_incomplete_shutdown() -> None:
 
 
 def test_serve_handles_keyboard_interrupt_without_traceback() -> None:
-    from free_xeron_code.cli import commands
+    from free_claude_code.cli import commands
 
     settings = _launcher_settings()
     get_settings = MagicMock(return_value=settings)
@@ -415,7 +415,7 @@ def test_serve_handles_keyboard_interrupt_without_traceback() -> None:
 
 
 def test_claude_child_env_targets_current_proxy_config() -> None:
-    from free_xeron_code.cli.claude_env import build_claude_proxy_env
+    from free_claude_code.cli.claude_env import build_claude_proxy_env
 
     env = build_claude_proxy_env(
         proxy_root_url="http://127.0.0.1:9090",

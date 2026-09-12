@@ -9,7 +9,7 @@ from typing import Never, cast
 
 import simplejson
 
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 from .errors import ResponsesConversionError
 from .models import OpenAIResponsesRequest

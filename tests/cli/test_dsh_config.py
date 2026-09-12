@@ -6,9 +6,9 @@ from pathlib import Path
 
 import pytest
 
-from free_xeron_code.cli.launchers.dsh_config import build_dsh_launch_config
-from free_xeron_code.cli.launchers.model_catalog import ClientModel
-from free_xeron_code.core.model_capabilities import ModelInputModality
+from free_claude_code.cli.launchers.dsh_config import build_dsh_launch_config
+from free_claude_code.cli.launchers.model_catalog import ClientModel
+from free_claude_code.core.model_capabilities import ModelInputModality
 
 
 def _models() -> tuple[ClientModel, ...]:

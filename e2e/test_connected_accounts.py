@@ -3,12 +3,12 @@
 import pytest
 from playwright.sync_api import Dialog, Page, Route, expect
 
-from free_xeron_code.application.connected_accounts import (
+from free_claude_code.application.connected_accounts import (
     ConnectedAccountLoginMode,
     ConnectedAccountState,
     ConnectedAccountStatus,
 )
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.core.json_types import JsonObject
 
 
 def _status(provider_id: str, *, connected: bool = False) -> JsonObject:

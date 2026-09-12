@@ -5,12 +5,12 @@ from collections.abc import Mapping
 from dataclasses import dataclass, field, replace
 from typing import cast
 
-from free_xeron_code.core.history_replay import (
+from free_claude_code.core.history_replay import (
     ReplayOrigin,
     ReplayRecord,
     encode_replay,
 )
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 from .native import NativeMessagesError
 

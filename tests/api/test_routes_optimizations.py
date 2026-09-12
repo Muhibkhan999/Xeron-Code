@@ -3,10 +3,10 @@ from unittest.mock import AsyncMock, MagicMock, patch
 import pytest
 from fastapi.testclient import TestClient
 
-from free_xeron_code.api.dependencies import get_settings
-from free_xeron_code.api.ports import ApiServices
-from free_xeron_code.application.ports import StopResult
-from free_xeron_code.config.settings import Settings
+from free_claude_code.api.dependencies import get_settings
+from free_claude_code.api.ports import ApiServices
+from free_claude_code.application.ports import StopResult
+from free_claude_code.config.settings import Settings
 from tests.api.support import create_test_app
 
 
@@ -40,11 +40,11 @@ def test_create_message_fast_prefix_detection(app, client, mock_settings):
 
     with (
         patch(
-            "free_xeron_code.api.optimization_handlers.is_prefix_detection_request",
+            "free_claude_code.api.optimization_handlers.is_prefix_detection_request",
             return_value=(True, "/ask"),
         ),
         patch(
-            "free_xeron_code.api.optimization_handlers.extract_command_prefix",
+            "free_claude_code.api.optimization_handlers.extract_command_prefix",
             return_value="/ask",
         ),
     ):
@@ -67,7 +67,7 @@ def test_create_message_quota_check_mock(app, client, mock_settings):
     }
 
     with patch(
-        "free_xeron_code.api.optimization_handlers.is_quota_check_request",
+        "free_claude_code.api.optimization_handlers.is_quota_check_request",
         return_value=True,
     ):
         response = client.post("/v1/messages", json=payload)
@@ -88,7 +88,7 @@ def test_create_message_title_generation_skip(app, client, mock_settings):
     }
 
     with patch(
-        "free_xeron_code.api.optimization_handlers.is_title_generation_request",
+        "free_claude_code.api.optimization_handlers.is_title_generation_request",
         return_value=True,
     ):
         response = client.post("/v1/messages", json=payload)
@@ -131,7 +131,7 @@ def test_count_tokens_endpoint(client):
         "messages": [{"role": "user", "content": "hello"}],
     }
 
-    with patch("free_xeron_code.api.routes.get_token_count", return_value=5):
+    with patch("free_claude_code.api.routes.get_token_count", return_value=5):
         response = client.post("/v1/messages/count_tokens", json=payload)
 
     assert response.status_code == 200
@@ -144,8 +144,8 @@ def test_count_tokens_retired_model_uses_configured_default(prefix):
         Settings(MODEL="groq/default", MODEL_OPUS="deepseek/opus")
     )
     with (
-        patch("free_xeron_code.api.routes.get_token_count", return_value=5),
-        patch("free_xeron_code.api.handlers.token_count.trace_event") as trace,
+        patch("free_claude_code.api.routes.get_token_count", return_value=5),
+        patch("free_claude_code.api.handlers.token_count.trace_event") as trace,
     ):
         response = TestClient(test_app).post(
             "/v1/messages/count_tokens",
@@ -173,7 +173,7 @@ def test_count_tokens_error_returns_500(client):
     }
 
     with patch(
-        "free_xeron_code.api.routes.get_token_count",
+        "free_claude_code.api.routes.get_token_count",
         side_effect=RuntimeError("token error"),
     ):
         response = client.post("/v1/messages/count_tokens", json=payload)

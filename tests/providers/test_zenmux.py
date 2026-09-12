@@ -9,24 +9,24 @@ import httpx
 import pytest
 from openai import AsyncOpenAI
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.provider_catalog import ZENMUX_DEFAULT_BASE
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.stream_contracts import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.provider_catalog import ZENMUX_DEFAULT_BASE
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.stream_contracts import (
     parse_sse_text,
     text_content,
     thinking_content,
 )
-from free_xeron_code.core.history_replay import decode_replay
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.core.reasoning import (
+from free_claude_code.core.history_replay import decode_replay
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.reasoning import (
     ReasoningCapability,
     ReasoningEffort,
     ReasoningPolicy,
 )
-from free_xeron_code.providers.model_listing import ModelListResponseError
-from free_xeron_code.providers.openai_chat import OpenAIChatProvider
+from free_claude_code.providers.model_listing import ModelListResponseError
+from free_claude_code.providers.openai_chat import OpenAIChatProvider
 from tests.providers.support import (
     immediate_admission,
     make_provider_config,
@@ -449,7 +449,7 @@ async def test_model_catalog_uses_documented_endpoint_and_auth() -> None:
         return AsyncOpenAI(*args, **kwargs)
 
     with patch(
-        "free_xeron_code.providers.openai_chat.provider.AsyncOpenAI",
+        "free_claude_code.providers.openai_chat.provider.AsyncOpenAI",
         side_effect=build_client,
     ):
         provider = profiled_provider(

@@ -10,16 +10,16 @@ from collections.abc import AsyncIterator, Awaitable, Callable, Mapping
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from free_xeron_code.application.connected_accounts import (
+from free_claude_code.application.connected_accounts import (
     ConnectedAccountLoginMode,
     ConnectedAccountState,
     ConnectedAccountStatus,
 )
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.config.paths import github_copilot_auth_path
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.providers.endpoint import HttpEndpoint
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.config.paths import github_copilot_auth_path
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.providers.endpoint import HttpEndpoint
 
 from .broker import CopilotBroker, CopilotLease
 from .lifecycle import drain_owned

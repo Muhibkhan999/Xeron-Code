@@ -5,7 +5,7 @@ from typing import Any
 
 from loguru import logger
 
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.trace import trace_event
 
 from .cli_event_constants import TRANSCRIPT_EVENT_TYPES, get_status_for_event
 from .managed_protocols import ManagedClaudeSessionManagerProtocol

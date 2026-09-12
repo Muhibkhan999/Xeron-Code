@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Literal
 
-from free_xeron_code.config.settings import Settings
+from free_claude_code.config.settings import Settings
 
 type FieldType = Literal[
     "text",

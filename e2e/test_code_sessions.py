@@ -5,11 +5,11 @@ import uuid
 import pytest
 from playwright.sync_api import expect
 
-from free_xeron_code.application.code_sessions.models import (
+from free_claude_code.application.code_sessions.models import (
     HarnessEvent,
     PromptRequest,
 )
-from free_xeron_code.runtime.codex_protocol import CodexProtocol
+from free_claude_code.runtime.codex_protocol import CodexProtocol
 from tests.code_sessions_support import CodexPackets
 
 

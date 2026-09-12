@@ -1,4 +1,4 @@
-from free_xeron_code.api.markdown import render_markdown
+from free_claude_code.api.markdown import render_markdown
 
 
 def test_markdown_escapes_html_and_never_loads_remote_images():

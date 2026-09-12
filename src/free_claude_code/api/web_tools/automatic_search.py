@@ -5,14 +5,14 @@ from collections.abc import AsyncIterator, Mapping
 from dataclasses import replace
 from urllib.parse import urlsplit
 
-from free_xeron_code.application.execution import ProviderExecutor
-from free_xeron_code.application.routing import RoutedMessagesRequest
-from free_xeron_code.core.anthropic import (
+from free_claude_code.application.execution import ProviderExecutor
+from free_claude_code.application.routing import RoutedMessagesRequest
+from free_claude_code.core.anthropic import (
     aggregate_anthropic_sse_to_message,
     anthropic_status_for_error_type,
 )
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.trace import close_stream_input, trace_event
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.trace import close_stream_input, trace_event
 
 from .request import (
     HIDDEN_WEB_SEARCH_NAME,
@@ -35,7 +35,7 @@ async def stream_automatic_web_search_response(
     translated = replace(routed, request=plan.request)
     trace_event(
         stage="routing",
-        event="free_xeron_code.api.web_search.automatic_recognized",
+        event="free_claude_code.api.web_search.automatic_recognized",
         source="api",
         request_id=request_id,
         model=routed.resolved.original_model,
@@ -66,7 +66,7 @@ async def stream_automatic_web_search_response(
     if not tool_calls:
         trace_event(
             stage="execution",
-            event="free_xeron_code.api.web_search.automatic_declined",
+            event="free_claude_code.api.web_search.automatic_declined",
             source="api",
             request_id=request_id,
             model=routed.resolved.original_model,
@@ -106,7 +106,7 @@ async def stream_automatic_web_search_response(
 
     trace_event(
         stage="execution",
-        event="free_xeron_code.api.web_search.automatic_selected",
+        event="free_claude_code.api.web_search.automatic_selected",
         source="api",
         request_id=request_id,
         model=routed.resolved.original_model,
@@ -122,7 +122,7 @@ async def stream_automatic_web_search_response(
         yield frame
     trace_event(
         stage="execution",
-        event="free_xeron_code.api.web_search.automatic_completed",
+        event="free_claude_code.api.web_search.automatic_completed",
         source="api",
         request_id=request_id,
         model=routed.resolved.original_model,

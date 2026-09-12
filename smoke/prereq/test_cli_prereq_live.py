@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from free_xeron_code.cli.claude_env import build_claude_proxy_env
+from free_claude_code.cli.claude_env import build_claude_proxy_env
 from smoke.lib.child_process import (
     cmd_fxc_server,
     run_captured_text,

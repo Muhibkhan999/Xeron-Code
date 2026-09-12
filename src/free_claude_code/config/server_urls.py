@@ -2,7 +2,7 @@
 
 from urllib.parse import urlsplit
 
-from free_xeron_code.config.settings import Settings
+from free_claude_code.config.settings import Settings
 
 
 def _browser_host_for_local_urls(settings: Settings) -> str:

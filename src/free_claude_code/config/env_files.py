@@ -28,7 +28,7 @@ def verified_checkout_env_path() -> Path | None:
     """Return this package checkout's legacy dotenv, never the caller's CWD."""
 
     checkout = Path(__file__).resolve().parents[3]
-    package = checkout / "src" / "free_xeron_code"
+    package = checkout / "src" / "free_claude_code"
     pyproject = checkout / "pyproject.toml"
     if package != Path(__file__).resolve().parents[1]:
         return None

@@ -5,9 +5,9 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from free_xeron_code.cli.managed.manager import ManagedClaudeSessionManager
-from free_xeron_code.cli.managed.session import ManagedClaudeSession
-from free_xeron_code.core.version import package_version
+from free_claude_code.cli.managed.manager import ManagedClaudeSessionManager
+from free_claude_code.cli.managed.session import ManagedClaudeSession
+from free_claude_code.core.version import package_version
 from smoke.lib.child_process import cmd_fxc_version, run_captured_text
 from smoke.lib.config import SmokeConfig
 
@@ -95,7 +95,7 @@ async def test_cli_session_stop_kills_child_e2e(tmp_path: Path) -> None:
     session.process = process
 
     with patch(
-        "free_xeron_code.cli.managed.session.kill_pid_tree_best_effort"
+        "free_claude_code.cli.managed.session.kill_pid_tree_best_effort"
     ) as kill_tree:
         stopped = await session.stop()
 

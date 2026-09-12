@@ -7,17 +7,17 @@ from fastapi import HTTPException
 from fastapi.responses import JSONResponse
 from loguru import logger
 
-from free_xeron_code.application.errors import ApplicationError, InvalidRequestError
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic import (
+from free_claude_code.application.errors import ApplicationError, InvalidRequestError
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic import (
     anthropic_error_payload,
     anthropic_error_type_for_failure,
 )
-from free_xeron_code.core.diagnostics import (
+from free_claude_code.core.diagnostics import (
     redacted_exception_traceback,
     safe_exception_message,
 )
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.openai_responses import (
     openai_error_payload,
     openai_error_type_for_failure,
 )

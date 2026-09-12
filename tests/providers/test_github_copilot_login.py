@@ -6,7 +6,7 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from free_xeron_code.providers.github_copilot import login
+from free_claude_code.providers.github_copilot import login
 
 
 class Pipe(asyncio.StreamReader):

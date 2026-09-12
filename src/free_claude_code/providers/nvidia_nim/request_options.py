@@ -3,11 +3,11 @@
 from copy import deepcopy
 from typing import Any
 
-from free_xeron_code.config.nim import NimSettings
-from free_xeron_code.core.anthropic import ReasoningReplayMode, set_if_not_none
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.reasoning import ReasoningControl, ReasoningPolicy
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.config.nim import NimSettings
+from free_claude_code.core.anthropic import ReasoningReplayMode, set_if_not_none
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.reasoning import ReasoningControl, ReasoningPolicy
+from free_claude_code.providers.openai_chat import (
     OpenAIChatRequestPolicy,
     build_openai_chat_request_body,
 )

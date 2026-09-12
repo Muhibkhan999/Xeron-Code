@@ -4,25 +4,25 @@ from collections.abc import Mapping
 
 from fastapi.responses import JSONResponse
 
-from free_xeron_code.api.request_errors import (
+from free_claude_code.api.request_errors import (
     http_status_for_unexpected_api_exception,
     log_unexpected_api_exception,
     ordinary_application_error_response,
 )
-from free_xeron_code.api.request_ids import new_request_id
-from free_xeron_code.api.response_streams import (
+from free_claude_code.api.request_ids import new_request_id
+from free_claude_code.api.response_streams import (
     openai_responses_sse_streaming_response,
     terminal_execution_error_response,
     trace_terminal_execution_error,
 )
-from free_xeron_code.application.errors import ApplicationError, InvalidRequestError
-from free_xeron_code.application.execution import ProviderExecutor
-from free_xeron_code.application.ports import ProviderResolver
-from free_xeron_code.application.routing import ModelRouter
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.diagnostics import safe_exception_message
-from free_xeron_code.core.failures import ExecutionFailure, find_execution_failure
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.application.errors import ApplicationError, InvalidRequestError
+from free_claude_code.application.execution import ProviderExecutor
+from free_claude_code.application.ports import ProviderResolver
+from free_claude_code.application.routing import ModelRouter
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.diagnostics import safe_exception_message
+from free_claude_code.core.failures import ExecutionFailure, find_execution_failure
+from free_claude_code.core.openai_responses import (
     OPENAI_RESPONSES_SSE_HEADERS,
     OpenAIResponsesRequest,
     openai_error_payload,

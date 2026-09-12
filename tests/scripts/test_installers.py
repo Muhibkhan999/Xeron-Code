@@ -1675,7 +1675,7 @@ def test_install_ps1_gui_icon_export_completes_before_returning(
     assert (
         destination.read_bytes()
         == (
-            _repo_root() / "src" / "free_xeron_code" / "assets" / "app-icon.ico"
+            _repo_root() / "src" / "free_claude_code" / "assets" / "app-icon.ico"
         ).read_bytes()
     )
 

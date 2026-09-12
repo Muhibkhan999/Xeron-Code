@@ -3,13 +3,13 @@
 from dataclasses import dataclass
 from typing import Literal
 
-from free_xeron_code.core.anthropic.models import ThinkingConfig
-from free_xeron_code.core.anthropic.native import (
+from free_claude_code.core.anthropic.models import ThinkingConfig
+from free_claude_code.core.anthropic.native import (
     NativeMessagesError,
     NativeMessagesOptions,
 )
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.reasoning import ReasoningControl, ReasoningPolicy
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.reasoning import ReasoningControl, ReasoningPolicy
 
 DEFAULT_MESSAGES_OUTPUT_TOKENS = 8192
 _MIN_THINKING_BUDGET = 1024

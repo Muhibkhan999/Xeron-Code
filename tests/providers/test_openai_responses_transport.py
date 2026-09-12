@@ -8,21 +8,21 @@ import httpx2
 import pytest
 from openai import AsyncOpenAI
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.stream_contracts import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.stream_contracts import (
     assert_anthropic_stream_contract,
     parse_sse_text,
     text_content,
     thinking_content,
 )
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.openai_responses import (
     OpenAIResponsesRequest,
     ResponsesToolPolicy,
 )
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
-from free_xeron_code.providers.openai_responses import OpenAIResponsesTransport
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
+from free_claude_code.providers.openai_responses import OpenAIResponsesTransport
 from tests.providers.support import REASONING_ON, immediate_admission
 
 

@@ -8,54 +8,54 @@ import httpx
 import pytest
 from fastapi.responses import JSONResponse, StreamingResponse
 
-import free_xeron_code.api.web_tools.constants as web_tool_constants
-from free_xeron_code.api.handlers import MessagesHandler
-from free_xeron_code.api.web_tools import egress as web_egress
-from free_xeron_code.api.web_tools.egress import (
+import free_claude_code.api.web_tools.constants as web_tool_constants
+from free_claude_code.api.handlers import MessagesHandler
+from free_claude_code.api.web_tools import egress as web_egress
+from free_claude_code.api.web_tools.egress import (
     WebFetchEgressPolicy,
     WebFetchEgressViolation,
     enforce_web_fetch_egress,
 )
-from free_xeron_code.api.web_tools.outbound import (
+from free_claude_code.api.web_tools.outbound import (
     _drain_response_body_capped,
     _read_response_body_capped,
     _run_web_fetch,
 )
-from free_xeron_code.api.web_tools.request import (
+from free_claude_code.api.web_tools.request import (
     HIDDEN_WEB_SEARCH_NAME,
     is_web_server_tool_request,
     plan_automatic_web_search,
     unsupported_server_tool_error,
 )
-from free_xeron_code.api.web_tools.streaming import stream_web_server_tool_response
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.application.routing import (
+from free_claude_code.api.web_tools.streaming import stream_web_server_tool_response
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.application.routing import (
     ModelRouter,
     ProviderModelTarget,
     ResolvedModelRoute,
     RoutedMessagesRequest,
 )
-from free_xeron_code.config.provider_catalog import PROVIDER_CATALOG
-from free_xeron_code.config.reasoning import ReasoningPreference
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic.models import (
+from free_claude_code.config.provider_catalog import PROVIDER_CATALOG
+from free_claude_code.config.reasoning import ReasoningPreference
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic.models import (
     ContentBlockServerToolUse,
     Message,
     MessagesRequest,
     Tool,
 )
-from free_xeron_code.core.anthropic.stream_contracts import (
+from free_claude_code.core.anthropic.stream_contracts import (
     assert_anthropic_stream_contract,
     parse_sse_text,
     text_content,
 )
-from free_xeron_code.core.anthropic.streaming import format_sse_event
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningPolicy
-from free_xeron_code.core.version import package_version
-from free_xeron_code.messaging.event_parser import parse_cli_event
+from free_claude_code.core.anthropic.streaming import format_sse_event
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningPolicy
+from free_claude_code.core.version import package_version
+from free_claude_code.messaging.event_parser import parse_cli_event
 
 _STRICT_EGRESS = WebFetchEgressPolicy(
     allow_private_network_targets=False,
@@ -598,7 +598,7 @@ async def test_automatic_web_search_replays_provider_response_when_declined(
     provider = ScriptedSelectionProvider(events)
     search = AsyncMock()
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_search", search
+        "free_claude_code.api.web_tools.outbound._run_web_search", search
     )
     service = _automatic_search_service(provider)
 
@@ -652,7 +652,7 @@ async def test_automatic_web_search_uses_model_query_and_filters_domains(
         ]
 
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_search", fake_search
+        "free_claude_code.api.web_tools.outbound._run_web_search", fake_search
     )
     service = _automatic_search_service(provider)
     request = _automatic_search_request(
@@ -720,7 +720,7 @@ async def test_automatic_web_search_aggregates_when_stream_false(
         return [{"title": "JSON result", "url": "https://example.com/json"}]
 
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_search", fake_search
+        "free_claude_code.api.web_tools.outbound._run_web_search", fake_search
     )
     service = _automatic_search_service(provider)
 
@@ -758,7 +758,7 @@ async def test_automatic_web_search_rejects_malformed_provider_selection(
     provider = ScriptedSelectionProvider(events)
     search = AsyncMock()
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_search", search
+        "free_claude_code.api.web_tools.outbound._run_web_search", search
     )
     service = _automatic_search_service(provider)
 
@@ -790,7 +790,7 @@ async def test_automatic_web_search_preserves_provider_failure_before_public_com
     )
     search = AsyncMock()
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_search", search
+        "free_claude_code.api.web_tools.outbound._run_web_search", search
     )
     service = _automatic_search_service(provider)
 
@@ -822,7 +822,7 @@ async def test_automatic_web_search_converts_internal_post_start_failure_to_json
     )
     search = AsyncMock()
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_search", search
+        "free_claude_code.api.web_tools.outbound._run_web_search", search
     )
     service = _automatic_search_service(provider)
 
@@ -993,7 +993,7 @@ async def test_run_web_fetch_follows_redirect_when_each_hop_is_allowed():
     res_ok = _aiohttp_response(200, url="http://8.8.8.8/final", body=b"hello world")
     client_cm, session = _aiohttp_client_session_patch(res_redirect, res_ok)
     with patch(
-        "free_xeron_code.api.web_tools.outbound.ClientSession", return_value=client_cm
+        "free_claude_code.api.web_tools.outbound.ClientSession", return_value=client_cm
     ):
         out = await _run_web_fetch("http://8.8.8.8/start", _STRICT_EGRESS)
 
@@ -1008,7 +1008,7 @@ async def test_run_web_fetch_truncates_large_body_to_byte_cap(monkeypatch):
     client_cm, _ = _aiohttp_client_session_patch(res_ok)
     monkeypatch.setattr(web_tool_constants, "_MAX_WEB_FETCH_RESPONSE_BYTES", 100)
     with patch(
-        "free_xeron_code.api.web_tools.outbound.ClientSession", return_value=client_cm
+        "free_claude_code.api.web_tools.outbound.ClientSession", return_value=client_cm
     ):
         out = await _run_web_fetch("http://8.8.8.8/big", _STRICT_EGRESS)
 
@@ -1027,7 +1027,7 @@ async def test_run_web_fetch_redirect_to_blocked_host_raises():
     client_cm, session = _aiohttp_client_session_patch(res_redirect)
     with (
         patch(
-            "free_xeron_code.api.web_tools.outbound.ClientSession",
+            "free_claude_code.api.web_tools.outbound.ClientSession",
             return_value=client_cm,
         ),
         pytest.raises(WebFetchEgressViolation),
@@ -1043,7 +1043,7 @@ async def test_run_web_fetch_redirect_without_location_raises():
     client_cm, _ = _aiohttp_client_session_patch(res_bad)
     with (
         patch(
-            "free_xeron_code.api.web_tools.outbound.ClientSession",
+            "free_claude_code.api.web_tools.outbound.ClientSession",
             return_value=client_cm,
         ),
         pytest.raises(WebFetchEgressViolation, match="missing Location"),
@@ -1057,9 +1057,9 @@ async def test_run_web_fetch_excess_redirects_raises():
     res2 = _aiohttp_response(302, url="http://8.8.8.8/b", location="/c", body=b"")
     client_cm, _ = _aiohttp_client_session_patch(res1, res2)
     with (
-        patch("free_xeron_code.api.web_tools.constants._MAX_WEB_FETCH_REDIRECTS", 1),
+        patch("free_claude_code.api.web_tools.constants._MAX_WEB_FETCH_REDIRECTS", 1),
         patch(
-            "free_xeron_code.api.web_tools.outbound.ClientSession",
+            "free_claude_code.api.web_tools.outbound.ClientSession",
             return_value=client_cm,
         ),
         pytest.raises(WebFetchEgressViolation, match="exceeded maximum redirects"),
@@ -1074,7 +1074,7 @@ async def test_streams_web_search_server_tool_result(monkeypatch):
         return [{"title": "DeepSeek V4 Released", "url": "https://example.com/v4"}]
 
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_search", fake_search
+        "free_claude_code.api.web_tools.outbound._run_web_search", fake_search
     )
     request = MessagesRequest(
         model="claude-haiku-4-5-20251001",
@@ -1136,7 +1136,7 @@ async def test_service_streams_forced_web_search_by_default(monkeypatch):
         return [{"title": "DeepSeek V4 Released", "url": "https://example.com/v4"}]
 
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_search", fake_search
+        "free_claude_code.api.web_tools.outbound._run_web_search", fake_search
     )
     settings = Settings.model_validate({"ENABLE_WEB_SERVER_TOOLS": True})
     provider_resolver = MagicMock()
@@ -1180,7 +1180,7 @@ async def test_service_aggregates_forced_web_search_when_stream_false(monkeypatc
         return [{"title": "DeepSeek V4 Released", "url": "https://example.com/v4"}]
 
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_search", fake_search
+        "free_claude_code.api.web_tools.outbound._run_web_search", fake_search
     )
     settings = Settings.model_validate({"ENABLE_WEB_SERVER_TOOLS": True})
     provider_resolver = MagicMock()
@@ -1229,7 +1229,7 @@ async def test_forced_web_fetch_ignores_stale_url_from_prior_user_turns(monkeypa
         }
 
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_fetch", fake_fetch
+        "free_claude_code.api.web_tools.outbound._run_web_fetch", fake_fetch
     )
     request = MessagesRequest(
         model="claude-haiku-4-5-20251001",
@@ -1271,7 +1271,7 @@ async def test_service_aggregates_forced_web_fetch_when_stream_false(monkeypatch
         }
 
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_fetch", fake_fetch
+        "free_claude_code.api.web_tools.outbound._run_web_fetch", fake_fetch
     )
     settings = Settings.model_validate({"ENABLE_WEB_SERVER_TOOLS": True})
     provider_resolver = MagicMock()
@@ -1317,7 +1317,7 @@ async def test_streams_web_fetch_server_tool_result(monkeypatch):
         }
 
     monkeypatch.setattr(
-        "free_xeron_code.api.web_tools.outbound._run_web_fetch", fake_fetch
+        "free_claude_code.api.web_tools.outbound._run_web_fetch", fake_fetch
     )
     request = MessagesRequest(
         model="claude-haiku-4-5-20251001",
@@ -1372,7 +1372,7 @@ async def test_streams_web_fetch_error_summary_generic_by_default(monkeypatch):
     async def boom(_url: str, _egress: WebFetchEgressPolicy) -> dict[str, str]:
         raise ValueError(secret)
 
-    monkeypatch.setattr("free_xeron_code.api.web_tools.outbound._run_web_fetch", boom)
+    monkeypatch.setattr("free_claude_code.api.web_tools.outbound._run_web_fetch", boom)
     request = MessagesRequest(
         model="claude-haiku-4-5-20251001",
         max_tokens=100,
@@ -1386,7 +1386,7 @@ async def test_streams_web_fetch_error_summary_generic_by_default(monkeypatch):
         tool_choice={"type": "tool", "name": "web_fetch"},
     )
 
-    with patch("free_xeron_code.api.web_tools.outbound.logger.warning") as log_warn:
+    with patch("free_claude_code.api.web_tools.outbound.logger.warning") as log_warn:
         raw = "".join(
             [
                 event
@@ -1430,7 +1430,7 @@ async def test_streams_web_fetch_error_summary_verbose_includes_exception_class(
     async def boom(_url: str, _egress: WebFetchEgressPolicy) -> dict[str, str]:
         raise OSError(5, "oops")
 
-    monkeypatch.setattr("free_xeron_code.api.web_tools.outbound._run_web_fetch", boom)
+    monkeypatch.setattr("free_claude_code.api.web_tools.outbound._run_web_fetch", boom)
     request = MessagesRequest(
         model="claude-haiku-4-5-20251001",
         max_tokens=100,

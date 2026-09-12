@@ -9,21 +9,21 @@ import httpx
 import httpx2
 from openai import AsyncOpenAI
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.anthropic_messages.transport import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.anthropic_messages.transport import (
     AnthropicMessagesTransport,
 )
-from free_xeron_code.providers.base import BaseProvider, ProviderConfig
-from free_xeron_code.providers.endpoint import EndpointContext, HttpEndpoint
-from free_xeron_code.providers.http import close_provider_stream
-from free_xeron_code.providers.openai_chat import OpenAIChatProvider
-from free_xeron_code.providers.openai_responses import OpenAIResponsesTransport
+from free_claude_code.providers.base import BaseProvider, ProviderConfig
+from free_claude_code.providers.endpoint import EndpointContext, HttpEndpoint
+from free_claude_code.providers.http import close_provider_stream
+from free_claude_code.providers.openai_chat import OpenAIChatProvider
+from free_claude_code.providers.openai_responses import OpenAIResponsesTransport
 
 from .auth import CopilotAuthManager
 from .lifecycle import drain_owned

@@ -3,9 +3,9 @@ from typing import Any
 import httpx
 import pytest
 
-from free_xeron_code.application.routing import ModelRouter
-from free_xeron_code.config.reasoning import ReasoningPreference
-from free_xeron_code.core.anthropic.stream_contracts import (
+from free_claude_code.application.routing import ModelRouter
+from free_claude_code.config.reasoning import ReasoningPreference
+from free_claude_code.core.anthropic.stream_contracts import (
     SSEEvent,
     parse_sse_lines,
 )

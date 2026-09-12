@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from free_xeron_code.cli import vscode
+from free_claude_code.cli import vscode
 
 URL = "http://127.0.0.1:8000"
 TOKEN = "test-integration-token"

@@ -8,8 +8,8 @@ import uuid
 
 from loguru import logger
 
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic import (
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic import (
     MessagesRequest,
     MessagesResponse,
     Usage,

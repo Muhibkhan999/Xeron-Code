@@ -8,15 +8,15 @@ from pathlib import Path
 
 import pytest
 
-from free_xeron_code.application.connected_accounts import (
+from free_claude_code.application.connected_accounts import (
     ConnectedAccountLoginMode,
     ConnectedAccountState,
 )
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.providers.github_copilot.auth import CopilotAuthManager
-from free_xeron_code.providers.github_copilot.login import DeviceChallenge
-from free_xeron_code.providers.github_copilot.types import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.providers.github_copilot.auth import CopilotAuthManager
+from free_claude_code.providers.github_copilot.login import DeviceChallenge
+from free_claude_code.providers.github_copilot.types import (
     CopilotIdentity,
     CopilotUnavailable,
 )

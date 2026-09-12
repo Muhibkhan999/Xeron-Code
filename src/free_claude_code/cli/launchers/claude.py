@@ -2,7 +2,7 @@
 
 from collections.abc import Sequence
 
-from free_xeron_code.cli.claude_env import XERON_BINARY_NAME, build_xeron_proxy_env
+from free_claude_code.cli.claude_env import XERON_BINARY_NAME, build_xeron_proxy_env
 
 from .resources import LaunchResources
 from .runner import HarnessSpec, LaunchContext, PreparedLaunch, launch_harness

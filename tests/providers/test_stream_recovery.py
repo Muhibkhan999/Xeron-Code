@@ -1,6 +1,6 @@
 """Provider stream commit-boundary and recovery policy."""
 
-from free_xeron_code.providers.stream_recovery import (
+from free_claude_code.providers.stream_recovery import (
     RecoveryController,
     RecoveryFailureAction,
     RecoveryHoldbackBuffer,

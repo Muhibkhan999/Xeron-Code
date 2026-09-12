@@ -7,15 +7,15 @@ from collections.abc import Mapping
 from dataclasses import replace
 from typing import cast
 
-from free_xeron_code.core.anthropic.native import NativeMessagesError
-from free_xeron_code.core.anthropic.native_stream import NativeMessagesStreamState
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.core.history_replay import (
+from free_claude_code.core.anthropic.native import NativeMessagesError
+from free_claude_code.core.anthropic.native_stream import NativeMessagesStreamState
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.core.history_replay import (
     ReplayOrigin,
     ReplayRecord,
     encode_replay,
 )
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 from .errors import ResponsesConversionError, openai_error_from_failure
 from .ids import new_message_item_id, new_reasoning_item_id, new_response_id

@@ -7,8 +7,8 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from free_xeron_code.cli.launchers import common, resources
-from free_xeron_code.config.paths import launcher_temp_dir_path
+from free_claude_code.cli.launchers import common, resources
+from free_claude_code.config.paths import launcher_temp_dir_path
 from tests.cli.conftest import LaunchCapture
 from tests.cli.test_launcher_workflow import launch
 
@@ -50,7 +50,7 @@ def test_cleanup_on_process_start_failure(
     launch_capture.on_start = fail_start
     if isinstance(failure, KeyboardInterrupt):
         with pytest.raises(KeyboardInterrupt):
-            importlib.import_module(f"free_xeron_code.cli.launchers.{name}").launch([])
+            importlib.import_module(f"free_claude_code.cli.launchers.{name}").launch([])
     else:
         launch(name, [], exit_code=1)
     assert list(launcher_temp_dir_path().iterdir()) == []
@@ -128,7 +128,7 @@ def test_interrupt_kills_and_waits_for_registered_child_before_cleanup(
         ),
         pytest.raises(KeyboardInterrupt),
     ):
-        importlib.import_module("free_xeron_code.cli.launchers.codex").launch([])
+        importlib.import_module("free_claude_code.cli.launchers.codex").launch([])
     assert events == ["register", "kill", "unregister"]
     assert process.wait.call_count == 2
     assert list(launcher_temp_dir_path().iterdir()) == []

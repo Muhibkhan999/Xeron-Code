@@ -15,8 +15,8 @@ from pathlib import Path
 import httpx
 import pytest
 
-from free_xeron_code.config.provider_catalog import PROVIDER_CATALOG
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.config.provider_catalog import PROVIDER_CATALOG
+from free_claude_code.core.json_types import JsonObject, JsonValue
 from smoke.lib.claude_cli_matrix import run_claude_cli
 from smoke.lib.config import SmokeConfig
 from smoke.lib.e2e import (
@@ -951,25 +951,25 @@ def test_claude_cli_web_search_e2e(smoke_config: SmokeConfig, tmp_path: Path) ->
     log_rows = _json_object_lines(server_log)
     assert (
         sum(
-            row.get("event") == "free_xeron_code.api.web_search.automatic_recognized"
+            row.get("event") == "free_claude_code.api.web_search.automatic_recognized"
             for row in log_rows
         )
         == 1
     ), server_log
     assert any(
-        row.get("event") == "free_xeron_code.api.optimization.web_server_tool"
+        row.get("event") == "free_claude_code.api.optimization.web_server_tool"
         for row in log_rows
     ), server_log
     assert (
         sum(
-            row.get("event") == "free_xeron_code.api.web_search.automatic_selected"
+            row.get("event") == "free_claude_code.api.web_search.automatic_selected"
             for row in log_rows
         )
         == 1
     ), server_log
     assert (
         sum(
-            row.get("event") == "free_xeron_code.api.web_search.automatic_completed"
+            row.get("event") == "free_claude_code.api.web_search.automatic_completed"
             for row in log_rows
         )
         == 1
@@ -1054,7 +1054,7 @@ def test_claude_auto_mode_openai_connected_e2e(
     policy_rows = [
         row
         for row in log_rows
-        if row.get("event") == "free_xeron_code.api.route.safety_classifier_policy"
+        if row.get("event") == "free_claude_code.api.route.safety_classifier_policy"
     ]
     assert any(
         row.get("classifier_stop_sequence") == "</severity>"

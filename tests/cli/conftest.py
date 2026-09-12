@@ -10,9 +10,9 @@ from urllib.request import Request
 
 import pytest
 
-from free_xeron_code.cli import local_http
-from free_xeron_code.config.loader import ManagedConfigStore
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.cli import local_http
+from free_claude_code.config.loader import ManagedConfigStore
+from free_claude_code.core.json_types import JsonObject
 
 
 class JsonResponse(io.BytesIO):
@@ -100,7 +100,7 @@ class LaunchCapture:
 
 @pytest.fixture
 def launch_capture(monkeypatch: pytest.MonkeyPatch) -> LaunchCapture:
-    from free_xeron_code.cli.launchers import common
+    from free_claude_code.cli.launchers import common
 
     capture = LaunchCapture()
     store = ManagedConfigStore()

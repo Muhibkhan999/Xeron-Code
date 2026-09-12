@@ -5,7 +5,7 @@ from copy import deepcopy
 from dataclasses import dataclass
 from typing import cast
 
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 from .errors import ResponsesConversionError
 from .tools import optional_str, required_str

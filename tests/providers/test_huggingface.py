@@ -6,11 +6,11 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.provider_catalog import HUGGINGFACE_DEFAULT_BASE
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.core.reasoning import ReasoningEffort, ReasoningPolicy
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.provider_catalog import HUGGINGFACE_DEFAULT_BASE
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.reasoning import ReasoningEffort, ReasoningPolicy
 from tests.providers.request_factory import make_messages_request
 from tests.providers.support import (
     immediate_admission,
@@ -46,7 +46,7 @@ def test_default_base_url_constant():
 
 def test_init_uses_default_base_url_and_api_key(huggingface_config):
     with patch(
-        "free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"
+        "free_claude_code.providers.openai_chat.provider.AsyncOpenAI"
     ) as mock_openai:
         provider = profiled_provider(
             "huggingface", huggingface_config, admission=immediate_admission()
@@ -60,7 +60,7 @@ def test_init_uses_default_base_url_and_api_key(huggingface_config):
 def test_init_strips_trailing_slash(huggingface_config):
     config = replace(huggingface_config, base_url=f"{HUGGINGFACE_DEFAULT_BASE}/")
 
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = profiled_provider(
             "huggingface", config, admission=immediate_admission()
         )
@@ -135,7 +135,7 @@ async def test_model_catalog_requires_consensus_across_live_huggingface_routes(
 
 def test_build_request_body_keeps_max_tokens(huggingface_provider):
     with patch(
-        "free_xeron_code.providers.openai_chat.request_policy.build_base_request_body"
+        "free_claude_code.providers.openai_chat.request_policy.build_base_request_body"
     ) as mock_convert:
         mock_convert.return_value = {
             "model": "openai/gpt-oss-120b:fastest",

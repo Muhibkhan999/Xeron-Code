@@ -2,13 +2,13 @@
 
 from collections.abc import Iterable
 
-from free_xeron_code.config.provider_catalog import PROVIDER_CATALOG
-from free_xeron_code.config.reasoning import (
+from free_claude_code.config.provider_catalog import PROVIDER_CATALOG
+from free_claude_code.config.reasoning import (
     ROOT_REASONING_PREFERENCES,
     ROUTE_REASONING_PREFERENCES,
     ReasoningPreference,
 )
-from free_xeron_code.config.settings import Settings
+from free_claude_code.config.settings import Settings
 
 from .provider_manifest import provider_field_specs
 from .specs import ConfigFieldSpec, ConfigOptionSpec, ConfigSectionSpec

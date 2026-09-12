@@ -4,10 +4,10 @@ from collections.abc import AsyncIterator, Callable, Mapping
 from dataclasses import dataclass
 from typing import Protocol
 
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic import MessagesRequest
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningPolicy
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic import MessagesRequest
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningPolicy
 
 from .model_metadata import ProviderModelInfo
 

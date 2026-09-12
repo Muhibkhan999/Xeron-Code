@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from free_xeron_code.core.trace import sanitize_trace_value
+from free_claude_code.core.trace import sanitize_trace_value
 
 from .models import MessagesRequest, TokenCountRequest
 

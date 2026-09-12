@@ -10,9 +10,9 @@ from urllib.parse import urlsplit, urlunsplit
 
 from openai import AsyncOpenAI
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.core.diagnostics import extract_upstream_error_detail
-from free_xeron_code.core.history_replay import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.core.diagnostics import extract_upstream_error_detail
+from free_claude_code.core.history_replay import (
     HistoryProtocol,
     HistoryReplayError,
     ReplayOrigin,

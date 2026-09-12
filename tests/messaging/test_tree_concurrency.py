@@ -4,8 +4,8 @@ import asyncio
 
 import pytest
 
-from free_xeron_code.messaging.models import IncomingMessage, MessageScope
-from free_xeron_code.messaging.trees import (
+from free_claude_code.messaging.models import IncomingMessage, MessageScope
+from free_claude_code.messaging.trees import (
     CancellationReason,
     CancellationUiOwner,
     NodeClaim,

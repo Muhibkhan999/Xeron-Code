@@ -8,12 +8,12 @@ import httpx
 import httpx2
 from openai import AsyncOpenAI, Omit
 
-from free_xeron_code.providers.admission import (
+from free_claude_code.providers.admission import (
     ProviderAttempt,
     ProviderCorrectionAction,
     ProviderExecution,
 )
-from free_xeron_code.providers.failure_policy import provider_authentication_status
+from free_claude_code.providers.failure_policy import provider_authentication_status
 
 
 @dataclass(frozen=True, slots=True)

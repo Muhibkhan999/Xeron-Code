@@ -4,9 +4,9 @@ from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from typing import Protocol
 
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_responses import (
     NativeResponsesRelay,
     ResponsesProviderStream,
     ResponsesStreamFailure,

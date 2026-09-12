@@ -1,4 +1,4 @@
-from free_xeron_code.core.anthropic.streaming import AnthropicSSEDecoder
+from free_claude_code.core.anthropic.streaming import AnthropicSSEDecoder
 
 
 def test_decoder_handles_every_split_and_crlf_boundaries():

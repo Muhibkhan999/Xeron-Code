@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from free_xeron_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.models import MessagesRequest
 
 
 def make_messages_request(

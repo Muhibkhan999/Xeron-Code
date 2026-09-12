@@ -6,23 +6,23 @@ from unittest.mock import MagicMock, patch
 import pytest
 from fastapi.responses import JSONResponse, StreamingResponse
 
-from free_xeron_code.api.handlers import (
+from free_claude_code.api.handlers import (
     MessagesHandler,
     ResponsesHandler,
     TokenCountHandler,
 )
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.settings import Settings
-from free_xeron_code.core.anthropic.models import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.settings import Settings
+from free_claude_code.core.anthropic.models import (
     Message,
     MessagesRequest,
     TokenCountRequest,
 )
-from free_xeron_code.core.anthropic.streaming import format_sse_event
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningPolicy
+from free_claude_code.core.anthropic.streaming import format_sse_event
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningPolicy
 
 _LEGACY_CLASSIFIER_SYSTEM = (
     "You are a security monitor. Respond with <block>yes</block> or <block>no</block>."
@@ -448,7 +448,7 @@ async def test_messages_handler_normalizes_safety_classifier_policy(
         messages=[Message(role="user", content=_CLASSIFIER_USER)],
     )
 
-    with patch("free_xeron_code.api.handlers.messages.trace_event") as trace_mock:
+    with patch("free_claude_code.api.handlers.messages.trace_event") as trace_mock:
         response = await handler.create(request)
         assert isinstance(response, StreamingResponse)
         await _streaming_body_text(response)
@@ -461,11 +461,11 @@ async def test_messages_handler_normalizes_safety_classifier_policy(
     assert provider.requests[0].stop_sequences is None
     assert request.stop_sequences == [classifier_stop_sequence]
     assert _trace_events(
-        trace_mock, "free_xeron_code.api.route.safety_classifier_policy"
+        trace_mock, "free_claude_code.api.route.safety_classifier_policy"
     ) == [
         {
             "stage": "routing",
-            "event": "free_xeron_code.api.route.safety_classifier_policy",
+            "event": "free_claude_code.api.route.safety_classifier_policy",
             "source": "api",
             "model": "nvidia_nim/test-model",
             "classifier_stop_sequence": classifier_stop_sequence,
@@ -496,7 +496,7 @@ async def test_messages_handler_preserves_thinking_for_non_classifier() -> None:
         ],
     )
 
-    with patch("free_xeron_code.api.handlers.messages.trace_event") as trace_mock:
+    with patch("free_claude_code.api.handlers.messages.trace_event") as trace_mock:
         response = await handler.create(request)
         assert isinstance(response, StreamingResponse)
         await _streaming_body_text(response)
@@ -507,7 +507,7 @@ async def test_messages_handler_preserves_thinking_for_non_classifier() -> None:
     assert (
         _trace_events(
             trace_mock,
-            "free_xeron_code.api.route.safety_classifier_policy",
+            "free_claude_code.api.route.safety_classifier_policy",
         )
         == []
     )
@@ -526,7 +526,7 @@ async def test_messages_handler_tolerates_required_thinking_for_classifier() -> 
         messages=[Message(role="user", content=_CLASSIFIER_USER)],
     )
 
-    with patch("free_xeron_code.api.handlers.messages.trace_event") as trace_mock:
+    with patch("free_claude_code.api.handlers.messages.trace_event") as trace_mock:
         response = await handler.create(request)
         assert isinstance(response, StreamingResponse)
         await _streaming_body_text(response)
@@ -536,11 +536,11 @@ async def test_messages_handler_tolerates_required_thinking_for_classifier() -> 
     assert provider.requests[0].stop_sequences is None
     assert request.stop_sequences == ["</block>"]
     assert _trace_events(
-        trace_mock, "free_xeron_code.api.route.safety_classifier_policy"
+        trace_mock, "free_claude_code.api.route.safety_classifier_policy"
     ) == [
         {
             "stage": "routing",
-            "event": "free_xeron_code.api.route.safety_classifier_policy",
+            "event": "free_claude_code.api.route.safety_classifier_policy",
             "source": "api",
             "model": "claude-3-freecc-no-thinking/nvidia_nim/test-model",
             "classifier_stop_sequence": "</block>",
@@ -564,7 +564,7 @@ async def test_messages_handler_prefers_no_thinking_without_classifier_stop_hint
         messages=[Message(role="user", content=_CLASSIFIER_USER)],
     )
 
-    with patch("free_xeron_code.api.handlers.messages.trace_event") as trace_mock:
+    with patch("free_claude_code.api.handlers.messages.trace_event") as trace_mock:
         response = await handler.create(request)
         assert isinstance(response, StreamingResponse)
         await _streaming_body_text(response)
@@ -572,11 +572,11 @@ async def test_messages_handler_prefers_no_thinking_without_classifier_stop_hint
     assert provider.preflight_calls[0][1] == ReasoningPolicy.prefer_off()
     assert provider.requests[0].stop_sequences is None
     assert _trace_events(
-        trace_mock, "free_xeron_code.api.route.safety_classifier_policy"
+        trace_mock, "free_claude_code.api.route.safety_classifier_policy"
     ) == [
         {
             "stage": "routing",
-            "event": "free_xeron_code.api.route.safety_classifier_policy",
+            "event": "free_claude_code.api.route.safety_classifier_policy",
             "source": "api",
             "model": "nvidia_nim/test-model",
             "classifier_stop_sequence": "</severity>",
@@ -628,7 +628,7 @@ async def test_messages_handler_optimization_intercepts_before_provider_executio
     optimized = object()
 
     with patch(
-        "free_xeron_code.api.handlers.messages.try_optimizations",
+        "free_claude_code.api.handlers.messages.try_optimizations",
         return_value=optimized,
     ):
         assert await handler.create(request) is optimized
@@ -642,7 +642,7 @@ async def test_responses_handler_bypasses_message_only_optimizations() -> None:
     handler = ResponsesHandler(Settings(), provider_resolver=lambda _: provider)
 
     with patch(
-        "free_xeron_code.api.handlers.messages.try_optimizations",
+        "free_claude_code.api.handlers.messages.try_optimizations",
         side_effect=AssertionError("Responses must not use message optimizations"),
     ):
         response = await handler.create(
@@ -663,7 +663,7 @@ async def test_responses_handler_does_not_apply_safety_classifier_policy() -> No
     provider = FakeProvider()
     handler = ResponsesHandler(Settings(), provider_resolver=lambda _: provider)
 
-    with patch("free_xeron_code.api.handlers.messages.trace_event") as trace_mock:
+    with patch("free_claude_code.api.handlers.messages.trace_event") as trace_mock:
         response = await handler.create(
             OpenAIResponsesRequest(
                 model="nvidia_nim/test-model",
@@ -682,7 +682,7 @@ async def test_responses_handler_does_not_apply_safety_classifier_policy() -> No
     assert (
         _trace_events(
             trace_mock,
-            "free_xeron_code.api.route.safety_classifier_policy",
+            "free_claude_code.api.route.safety_classifier_policy",
         )
         == []
     )
@@ -694,7 +694,7 @@ def test_token_count_handler_routes_and_counts_tokens() -> None:
         token_counter=lambda messages, system, tools: len(messages) + 41,
     )
 
-    with patch("free_xeron_code.api.handlers.token_count.trace_event") as trace:
+    with patch("free_claude_code.api.handlers.token_count.trace_event") as trace:
         response = handler.count(
             TokenCountRequest(
                 model="nvidia_nim/test-model",

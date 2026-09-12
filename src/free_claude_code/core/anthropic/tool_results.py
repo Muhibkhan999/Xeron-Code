@@ -4,8 +4,8 @@ import json
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 
-from free_xeron_code.core.anthropic.content import get_block_attr, get_block_type
-from free_xeron_code.core.anthropic.image_sources import (
+from free_claude_code.core.anthropic.content import get_block_attr, get_block_type
+from free_claude_code.core.anthropic.image_sources import (
     portable_anthropic_image_url,
 )
 

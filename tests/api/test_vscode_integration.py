@@ -3,8 +3,8 @@ import json
 import pytest
 from fastapi.testclient import TestClient
 
-from free_xeron_code.cli import vscode
-from free_xeron_code.config.settings import Settings
+from free_claude_code.cli import vscode
+from free_claude_code.config.settings import Settings
 from tests.api.support import create_test_app, runtime_for_app
 
 ROOT = "/admin/api/integrations/claude-vscode"

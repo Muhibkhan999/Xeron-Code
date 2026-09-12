@@ -8,46 +8,46 @@ from typing import cast
 
 import httpx
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.core.anthropic.errors import anthropic_status_for_error_type
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.native import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.core.anthropic.errors import anthropic_status_for_error_type
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.native import (
     NativeMessagesError,
     PreparedMessagesRequest,
     build_native_messages_request,
 )
-from free_xeron_code.core.anthropic.native_stream import NativeMessagesRelay
-from free_xeron_code.core.anthropic.streaming.decoder import AnthropicSSEDecoder
-from free_xeron_code.core.diagnostics import (
+from free_claude_code.core.anthropic.native_stream import NativeMessagesRelay
+from free_claude_code.core.anthropic.streaming.decoder import AnthropicSSEDecoder
+from free_claude_code.core.diagnostics import (
     ERROR_DETAIL_DISPLAY_CAP_BYTES,
     attach_upstream_error_body,
     redact_sensitive_error_text,
 )
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.history_replay import ReplayOrigin, prepare_history
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.history_replay import ReplayOrigin, prepare_history
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_responses import (
     AnthropicToResponsesStream,
     OpenAIResponsesRequest,
     ResponsesConversionError,
     ResponsesMessagesRequest,
     build_responses_messages_request,
 )
-from free_xeron_code.core.reasoning import (
+from free_claude_code.core.reasoning import (
     DEFAULT_REASONING_POLICY,
     ReasoningControl,
     ReasoningPolicy,
 )
-from free_xeron_code.core.trace import trace_event
-from free_xeron_code.providers.admission import (
+from free_claude_code.core.trace import trace_event
+from free_claude_code.providers.admission import (
     ProviderAdmissionController,
     ProviderCorrectionAction,
     ProviderExecution,
     ProviderOperationKind,
 )
-from free_xeron_code.providers.endpoint import EndpointContext
-from free_xeron_code.providers.failure_policy import (
+from free_claude_code.providers.endpoint import EndpointContext
+from free_claude_code.providers.failure_policy import (
     RetryableProviderProtocolError,
     classify_provider_failure,
     context_window_exceeded_provider_failure,
@@ -55,17 +55,17 @@ from free_xeron_code.providers.failure_policy import (
     is_context_window_finish_reason,
     is_retryable_stream_error,
 )
-from free_xeron_code.providers.history_replay import (
+from free_claude_code.providers.history_replay import (
     history_retry_body,
     replay_origin,
     validate_history,
 )
-from free_xeron_code.providers.http import ProviderAttemptScope, maybe_await_aclose
-from free_xeron_code.providers.reasoning_compatibility import (
+from free_claude_code.providers.http import ProviderAttemptScope, maybe_await_aclose
+from free_claude_code.providers.reasoning_compatibility import (
     ReasoningCorrection,
     prepare_messages_reasoning,
 )
-from free_xeron_code.providers.stream_recovery import (
+from free_claude_code.providers.stream_recovery import (
     RecoveryController,
     RecoveryFailureAction,
 )

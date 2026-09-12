@@ -11,14 +11,14 @@ import httpx
 import httpx2
 import openai
 
-from free_xeron_code.core.anthropic.errors import anthropic_status_for_error_type
-from free_xeron_code.core.diagnostics import (
+from free_claude_code.core.anthropic.errors import anthropic_status_for_error_type
+from free_claude_code.core.diagnostics import (
     attached_upstream_error_body,
     extract_upstream_error_detail,
     format_execution_failure_message,
     safe_exception_message,
 )
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
 
 ProviderFailureOverride = Callable[[Exception], ExecutionFailure | None]
 

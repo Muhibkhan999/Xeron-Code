@@ -5,8 +5,8 @@ from io import BytesIO
 from PIL import Image
 from pystray import Icon, Menu, MenuItem
 
-from free_xeron_code.cli.desktop import DesktopController, launch_desktop
-from free_xeron_code.cli.desktop_assets import app_icon_bytes
+from free_claude_code.cli.desktop import DesktopController, launch_desktop
+from free_claude_code.cli.desktop_assets import app_icon_bytes
 
 
 class PystrayDesktopTray:

@@ -4,8 +4,8 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from free_xeron_code.cli.desktop_assets import export_app_icon
-from free_xeron_code.core.windows_dpi import enable_dpi_awareness
+from free_claude_code.cli.desktop_assets import export_app_icon
+from free_claude_code.core.windows_dpi import enable_dpi_awareness
 
 
 def launch(argv: Sequence[str] | None = None) -> None:
@@ -24,6 +24,6 @@ def launch(argv: Sequence[str] | None = None) -> None:
 
     enable_dpi_awareness()
 
-    from free_xeron_code.cli.desktop_tray import launch as launch_tray
+    from free_claude_code.cli.desktop_tray import launch as launch_tray
 
     launch_tray()

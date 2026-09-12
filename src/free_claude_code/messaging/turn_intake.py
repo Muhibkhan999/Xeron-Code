@@ -4,7 +4,7 @@ from collections.abc import Awaitable, Callable
 
 from loguru import logger
 
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.trace import trace_event
 
 from .cli_event_constants import STATUS_MESSAGE_PREFIXES
 from .command_context import MessagingCommandContext

@@ -1,7 +1,7 @@
 """Anthropic request parsing and public-field serialization."""
 
-from free_xeron_code.core.anthropic import dump_messages_request
-from free_xeron_code.core.anthropic.models import (
+from free_claude_code.core.anthropic import dump_messages_request
+from free_claude_code.core.anthropic.models import (
     ContentBlockServerToolUse,
     ContentBlockText,
     ContentBlockWebSearchToolResult,

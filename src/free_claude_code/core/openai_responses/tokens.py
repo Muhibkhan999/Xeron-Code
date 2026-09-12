@@ -5,8 +5,8 @@ from collections.abc import Iterator, Mapping, Sequence
 from io import StringIO
 from typing import NamedTuple
 
-from free_xeron_code.core.json_types import JsonValue
-from free_xeron_code.core.token_estimation import estimate_text_tokens
+from free_claude_code.core.json_types import JsonValue
+from free_claude_code.core.token_estimation import estimate_text_tokens
 
 from .models import OpenAIResponsesRequest
 

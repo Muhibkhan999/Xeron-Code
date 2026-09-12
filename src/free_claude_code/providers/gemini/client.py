@@ -1,14 +1,14 @@
 """Google AI Studio Gemini provider (OpenAI-compatible chat completions)."""
 
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
-from free_xeron_code.providers.google_openai import (
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
+from free_claude_code.providers.google_openai import (
     GeminiReasoningEncoder,
     GoogleOpenAIProvider,
     validate_google_extra_body,
 )
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.providers.openai_chat import (
     OpenAIChatProfile,
     OpenAIChatRequestPolicy,
 )

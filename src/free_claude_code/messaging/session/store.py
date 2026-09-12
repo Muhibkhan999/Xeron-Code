@@ -5,8 +5,8 @@ from copy import deepcopy
 
 from loguru import logger
 
-from free_xeron_code.messaging.models import MessageScope
-from free_xeron_code.messaging.trees import (
+from free_claude_code.messaging.models import MessageScope
+from free_claude_code.messaging.trees import (
     ConversationSnapshot,
     TreeIdentity,
     TreeSnapshot,

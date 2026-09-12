@@ -5,16 +5,16 @@ from unittest.mock import AsyncMock, Mock
 import pytest
 import pytest_asyncio
 
-from free_xeron_code.application.code_sessions import CodeConflictError, CodeService
-from free_xeron_code.application.code_sessions.models import (
+from free_claude_code.application.code_sessions import CodeConflictError, CodeService
+from free_claude_code.application.code_sessions.models import (
     CodeUnavailableError,
     CodeValidationError,
     HarnessEvent,
     ItemUpdate,
     PromptRequest,
 )
-from free_xeron_code.runtime.code_sessions_sqlite import SQLiteCodeStore
-from free_xeron_code.runtime.codex_protocol import CodexProtocol
+from free_claude_code.runtime.code_sessions_sqlite import SQLiteCodeStore
+from free_claude_code.runtime.codex_protocol import CodexProtocol
 from tests.code_sessions_support import CodexPackets, FakeConnection, FakeHarness
 
 

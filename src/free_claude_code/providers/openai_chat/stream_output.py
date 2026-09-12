@@ -10,19 +10,19 @@ from dataclasses import dataclass, field
 
 from loguru import logger
 
-from free_xeron_code.core.anthropic.streaming import (
+from free_claude_code.core.anthropic.streaming import (
     AnthropicStreamLedger,
     ToolSchema,
     parse_complete_tool_input,
 )
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.core.history_replay import (
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.core.history_replay import (
     ReplayOrigin,
     ReplayRecord,
     encode_replay,
 )
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_responses import (
     ReasoningBlockState,
     ResponseBlockCompleter,
     ResponseEventBuilder,
@@ -40,8 +40,8 @@ from free_xeron_code.core.openai_responses import (
     replay_unsafe_function_call_error,
     tool_item,
 )
-from free_xeron_code.core.token_estimation import estimate_text_tokens
-from free_xeron_code.core.trace import trace_event
+from free_claude_code.core.token_estimation import estimate_text_tokens
+from free_claude_code.core.trace import trace_event
 
 
 @dataclass(frozen=True, slots=True)

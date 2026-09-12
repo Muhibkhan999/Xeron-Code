@@ -2,8 +2,8 @@
 
 from enum import Enum
 
-from free_xeron_code.config.loader import ConfigSource, ManagedConfigSnapshot
-from free_xeron_code.core.json_types import JsonObject
+from free_claude_code.config.loader import ConfigSource, ManagedConfigSnapshot
+from free_claude_code.core.json_types import JsonObject
 
 from .manifest import FIELDS, SECTIONS
 from .specs import ConfigFieldSpec, ConfigOptionSpec

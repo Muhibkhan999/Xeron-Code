@@ -4,9 +4,9 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.config.provider_catalog import CODESTRAL_DEFAULT_BASE
-from free_xeron_code.core.model_capabilities import ModelInputModality
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.config.provider_catalog import CODESTRAL_DEFAULT_BASE
+from free_claude_code.core.model_capabilities import ModelInputModality
 from tests.providers.request_factory import make_messages_request
 from tests.providers.support import (
     immediate_admission,
@@ -39,7 +39,7 @@ def codestral_provider(codestral_config):
 def test_init(codestral_config):
     """Test provider initialization."""
     with patch(
-        "free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"
+        "free_claude_code.providers.openai_chat.provider.AsyncOpenAI"
     ) as mock_openai:
         provider = profiled_provider(
             "mistral_codestral",

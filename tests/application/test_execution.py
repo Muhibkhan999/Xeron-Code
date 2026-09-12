@@ -6,21 +6,21 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.application.execution import ProviderExecutor
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.application.routing import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.application.execution import ProviderExecutor
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.application.routing import (
     ProviderModelTarget,
     ResolvedModelRoute,
     RoutedMessagesRequest,
     RoutedResponsesRequest,
 )
-from free_xeron_code.config.reasoning import ReasoningPreference
-from free_xeron_code.core.anthropic.models import Message, MessagesRequest
-from free_xeron_code.core.async_iterators import AsyncCloseable
-from free_xeron_code.core.failures import ExecutionFailure, FailureKind
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import ReasoningCapability, ReasoningPolicy
+from free_claude_code.config.reasoning import ReasoningPreference
+from free_claude_code.core.anthropic.models import Message, MessagesRequest
+from free_claude_code.core.async_iterators import AsyncCloseable
+from free_claude_code.core.failures import ExecutionFailure, FailureKind
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import ReasoningCapability, ReasoningPolicy
 
 
 class FakeProvider:
@@ -587,7 +587,7 @@ async def test_retryable_preframe_failure_selects_fallback_after_closing_primary
     )
     routed = _routed_request(_target("fallback", "fallback-model"))
 
-    with patch("free_xeron_code.application.execution.trace_event") as trace_mock:
+    with patch("free_claude_code.application.execution.trace_event") as trace_mock:
         chunks = [
             chunk
             async for chunk in executor.stream_messages(
@@ -613,11 +613,11 @@ async def test_retryable_preframe_failure_selects_fallback_after_closing_primary
     started = next(
         event
         for event in events
-        if event.get("event") == "free_xeron_code.model_fallback.started"
+        if event.get("event") == "free_claude_code.model_fallback.started"
     )
     assert started == {
         "stage": "execution",
-        "event": "free_xeron_code.model_fallback.started",
+        "event": "free_claude_code.model_fallback.started",
         "source": "application",
         "request_id": "req_fallback",
         "wire_api": "messages",
@@ -633,7 +633,7 @@ async def test_retryable_preframe_failure_selects_fallback_after_closing_primary
     selected = next(
         event
         for event in events
-        if event.get("event") == "free_xeron_code.model_fallback.selected"
+        if event.get("event") == "free_claude_code.model_fallback.selected"
     )
     assert selected["selected_provider_model_ref"] == "fallback/fallback-model"
     assert selected["candidate_index"] == 2
@@ -788,7 +788,7 @@ async def test_nonretryable_provider_failure_selects_fallback_before_first_frame
         request_id="req_rejected",
     )
 
-    with patch("free_xeron_code.application.execution.trace_event") as trace_mock:
+    with patch("free_claude_code.application.execution.trace_event") as trace_mock:
         chunks = [chunk async for chunk in stream]
 
     assert chunks == ["fallback-frame"]
@@ -796,7 +796,7 @@ async def test_nonretryable_provider_failure_selects_fallback_before_first_frame
     fallback_started = next(
         call.kwargs
         for call in trace_mock.call_args_list
-        if call.kwargs.get("event") == "free_xeron_code.model_fallback.started"
+        if call.kwargs.get("event") == "free_claude_code.model_fallback.started"
     )
     assert fallback_started["failure_kind"] == failure_kind.value
     assert fallback_started["provider_retryable"] is False
@@ -1040,7 +1040,7 @@ async def test_progress_timeout_before_first_chunk_is_canonical_and_correlated()
     provider = ControlledProvider([WaitStep()])
     request_id = "req_progress_timeout"
 
-    with patch("free_xeron_code.application.execution.trace_event") as trace_mock:
+    with patch("free_claude_code.application.execution.trace_event") as trace_mock:
         stream = _executor_stream(
             provider,
             timeout_seconds=0.02,
@@ -1061,12 +1061,12 @@ async def test_progress_timeout_before_first_chunk_is_canonical_and_correlated()
     timeout_traces = [
         call.kwargs
         for call in trace_mock.call_args_list
-        if call.kwargs.get("event") == "free_xeron_code.provider.progress_timeout"
+        if call.kwargs.get("event") == "free_claude_code.provider.progress_timeout"
     ]
     assert timeout_traces == [
         {
             "stage": "execution",
-            "event": "free_xeron_code.provider.progress_timeout",
+            "event": "free_claude_code.provider.progress_timeout",
             "source": "application",
             "request_id": request_id,
             "provider_id": "provider",
@@ -1124,7 +1124,7 @@ async def test_provider_cleanup_cannot_delay_fallback_past_progress_deadline() -
     )
 
     with (
-        patch("free_xeron_code.application.execution.trace_event") as trace_mock,
+        patch("free_claude_code.application.execution.trace_event") as trace_mock,
         pytest.raises(ExecutionFailure) as exc_info,
     ):
         await anext(stream)
@@ -1135,7 +1135,7 @@ async def test_provider_cleanup_cannot_delay_fallback_past_progress_deadline() -
     assert primary.stream_close_calls == 1
     assert fallback.stream_calls == []
     assert all(
-        call.kwargs.get("event") != "free_xeron_code.model_fallback.started"
+        call.kwargs.get("event") != "free_claude_code.model_fallback.started"
         for call in trace_mock.call_args_list
     )
 
@@ -1154,7 +1154,7 @@ async def test_cleanup_failure_trace_names_preserved_provider_failure() -> None:
     )
 
     with (
-        patch("free_xeron_code.core.trace.trace_event") as trace_mock,
+        patch("free_claude_code.core.trace.trace_event") as trace_mock,
         pytest.raises(ExecutionFailure) as exc_info,
     ):
         await anext(stream)
@@ -1237,9 +1237,9 @@ async def test_fallback_transition_does_not_reset_shared_progress_deadline() -> 
         return timeout
 
     with (
-        patch("free_xeron_code.application.execution.trace_event") as trace_mock,
+        patch("free_claude_code.application.execution.trace_event") as trace_mock,
         patch(
-            "free_xeron_code.application.execution.asyncio.timeout_at",
+            "free_claude_code.application.execution.asyncio.timeout_at",
             controlled_timeout_at,
         ),
     ):
@@ -1261,7 +1261,7 @@ async def test_fallback_transition_does_not_reset_shared_progress_deadline() -> 
     timeout_trace = next(
         call.kwargs
         for call in trace_mock.call_args_list
-        if call.kwargs.get("event") == "free_xeron_code.provider.progress_timeout"
+        if call.kwargs.get("event") == "free_claude_code.provider.progress_timeout"
     )
     assert timeout_trace["provider_id"] == "fallback"
 

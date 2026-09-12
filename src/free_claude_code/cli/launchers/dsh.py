@@ -3,7 +3,7 @@
 import re
 from collections.abc import Sequence
 
-from free_xeron_code.cli.environment import client_environment
+from free_claude_code.cli.environment import client_environment
 
 from .dsh_config import DSH_API_KEY_ENV, DSH_ENV_PREFIX, build_dsh_launch_config
 from .resources import LaunchResources

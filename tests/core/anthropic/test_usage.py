@@ -2,7 +2,7 @@ from typing import cast
 
 import pytest
 
-from free_xeron_code.core.anthropic.usage import anthropic_input_usage_fields
+from free_claude_code.core.anthropic.usage import anthropic_input_usage_fields
 
 
 @pytest.mark.parametrize(

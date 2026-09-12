@@ -3,22 +3,22 @@
 import json
 from typing import Any, cast
 
-from free_xeron_code.core.anthropic.content import get_block_attr, get_block_type
-from free_xeron_code.core.anthropic.conversion import resolve_anthropic_tool_choice
-from free_xeron_code.core.anthropic.image_sources import (
+from free_claude_code.core.anthropic.content import get_block_attr, get_block_type
+from free_claude_code.core.anthropic.conversion import resolve_anthropic_tool_choice
+from free_claude_code.core.anthropic.image_sources import (
     AnthropicImageSourceError,
     portable_anthropic_image_url,
 )
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.anthropic.request_serialization import (
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.anthropic.request_serialization import (
     serialize_tool_result_content,
 )
-from free_xeron_code.core.anthropic.tool_results import (
+from free_claude_code.core.anthropic.tool_results import (
     ToolResultImage,
     ToolResultText,
     decompose_tool_result_content,
 )
-from free_xeron_code.core.history_replay import (
+from free_claude_code.core.history_replay import (
     HistoryReplayError,
     ReplayOrigin,
     ReplayRecord,
@@ -28,9 +28,9 @@ from free_xeron_code.core.history_replay import (
     tool_history_context,
     validate_hosted_tool_history,
 )
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_tool_names import OpenAIToolNameCodec
-from free_xeron_code.core.reasoning import ReasoningPolicy
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_tool_names import OpenAIToolNameCodec
+from free_claude_code.core.reasoning import ReasoningPolicy
 
 from .errors import ResponsesConversionError
 from .reasoning import responses_reasoning_config

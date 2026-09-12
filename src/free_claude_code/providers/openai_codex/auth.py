@@ -14,13 +14,13 @@ from typing import Any
 
 import httpx
 
-from free_xeron_code.application.connected_accounts import (
+from free_claude_code.application.connected_accounts import (
     ConnectedAccountLoginMode,
     ConnectedAccountState,
     ConnectedAccountStatus,
 )
-from free_xeron_code.config.paths import openai_auth_lock_path, openai_auth_path
-from free_xeron_code.core.interprocess_lock import InterprocessFileLock
+from free_claude_code.config.paths import openai_auth_lock_path, openai_auth_path
+from free_claude_code.core.interprocess_lock import InterprocessFileLock
 
 from .login import (
     OPENAI_CODEX_ORIGINATOR,

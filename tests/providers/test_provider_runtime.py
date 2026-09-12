@@ -5,12 +5,12 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from free_xeron_code.application.errors import (
+from free_claude_code.application.errors import (
     ApplicationUnavailableError,
     UnknownProviderError,
 )
-from free_xeron_code.config.nim import NimSettings
-from free_xeron_code.config.provider_catalog import (
+from free_claude_code.config.nim import NimSettings
+from free_claude_code.config.provider_catalog import (
     AGNES_DEFAULT_BASE,
     BEDROCK_DEFAULT_BASE,
     CHUTES_DEFAULT_BASE,
@@ -40,29 +40,29 @@ from free_xeron_code.config.provider_catalog import (
     ZAI_CODING_DEFAULT_BASE,
     ZENMUX_DEFAULT_BASE,
 )
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.cloudflare import CloudflareProvider
-from free_xeron_code.providers.deepseek import DeepSeekProvider
-from free_xeron_code.providers.gemini import GeminiProvider
-from free_xeron_code.providers.github_copilot.provider import GitHubCopilotProvider
-from free_xeron_code.providers.groq import GroqProvider
-from free_xeron_code.providers.kilo import KiloProvider
-from free_xeron_code.providers.lmstudio import LMStudioProvider
-from free_xeron_code.providers.mistral import MistralProvider
-from free_xeron_code.providers.nvidia_nim import NvidiaNimProvider
-from free_xeron_code.providers.open_router import OpenRouterProvider
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.cloudflare import CloudflareProvider
+from free_claude_code.providers.deepseek import DeepSeekProvider
+from free_claude_code.providers.gemini import GeminiProvider
+from free_claude_code.providers.github_copilot.provider import GitHubCopilotProvider
+from free_claude_code.providers.groq import GroqProvider
+from free_claude_code.providers.kilo import KiloProvider
+from free_claude_code.providers.lmstudio import LMStudioProvider
+from free_claude_code.providers.mistral import MistralProvider
+from free_claude_code.providers.nvidia_nim import NvidiaNimProvider
+from free_claude_code.providers.open_router import OpenRouterProvider
+from free_claude_code.providers.openai_chat import (
     OPENAI_CHAT_PROFILES,
     OpenAIChatProvider,
 )
-from free_xeron_code.providers.openai_codex import OpenAICodexProvider
-from free_xeron_code.providers.opencode import OpenCodeProvider
-from free_xeron_code.providers.runtime import (
+from free_claude_code.providers.openai_codex import OpenAICodexProvider
+from free_claude_code.providers.opencode import OpenCodeProvider
+from free_claude_code.providers.runtime import (
     ProviderRuntime,
     build_provider_config,
     create_provider,
 )
-from free_xeron_code.providers.vertex import VertexProvider
+from free_claude_code.providers.vertex import VertexProvider
 
 
 def _make_settings(**overrides):
@@ -187,8 +187,8 @@ def test_importing_runtime_does_not_eager_load_other_adapters() -> None:
     """Runtime metadata must not import every provider adapter up front."""
     code = (
         "import sys\n"
-        "import free_xeron_code.providers.runtime\n"
-        "assert 'free_xeron_code.providers.open_router' not in sys.modules\n"
+        "import free_claude_code.providers.runtime\n"
+        "assert 'free_claude_code.providers.open_router' not in sys.modules\n"
     )
     proc = subprocess.run(
         [sys.executable, "-c", code],
@@ -245,7 +245,7 @@ def test_poolside_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("poolside", settings)
 
     assert descriptor.display_name == "Poolside AI"
@@ -269,7 +269,7 @@ def test_llm7_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("llm7", settings)
 
     assert descriptor.display_name == "LLM7.io"
@@ -293,7 +293,7 @@ def test_xai_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("xai", settings)
 
     assert descriptor.display_name == "xAI (Grok)"
@@ -312,7 +312,7 @@ def test_qwencloud_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("qwencloud", settings)
 
     assert descriptor.display_name == "QwenCloud Token Plan"
@@ -331,7 +331,7 @@ def test_cline_pass_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("cline_pass", settings)
 
     assert descriptor.display_name == "ClinePass"
@@ -354,7 +354,7 @@ def test_qwencloud_coding_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("qwencloud_coding", settings)
 
     assert descriptor.display_name == "QwenCloud Coding Plan"
@@ -373,7 +373,7 @@ def test_together_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("together", settings)
 
     assert descriptor.display_name == "Together AI"
@@ -392,7 +392,7 @@ def test_deepinfra_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("deepinfra", settings)
 
     assert descriptor.display_name == "DeepInfra"
@@ -411,7 +411,7 @@ def test_siliconflow_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("siliconflow", settings)
 
     assert descriptor.display_name == "SiliconFlow"
@@ -431,7 +431,7 @@ def test_nebius_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("nebius", settings)
 
     assert descriptor.display_name == "Nebius Token Factory"
@@ -454,7 +454,7 @@ def test_chutes_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("chutes", settings)
 
     assert descriptor.display_name == "Chutes"
@@ -477,7 +477,7 @@ def test_featherless_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("featherless", settings)
 
     assert descriptor.display_name == "Featherless AI"
@@ -498,7 +498,7 @@ def test_agnes_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("agnes", settings)
 
     assert descriptor.display_name == "Agnes AI"
@@ -518,7 +518,7 @@ def test_zenmux_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("zenmux", settings)
 
     assert descriptor.display_name == "ZenMux"
@@ -538,7 +538,7 @@ def test_wandb_provider_config_uses_key_base_and_proxy() -> None:
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("wandb", settings)
 
     assert descriptor.display_name == "W&B Inference"
@@ -620,7 +620,7 @@ def test_local_provider_factory_resolves_catalog_static_credential(
     settings = _make_settings()
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider(provider_id, settings)
 
     assert config.api_key == expected_api_key
@@ -655,7 +655,7 @@ def test_zai_api_provider_config_uses_shared_key_general_base_and_own_proxy():
     )
 
     config = build_provider_config(descriptor, settings)
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("zai_api", settings)
 
     assert descriptor.display_name == "Z.ai API"
@@ -706,7 +706,7 @@ def test_create_cloudflare_provider_uses_account_scoped_base_url():
         cloudflare_account_id="test-account",
     )
 
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("cloudflare", settings)
 
     assert isinstance(provider, CloudflareProvider)
@@ -817,7 +817,7 @@ def test_build_provider_config_cohere_uses_api_key_and_proxy() -> None:
 
 
 def test_create_provider_uses_openai_chat_openrouter_by_default():
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         provider = create_provider("open_router", _make_settings())
 
     assert isinstance(provider, OpenRouterProvider)
@@ -913,12 +913,12 @@ def test_create_provider_instantiates_each_builtin():
     }
 
     with (
-        patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"),
-        patch("free_xeron_code.providers.github_copilot.provider.AsyncOpenAI"),
-        patch("free_xeron_code.providers.openai_codex.provider.AsyncOpenAI"),
+        patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"),
+        patch("free_claude_code.providers.github_copilot.provider.AsyncOpenAI"),
+        patch("free_claude_code.providers.openai_codex.provider.AsyncOpenAI"),
         patch("httpx.AsyncClient"),
         patch(
-            "free_xeron_code.providers.runtime.factory.ProviderAdmissionController",
+            "free_claude_code.providers.runtime.factory.ProviderAdmissionController",
             return_value=sentinel_admission,
         ) as admission_factory,
     ):
@@ -945,7 +945,7 @@ def test_create_provider_instantiates_each_builtin():
 def test_provider_runtime_caches_by_provider_id():
     runtime = ProviderRuntime(_make_settings())
 
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         first = runtime.resolve_provider("nvidia_nim")
         second = runtime.resolve_provider("nvidia_nim")
 
@@ -955,7 +955,7 @@ def test_provider_runtime_caches_by_provider_id():
 def test_provider_runtime_provider_owns_one_admission_controller() -> None:
     runtime = ProviderRuntime(_make_settings())
 
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         first = runtime.resolve_provider("nvidia_nim")
         second = runtime.resolve_provider("nvidia_nim")
 
@@ -968,7 +968,7 @@ def test_separate_provider_runtimes_never_share_admission_controllers() -> None:
     first_runtime = ProviderRuntime(_make_settings())
     second_runtime = ProviderRuntime(_make_settings())
 
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         first = first_runtime.resolve_provider("nvidia_nim")
         second = second_runtime.resolve_provider("nvidia_nim")
 
@@ -981,7 +981,7 @@ def test_separate_provider_runtimes_never_share_admission_controllers() -> None:
 def test_different_providers_have_independent_admission_controllers() -> None:
     runtime = ProviderRuntime(_make_settings())
 
-    with patch("free_xeron_code.providers.openai_chat.provider.AsyncOpenAI"):
+    with patch("free_claude_code.providers.openai_chat.provider.AsyncOpenAI"):
         nim = runtime.resolve_provider("nvidia_nim")
         open_router = runtime.resolve_provider("open_router")
 

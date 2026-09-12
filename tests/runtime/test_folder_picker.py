@@ -6,8 +6,8 @@ import sys
 
 import pytest
 
-from free_xeron_code.application.errors import ApplicationUnavailableError
-from free_xeron_code.runtime.folder_picker import NativeFolderPicker
+from free_claude_code.application.errors import ApplicationUnavailableError
+from free_claude_code.runtime.folder_picker import NativeFolderPicker
 
 
 class DialogProcess:

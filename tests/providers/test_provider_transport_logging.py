@@ -7,9 +7,9 @@ import httpx2
 import openai
 import pytest
 
-from free_xeron_code.config.nim import NimSettings
-from free_xeron_code.core.failures import ExecutionFailure
-from free_xeron_code.providers.nvidia_nim import NvidiaNimProvider
+from free_claude_code.config.nim import NimSettings
+from free_claude_code.core.failures import ExecutionFailure
+from free_claude_code.providers.nvidia_nim import NvidiaNimProvider
 from tests.providers.request_factory import make_messages_request
 from tests.providers.support import (
     immediate_admission,

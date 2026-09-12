@@ -6,8 +6,8 @@ from typing import Any, TypeVar
 
 from loguru import logger
 
-from free_xeron_code.core.trace import trace_event
-from free_xeron_code.providers.admission import ProviderAttempt
+from free_claude_code.core.trace import trace_event
+from free_claude_code.providers.admission import ProviderAttempt
 
 _ResourceT = TypeVar("_ResourceT")
 

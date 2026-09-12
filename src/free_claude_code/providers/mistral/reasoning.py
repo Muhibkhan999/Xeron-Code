@@ -8,8 +8,8 @@ from typing import Any
 
 import openai
 
-from free_xeron_code.core.reasoning import ReasoningControl, ReasoningPolicy
-from free_xeron_code.providers.http import maybe_await_aclose
+from free_claude_code.core.reasoning import ReasoningControl, ReasoningPolicy
+from free_claude_code.providers.http import maybe_await_aclose
 
 MISTRAL_REASONING_EFFORT = "high"
 

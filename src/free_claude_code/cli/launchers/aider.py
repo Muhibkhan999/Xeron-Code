@@ -2,7 +2,7 @@
 
 from collections.abc import Sequence
 
-from free_xeron_code.cli.environment import client_environment
+from free_claude_code.cli.environment import client_environment
 
 from .aider_config import AIDER_API_KEY_ENV_PREFIX, build_aider_config
 from .resources import LaunchResources

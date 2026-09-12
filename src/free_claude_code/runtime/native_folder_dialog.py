@@ -7,7 +7,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from free_xeron_code.core.windows_dpi import enable_dpi_awareness
+from free_claude_code.core.windows_dpi import enable_dpi_awareness
 
 _TITLE = "Choose a Code Session folder"
 _MAC_SCRIPT = """

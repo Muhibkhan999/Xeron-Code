@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 
-from free_xeron_code.core.json_types import JsonValue
+from free_claude_code.core.json_types import JsonValue
 
 type ConfigInputValue = JsonValue
 

@@ -7,8 +7,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
-from free_xeron_code.cli.launchers.common import preflight_proxy
-from free_xeron_code.cli.local_http import with_local_proxy_bypass
+from free_claude_code.cli.launchers.common import preflight_proxy
+from free_claude_code.cli.local_http import with_local_proxy_bypass
 
 
 @contextmanager

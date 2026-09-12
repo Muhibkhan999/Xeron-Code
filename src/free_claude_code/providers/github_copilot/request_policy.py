@@ -2,21 +2,21 @@
 
 from dataclasses import replace
 
-from free_xeron_code.application.errors import InvalidRequestError
-from free_xeron_code.core.anthropic import ReasoningReplayMode
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import (
+from free_claude_code.application.errors import InvalidRequestError
+from free_claude_code.core.anthropic import ReasoningReplayMode
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import (
     ReasoningControl,
     ReasoningEffort,
     ReasoningPolicy,
 )
-from free_xeron_code.providers.openai_chat import (
+from free_claude_code.providers.openai_chat import (
     NamedEffortReasoning,
     OpenAIChatProfile,
     OpenAIChatRequestPolicy,
 )
-from free_xeron_code.providers.reasoning_compatibility import (
+from free_claude_code.providers.reasoning_compatibility import (
     prepare_messages_reasoning,
 )
 

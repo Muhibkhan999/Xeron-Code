@@ -1,7 +1,7 @@
 """OpenAI-compatible provider family."""
 
-from free_xeron_code.providers.admission import ProviderAdmissionController
-from free_xeron_code.providers.base import ProviderConfig
+from free_claude_code.providers.admission import ProviderAdmissionController
+from free_claude_code.providers.base import ProviderConfig
 
 from .base_url import openai_v1_base_url
 from .extra_body import (

@@ -4,8 +4,8 @@ from collections.abc import Iterator, Mapping, Sequence
 from copy import deepcopy
 from typing import Any, Literal, cast
 
-from free_xeron_code.core.history_replay import readable_reasoning
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.history_replay import readable_reasoning
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 from .stream_output import ChatStreamOutput
 

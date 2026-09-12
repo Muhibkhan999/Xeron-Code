@@ -4,7 +4,7 @@ import json
 
 from loguru import logger
 
-from free_xeron_code.core.token_estimation import estimate_text_tokens
+from free_claude_code.core.token_estimation import estimate_text_tokens
 
 from .content import get_block_attr
 from .models import Message, SystemContent, Tool

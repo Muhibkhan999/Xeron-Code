@@ -12,7 +12,7 @@ from collections.abc import Mapping
 from contextlib import ExitStack, suppress
 from dataclasses import dataclass, replace
 
-from free_xeron_code.application.code_sessions.models import (
+from free_claude_code.application.code_sessions.models import (
     CodeCatalog,
     CodeConflictError,
     CodeMode,
@@ -23,17 +23,17 @@ from free_xeron_code.application.code_sessions.models import (
     NativeHistoryMissing,
     NativeThread,
 )
-from free_xeron_code.application.code_sessions.ports import EventSink, HarnessSelection
-from free_xeron_code.application.ports import RequestRuntimePort
-from free_xeron_code.cli.launchers.codex import SPEC, prepare_codex_launch
-from free_xeron_code.cli.launchers.codex_model_catalog import build_codex_model_catalog
-from free_xeron_code.cli.launchers.resources import LaunchResources
-from free_xeron_code.cli.launchers.runner import LaunchContext
-from free_xeron_code.cli.process_registry import register_pid, unregister_pid
-from free_xeron_code.config.model_refs import split_provider_model_ref
-from free_xeron_code.config.server_urls import local_proxy_root_url
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.version import package_version
+from free_claude_code.application.code_sessions.ports import EventSink, HarnessSelection
+from free_claude_code.application.ports import RequestRuntimePort
+from free_claude_code.cli.launchers.codex import SPEC, prepare_codex_launch
+from free_claude_code.cli.launchers.codex_model_catalog import build_codex_model_catalog
+from free_claude_code.cli.launchers.resources import LaunchResources
+from free_claude_code.cli.launchers.runner import LaunchContext
+from free_claude_code.cli.process_registry import register_pid, unregister_pid
+from free_claude_code.config.model_refs import split_provider_model_ref
+from free_claude_code.config.server_urls import local_proxy_root_url
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.version import package_version
 
 from .codex_catalog import current_codex_models
 from .codex_protocol import (
@@ -111,7 +111,7 @@ class CodexAppServer:
                 "initialize",
                 {
                     "clientInfo": {
-                        "name": "free_xeron_code",
+                        "name": "free_claude_code",
                         "title": "Free Xeron Code",
                         "version": package_version(),
                     },

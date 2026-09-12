@@ -7,8 +7,8 @@ from collections.abc import Mapping
 from urllib.error import HTTPError, URLError
 from urllib.request import Request
 
-from free_xeron_code.cli.local_http import open_local_request
-from free_xeron_code.cli.process_registry import (
+from free_claude_code.cli.local_http import open_local_request
+from free_claude_code.cli.process_registry import (
     kill_pid_tree_best_effort,
     register_pid,
     unregister_pid,

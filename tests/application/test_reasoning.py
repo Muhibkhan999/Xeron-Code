@@ -1,15 +1,15 @@
 import pytest
 
-from free_xeron_code.application.reasoning import (
+from free_claude_code.application.reasoning import (
     client_reasoning_policy,
     client_responses_reasoning_policy,
     resolve_reasoning_policy,
     resolve_responses_reasoning_policy,
 )
-from free_xeron_code.config.reasoning import ReasoningPreference
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import (
+from free_claude_code.config.reasoning import ReasoningPreference
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import (
     ReasoningControl,
     ReasoningEffort,
     ReasoningPolicy,

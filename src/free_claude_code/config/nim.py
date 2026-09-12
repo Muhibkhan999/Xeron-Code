@@ -2,7 +2,7 @@
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationInfo, field_validator
 
-from free_xeron_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
+from free_claude_code.config.constants import ANTHROPIC_DEFAULT_MAX_OUTPUT_TOKENS
 
 
 class NimSettings(BaseModel):

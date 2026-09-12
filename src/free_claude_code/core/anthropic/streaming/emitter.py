@@ -5,7 +5,7 @@ from typing import Any
 
 from loguru import logger
 
-from free_xeron_code.core.failures import ExecutionFailure
+from free_claude_code.core.failures import ExecutionFailure
 
 from ..errors import anthropic_error_payload, anthropic_failure_payload
 

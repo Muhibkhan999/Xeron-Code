@@ -13,27 +13,27 @@ import uvicorn
 from playwright.sync_api import Page
 
 from e2e.code_support import CodeControl
-from free_xeron_code.api.app import create_app
-from free_xeron_code.api.ports import ApiServices
-from free_xeron_code.application.model_metadata import ProviderModelInfo
-from free_xeron_code.cli import codex_integration, vscode
-from free_xeron_code.config import env_migrations, paths
-from free_xeron_code.config.env_migrations import recognized_env_keys
-from free_xeron_code.config.loader import (
+from free_claude_code.api.app import create_app
+from free_claude_code.api.ports import ApiServices
+from free_claude_code.application.model_metadata import ProviderModelInfo
+from free_claude_code.cli import codex_integration, vscode
+from free_claude_code.config import env_migrations, paths
+from free_claude_code.config.env_migrations import recognized_env_keys
+from free_claude_code.config.loader import (
     ManagedConfigStore,
     clear_settings_cache,
     get_settings,
 )
-from free_xeron_code.core.anthropic.models import MessagesRequest
-from free_xeron_code.core.openai_responses import OpenAIResponsesRequest
-from free_xeron_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
-from free_xeron_code.providers.base import BaseProvider, ProviderConfig
-from free_xeron_code.providers.runtime import ProviderRuntime
-from free_xeron_code.runtime.application import ApplicationRuntime
-from free_xeron_code.runtime.asgi import RuntimeASGIApp
-from free_xeron_code.runtime.configuration import ConfigurationService
-from free_xeron_code.runtime.folder_picker import NativeFolderPicker
-from free_xeron_code.runtime.provider_manager import ProviderRuntimeManager
+from free_claude_code.core.anthropic.models import MessagesRequest
+from free_claude_code.core.openai_responses import OpenAIResponsesRequest
+from free_claude_code.core.reasoning import DEFAULT_REASONING_POLICY, ReasoningPolicy
+from free_claude_code.providers.base import BaseProvider, ProviderConfig
+from free_claude_code.providers.runtime import ProviderRuntime
+from free_claude_code.runtime.application import ApplicationRuntime
+from free_claude_code.runtime.asgi import RuntimeASGIApp
+from free_claude_code.runtime.configuration import ConfigurationService
+from free_claude_code.runtime.folder_picker import NativeFolderPicker
+from free_claude_code.runtime.provider_manager import ProviderRuntimeManager
 
 
 class _ModelListingProvider(BaseProvider):
@@ -227,7 +227,7 @@ def admin_base_url(
         }
 
     monkeypatch.setattr(
-        "free_xeron_code.api.admin_routes._check_local_provider",
+        "free_claude_code.api.admin_routes._check_local_provider",
         local_provider_result,
     )
 

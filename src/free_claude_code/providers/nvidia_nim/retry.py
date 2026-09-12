@@ -4,7 +4,7 @@ from collections.abc import Callable
 from copy import deepcopy
 from typing import Any
 
-from free_xeron_code.core.history_replay import reasoning_context
+from free_claude_code.core.history_replay import reasoning_context
 
 
 def clone_body_without_reasoning_budget(body: dict[str, Any]) -> dict[str, Any] | None:

@@ -14,21 +14,21 @@ from starlette.background import BackgroundTask
 from starlette.responses import ContentStream
 from starlette.types import Receive, Scope, Send
 
-from free_xeron_code.core.anthropic import anthropic_error_type_for_failure
-from free_xeron_code.core.anthropic.streaming import (
+from free_claude_code.core.anthropic import anthropic_error_type_for_failure
+from free_claude_code.core.anthropic.streaming import (
     ANTHROPIC_SSE_RESPONSE_HEADERS,
     anthropic_terminal_error_frame,
     anthropic_terminal_failure_frame,
 )
-from free_xeron_code.core.async_iterators import try_close_async_iterator
-from free_xeron_code.core.diagnostics import safe_exception_message
-from free_xeron_code.core.failures import find_execution_failure
-from free_xeron_code.core.json_types import JsonObject
-from free_xeron_code.core.openai_responses import (
+from free_claude_code.core.async_iterators import try_close_async_iterator
+from free_claude_code.core.diagnostics import safe_exception_message
+from free_claude_code.core.failures import find_execution_failure
+from free_claude_code.core.json_types import JsonObject
+from free_claude_code.core.openai_responses import (
     committed_response_failure_frame,
     openai_error_type_for_failure,
 )
-from free_xeron_code.core.trace import close_stream_input, trace_event
+from free_claude_code.core.trace import close_stream_input, trace_event
 
 TERMINAL_EXECUTION_ERROR_HEADERS = {"x-should-retry": "false"}
 
@@ -147,7 +147,7 @@ async def _wait_for_cleanup(task: asyncio.Task[None]) -> None:
 def _trace_response_cleanup_failure(operation: str, exc: BaseException) -> None:
     trace_event(
         stage="egress",
-        event="free_xeron_code.api.response.cleanup_failed",
+        event="free_claude_code.api.response.cleanup_failed",
         source="api",
         operation=operation,
         exc_type=type(exc).__name__,
@@ -200,7 +200,7 @@ def trace_terminal_execution_error(
     """Record one correlated terminal-execution decision at the HTTP boundary."""
     fields: dict[str, object] = {
         "stage": "egress",
-        "event": "free_xeron_code.api.response.terminal_execution_error",
+        "event": "free_claude_code.api.response.terminal_execution_error",
         "source": "api",
         "wire_api": wire_api,
         "request_id": request_id,

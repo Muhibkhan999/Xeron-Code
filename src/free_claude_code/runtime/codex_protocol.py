@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 
 from jsonschema import FormatChecker
 
-from free_xeron_code.application.code_sessions.models import (
+from free_claude_code.application.code_sessions.models import (
     CodeValidationError,
     HarnessEvent,
     ItemUpdate,
@@ -15,7 +15,7 @@ from free_xeron_code.application.code_sessions.models import (
     PromptRequest,
     RunStatus,
 )
-from free_xeron_code.core.json_types import JsonObject, JsonValue
+from free_claude_code.core.json_types import JsonObject, JsonValue
 
 
 def object_value(value: object) -> JsonObject:

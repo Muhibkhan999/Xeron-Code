@@ -4,11 +4,11 @@ from collections.abc import Callable, Iterable, Mapping, Sequence
 from dataclasses import replace
 from typing import Any, TypeIs
 
-from free_xeron_code.application.model_metadata import (
+from free_claude_code.application.model_metadata import (
     ProviderModelInfo as _ProviderModelInfo,
 )
-from free_xeron_code.core.model_capabilities import ModelInputModality
-from free_xeron_code.core.reasoning import ReasoningCapability
+from free_claude_code.core.model_capabilities import ModelInputModality
+from free_claude_code.core.reasoning import ReasoningCapability
 
 type ModelListScalar = str | bool
 type RequiredPathValues = tuple[

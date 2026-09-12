@@ -8,13 +8,13 @@ from enum import StrEnum
 from types import SimpleNamespace
 from typing import Any
 
-from free_xeron_code.core.anthropic.tool_schema import (
+from free_claude_code.core.anthropic.tool_schema import (
     arguments_match_schema,
     coerce_text_argument,
     schema_type,
 )
-from free_xeron_code.providers.failure_policy import RetryableToolProtocolError
-from free_xeron_code.providers.http import maybe_await_aclose
+from free_claude_code.providers.failure_policy import RetryableToolProtocolError
+from free_claude_code.providers.http import maybe_await_aclose
 
 _NAMESPACE = "]<]minimax[>["
 _TOOL_BLOCK_START = f"{_NAMESPACE}<tool_call>"
