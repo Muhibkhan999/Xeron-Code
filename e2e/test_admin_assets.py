@@ -108,7 +108,7 @@ def test_admin_loads_current_release_assets_before_rendering_dynamic_content(
     logo_link = page.get_by_role("link", name="Open Free Xeron Code on GitHub")
     expect(logo_link).to_be_visible()
     expect(logo_link).to_have_attribute(
-        "href", "https://github.com/Muhibkhan999/free-xeron-code"
+        "href", "https://github.com/Muhibkhan999/Xeron-Code"
     )
     expect(logo_link).to_have_attribute("target", "_blank")
 

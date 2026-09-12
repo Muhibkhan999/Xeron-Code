@@ -222,7 +222,7 @@ printf '%s\n' "$FAKE_UNAME"
     contents = app / "Contents"
     contents.mkdir(parents=True)
     (contents / ".free-xeron-code-owner").write_text(
-        "io.github.alishahryar1.free-xeron-code\n",
+        "io.github.Muhibkhan999.free-xeron-code\n",
         encoding="utf-8",
     )
     desktop = home / "Desktop"

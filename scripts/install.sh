@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-REPO_ARCHIVE_URL="https://github.com/Muhibkhan999/free-xeron-code/archive/refs/heads/main.zip"
+REPO_ARCHIVE_URL="https://github.com/Muhibkhan999/Xeron-Code/archive/refs/heads/main.zip"
 PYTHON_VERSION="3.14.0"
 MIN_UV_VERSION="0.11.16"
 CLAUDE_INSTALL_URL="https://claude.ai/install.sh"
@@ -16,7 +16,7 @@ MUSE_INSTALL_URL="https://dev.meta.ai/install.sh"
 RTK_VERSION="0.44.2"
 RTK_RELEASE_BASE_URL="https://github.com/rtk-ai/rtk/releases/download/v$RTK_VERSION"
 UV_INSTALL_URL="https://astral.sh/uv/install.sh"
-FXC_MACOS_BUNDLE_ID="io.github.alishahryar1.free-xeron-code"
+FXC_MACOS_BUNDLE_ID="io.github.Muhibkhan999.free-xeron-code"
 FXC_MACOS_OWNER_FILE=".free-xeron-code-owner"
 # Include retired entry points so updates reject older FXC processes before replacement.
 FXC_COMMANDS="fxc-desktop fxc-server fxc-xeron fxc-codex fxc-pi fxc-opencode fxc-cline fxc-hermes fxc-dsh fxc-grok fxc-muse fxc-aider fxc-init free-xeron-code"
@@ -1277,7 +1277,7 @@ install_macos_desktop_app() {
     <key>CFBundleExecutable</key>
     <string>fxc-desktop</string>
     <key>CFBundleIdentifier</key>
-    <string>io.github.alishahryar1.free-xeron-code</string>
+    <string>io.github.Muhibkhan999.free-xeron-code</string>
     <key>CFBundleIconFile</key>
     <string>AppIcon</string>
     <key>CFBundleName</key>

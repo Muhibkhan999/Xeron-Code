@@ -185,7 +185,7 @@ def test_admin_page_uses_installed_version(monkeypatch, tmp_path):
 
     assert response.status_code == 200
     assert "<p>Server Control · v9.8.7</p>" in response.text
-    assert 'href="https://github.com/Muhibkhan999/free-xeron-code"' in response.text
+    assert 'href="https://github.com/Muhibkhan999/Xeron-Code"' in response.text
     assert 'target="_blank"' in response.text
     assert 'rel="noopener noreferrer"' in response.text
     assert 'aria-label="Open Free Xeron Code on GitHub"' in response.text

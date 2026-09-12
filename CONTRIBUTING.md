@@ -14,7 +14,7 @@ Thanks for helping improve Free Xeron Code. Keep changes focused, test the behav
 Install [uv](https://docs.astral.sh/uv/) and Python 3.14, then run directly from the checkout:
 
 ```bash
-git clone https://github.com/Muhibkhan999/free-xeron-code.git
+git clone https://github.com/Muhibkhan999/Xeron-Code.git
 cd free-xeron-code
 uv python install 3.14.0
 uv run fxc-server

@@ -3,7 +3,7 @@ set -eu
 
 PACKAGE_NAME="free-xeron-code"
 FXC_HOME_DIRNAME=".fxc"
-FXC_MACOS_BUNDLE_ID="io.github.alishahryar1.free-xeron-code"
+FXC_MACOS_BUNDLE_ID="io.github.Muhibkhan999.free-xeron-code"
 FXC_MACOS_OWNER_FILE=".free-xeron-code-owner"
 # Include retired entry points so older installations are fully stopped and removed.
 FXC_COMMANDS="fxc-desktop fxc-server fxc-xeron fxc-codex fxc-pi fxc-opencode fxc-cline fxc-hermes fxc-dsh fxc-grok fxc-muse fxc-aider fxc-init free-xeron-code"
